@@ -1,0 +1,5 @@
+site_name: Le contexte CUB
+site_url: https://sioplc.github.io/cub
+theme:
+  name: material
+
