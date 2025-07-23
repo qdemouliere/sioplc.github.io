@@ -9,8 +9,8 @@ des certificats.
 
 -   Se rendre au menu **CONFIGURATION / OBJETS / Certificats et PKI**
 
-![](../../medias/stormshield/fiches/fiche11_infrastructure_cles_publiques_SNS/Pictures/10000000000009060000043BE88116330D05225D.png)
-![](../../medias/stormshield/fiches/fiche11_infrastructure_cles_publiques_SNS/Pictures/10000000000000FC00000122AE6553BFFA3240A1.png)
+![](../../media/stormshield/fiches/fiche11_infrastructure_cles_publiques_SNS/Pictures/10000000000009060000043BE88116330D05225D.png)
+![](../../media/stormshield/fiches/fiche11_infrastructure_cles_publiques_SNS/Pictures/10000000000000FC00000122AE6553BFFA3240A1.png)
 
 **+Ajouter **lance des assistants de configuration permettant d'ajouter
 des éléments dans les objets :
@@ -59,7 +59,7 @@ permet de répondre à un grand nombre de cas d'usage :
     la répartition et la distribution des identités, par usages ou par
     entités d'une même entreprise.
 
-![](../../medias/stormshield/fiches/fiche11_infrastructure_cles_publiques_SNS/Pictures/100000000000061C000001D1D60696F5195A0ECF.png)
+![](../../media/stormshield/fiches/fiche11_infrastructure_cles_publiques_SNS/Pictures/100000000000061C000001D1D60696F5195A0ECF.png)
 
 #### CA externe
 
@@ -83,7 +83,7 @@ VPN Ipsec, etc.)
 ### Création d'une autorité de certification
 
 -   Se rendre au menu **CONFIGURATION / OBJETS / Certificats et PKI**
-   ![](../../medias/stormshield/fiches/fiche11_infrastructure_cles_publiques_SNS/Pictures/10000000000004DD000003FC3B5278B18A4B2134.png)
+   ![](../../media/stormshield/fiches/fiche11_infrastructure_cles_publiques_SNS/Pictures/10000000000004DD000003FC3B5278B18A4B2134.png)
 -    Cliquer sur **Ajouter **puis sélectionner
     **Autorité racine**.
 -   Renseigner un **CN** (obligatoire) : il s\'agit d\'un nom permettant
@@ -126,18 +126,18 @@ VPN Ipsec, etc.)
     déconseillé d'utiliser celles-ci avec les équipements d'entrée de
     gamme, pour des raisons de temps de génération.*
 
-![](../../medias/stormshield/fiches/fiche11_infrastructure_cles_publiques_SNS/Pictures/10000000000004C5000002C16136905EE6DA126A.png)
+![](../../media/stormshield/fiches/fiche11_infrastructure_cles_publiques_SNS/Pictures/10000000000004C5000002C16136905EE6DA126A.png)
 
 -   Cliquez sur **Suivant **puis encore sur** Suivant.**
 
 Un résumé des informations saisies vous est présenté :
 
-![](../../medias/stormshield/fiches/fiche11_infrastructure_cles_publiques_SNS/Pictures/10000000000004BD000003C1AEDA9AD770068B95.png)
+![](../../media/stormshield/fiches/fiche11_infrastructure_cles_publiques_SNS/Pictures/10000000000004BD000003C1AEDA9AD770068B95.png)
 
 -   Cliquer sur **Terminer**.
 
 !!! Success  "Résultat"
-    ![](../../medias/stormshield/fiches/fiche11_infrastructure_cles_publiques_SNS/Pictures/10000000000002220000010BD4FF63B43DC13A41.png)
+    ![](../../media/stormshield/fiches/fiche11_infrastructure_cles_publiques_SNS/Pictures/10000000000002220000010BD4FF63B43DC13A41.png)
 
 L'autorité est automatiquement ajoutée à l'arborescence des autorités,
 identités et certificats définis sur le firewall.
@@ -147,13 +147,13 @@ partie droite de l'écran.
 
 -   Définir éventuellement par défaut l'autorité de certification
 
-    ![](../../medias/stormshield/fiches/fiche11_infrastructure_cles_publiques_SNS/Pictures/100000000000023900000153CE892D3F02110A5C.png)
+    ![](../../media/stormshield/fiches/fiche11_infrastructure_cles_publiques_SNS/Pictures/100000000000023900000153CE892D3F02110A5C.png)
 
 ### Création d'une identité *serveur*
 
 Voir « fiche 12 -- Le VPN »
 
-![](../../medias/stormshield/fiches/fiche11_infrastructure_cles_publiques_SNS/Pictures/100000000000019D0000008EA36B499059FF6902.png)
+![](../../media/stormshield/fiches/fiche11_infrastructure_cles_publiques_SNS/Pictures/100000000000019D0000008EA36B499059FF6902.png)
 
 #### Différence entre les certificats PEM et DER
 
@@ -192,18 +192,18 @@ défaut.
 -   Sélectionner l'utilisateur puis cliquer sur **CERTIFICAT** puis
     **Créer l'identité**
 
-![](../../medias/stormshield/fiches/fiche11_infrastructure_cles_publiques_SNS/Pictures/10000000000003E50000005512FF62B7C2E89677.png)
+![](../../media/stormshield/fiches/fiche11_infrastructure_cles_publiques_SNS/Pictures/10000000000003E50000005512FF62B7C2E89677.png)
 
-![](../../medias/stormshield/fiches/fiche11_infrastructure_cles_publiques_SNS/Pictures/10000000000003170000027612F20C4A7014415E.png)
+![](../../media/stormshield/fiches/fiche11_infrastructure_cles_publiques_SNS/Pictures/10000000000003170000027612F20C4A7014415E.png)
 
 -   Cliquer sur « Créer l'identité » ⇒ Le certificat de l'utilisateur
     s'affiche
 
-![](../../medias/stormshield/fiches/fiche11_infrastructure_cles_publiques_SNS/Pictures/10000000000005E700000259CAA9F26E7BBC03AB.png)
+![](../../media/stormshield/fiches/fiche11_infrastructure_cles_publiques_SNS/Pictures/10000000000005E700000259CAA9F26E7BBC03AB.png)
 
 Il est également visible via le menu **OBJETS / CERTIFICATS et PKI**
 
-![](../../medias/stormshield/fiches/fiche11_infrastructure_cles_publiques_SNS/Pictures/1000000000000484000000CD59C69596D1CAD699.png)
+![](../../media/stormshield/fiches/fiche11_infrastructure_cles_publiques_SNS/Pictures/1000000000000484000000CD59C69596D1CAD699.png)
 
 Deuxième méthode
 
@@ -305,7 +305,7 @@ La validité du certificat est remise en cause :
     accessible publiquement pour permettre aux utilisateurs de s'assurer que
     les identités qui leur sont présentées sont encore valides.
 
-![](../../medias/stormshield/fiches/fiche11_infrastructure_cles_publiques_SNS/Pictures/1000000000000129000000F6175BABAE176F6F19.png)
+![](../../media/stormshield/fiches/fiche11_infrastructure_cles_publiques_SNS/Pictures/1000000000000129000000F6175BABAE176F6F19.png)
 
 !!! Info "Stockage des identités numériques par la CA"
     Lorsque la CA génère les bi-clés, il est simple de contrôler la

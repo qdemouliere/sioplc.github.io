@@ -37,7 +37,7 @@ SNS :
 -   Ouvrir **Configuration** / **Objets **/ **Objets Web **onglet **Base
     d'URL**. La base par défaut est la Base URL embarquée.
 
-![](../../medias/stormshield/fiches/fiche8_filtrage_applicatifSNS/Pictures/1000000100000282000001B03720387656F6576F.png)
+![](../../media/stormshield/fiches/fiche8_filtrage_applicatifSNS/Pictures/1000000100000282000001B03720387656F6576F.png)
 
 Les catégories prédéfinies pour la **Base URL embarquée **sont
 disponibles. Le contenu des catégories ne peut pas être consulté.
@@ -53,17 +53,17 @@ catégories de la base :
 -   Dans la zone **Vérifier l'utilisation **saisir **stormshield.eu** et
     cliquer **Classifier**.
 
-![](../../medias/stormshield/fiches/fiche8_filtrage_applicatifSNS/Pictures/10000001000001FF0000002241A9C274313EA7A3.png)
+![](../../media/stormshield/fiches/fiche8_filtrage_applicatifSNS/Pictures/10000001000001FF0000002241A9C274313EA7A3.png)
 
 Le résultat s'affiche dans la zone de commentaires, l'URL
 **stormshield.eu** fait partie de la catégorie **IT** :
 
-![](../../medias/stormshield/fiches/fiche8_filtrage_applicatifSNS/Pictures/10000001000000EB0000002FFBFA8DFD6DEF3692.png)
+![](../../media/stormshield/fiches/fiche8_filtrage_applicatifSNS/Pictures/10000001000000EB0000002FFBFA8DFD6DEF3692.png)
 
 -   Au besoin cliquer le symbole au bas de l'écran
-    ![](../../medias/stormshield/fiches/fiche8_filtrage_applicatifSNS/Pictures/10000001000000AF00000012559332FE7465CDE8.png) pour déplier la zone de commentaires.
+    ![](../../media/stormshield/fiches/fiche8_filtrage_applicatifSNS/Pictures/10000001000000AF00000012559332FE7465CDE8.png) pour déplier la zone de commentaires.
 
-![](../../medias/stormshield/fiches/fiche8_filtrage_applicatifSNS/Pictures/1000000100000211000000F9596AFC74ACBE5DC0.png)
+![](../../media/stormshield/fiches/fiche8_filtrage_applicatifSNS/Pictures/1000000100000211000000F9596AFC74ACBE5DC0.png)
 
 ### Politique de filtrage d'URL pré-définie
 
@@ -76,7 +76,7 @@ apparaissent).
 -   Dans la liste déroulante des politiques de sécurité, choisissez
     **(0)
     URLFilter_00**.
-    ![](../../medias/stormshield/fiches/fiche8_filtrage_applicatifSNS/Pictures/10000001000002820000008BAF0029E90E8FD7C5.png)
+    ![](../../media/stormshield/fiches/fiche8_filtrage_applicatifSNS/Pictures/10000001000002820000008BAF0029E90E8FD7C5.png)
 
     -    **La règle numéro 1 **(non activée) autorise les URL qui font partie du
 groupe **authentication_bypass** qui peut être consulté dans le menu
@@ -90,11 +90,11 @@ d'une colonne **Catégorie d'URL**.
 
 -    La colonne **Action** permet de Bloquer ou de Passer ou **de rediriger** vers l'une des 4 pages de blocage personnalisables.
 
-![](../../medias/stormshield/fiches/fiche8_filtrage_applicatifSNS/Pictures/100000010000008E0000009F472FE3172B2CC983.png)        
+![](../../media/stormshield/fiches/fiche8_filtrage_applicatifSNS/Pictures/100000010000008E0000009F472FE3172B2CC983.png)        
 
 -    **Catégorie d'URL** : La colonne contient la liste des catégories prédéfinies de la base **URL embarquée** et les catégories personnalisées que vous avez créées. 
 
-![](../../medias/stormshield/fiches/fiche8_filtrage_applicatifSNS/Pictures/10000001000000C400000106F58ECA06995DE09E.png) 
+![](../../media/stormshield/fiches/fiche8_filtrage_applicatifSNS/Pictures/10000001000000C400000106F58ECA06995DE09E.png) 
 
 Il convient ensuite de choisir les catégories de sites à autoriser,
 bloquer ou à rediriger vers l'une des 4 pages de blocage
@@ -139,7 +139,7 @@ autoriser.
 -   Se positionner sur la première règle (désactivée) et cliquer **+
     Ajouter** pour ajouter une nouvelle règle de filtrage d'URL.
 
-![](../../medias/stormshield/fiches/fiche8_filtrage_applicatifSNS/Pictures/10000001000002690000005ABF4455DE81D4A2DE.png)
+![](../../media/stormshield/fiches/fiche8_filtrage_applicatifSNS/Pictures/10000001000002690000005ABF4455DE81D4A2DE.png)
 
 -   Au niveau de la deuxième règle, dans **Action**, laisser
     **BlockPage_00 **et dans la colonne **Catégorie d'URL**, choisir
@@ -163,19 +163,19 @@ autoriser.
     dans la liste **Filtrage URL,** la politique de filtrage URL à
     appliquer.
 
-![](../../medias/stormshield/fiches/fiche8_filtrage_applicatifSNS/Pictures/100000000000040500000374D86D63277FD00ED2.png)
+![](../../media/stormshield/fiches/fiche8_filtrage_applicatifSNS/Pictures/100000000000040500000374D86D63277FD00ED2.png)
 
 Vous devez obtenir la règle suivante :
 
 !!! Warning  "A vérifier"
-    ![](../../medias/stormshield/fiches/fiche8_filtrage_applicatifSNS/Pictures/100000000000066C000000670B73A30FCA384571.png)
+    ![](../../media/stormshield/fiches/fiche8_filtrage_applicatifSNS/Pictures/100000000000066C000000670B73A30FCA384571.png)
 
 Na pas faire attention à l'avertissement. En cas d'accès à un site en
 HTTPS, il faudra effectivement d'abord déchiffrer le flux pour pouvoir
 décider du blocage ou non, ce qui nécessite l'utilisation d'un proxy SSL
 (voir partie suivante).
 
-![](../../medias/stormshield/fiches/fiche8_filtrage_applicatifSNS/Pictures/10000001000001D2000000B84F43768363CB47FF.png)
+![](../../media/stormshield/fiches/fiche8_filtrage_applicatifSNS/Pictures/10000001000001D2000000B84F43768363CB47FF.png)
 
 Pour tester
 
@@ -221,12 +221,12 @@ explicitement le nom de l'hôte avec lequel une session TLS est en
 négociation. Un message de certificat invalide apparaîtra en cas de
 blocage puis une page de blocage non personnalisable.
 
-![](../../medias/stormshield/fiches/fiche8_filtrage_applicatifSNS/Pictures/10000001000001240000008560FAB3B5CA8C3E02.png)
+![](../../media/stormshield/fiches/fiche8_filtrage_applicatifSNS/Pictures/10000001000001240000008560FAB3B5CA8C3E02.png)
 
 Si vous choisissez **Advanced** et **Proceed**, vous aurez accès à la
 page de blocage du pare-feu SNS :
 
-![](../../medias/stormshield/fiches/fiche8_filtrage_applicatifSNS/Pictures/100000010000017D0000006D985DFADC8982B719.png)
+![](../../media/stormshield/fiches/fiche8_filtrage_applicatifSNS/Pictures/100000010000017D0000006D985DFADC8982B719.png)
 
 En revanche, cette méthode ne permet pas d'analyser les connexions HTTPS
 avec les protections applicatives tels que l'anti-virus, le sandboxing,
@@ -265,7 +265,7 @@ selon la politique de filtrage, et si besoin, il déchiffre les flux SSL.
 -   Dans la liste déroulante des politiques de sécurité, choisir par
     exemple **(0) SSLFilter_00**.
 
-![](../../medias/stormshield/fiches/fiche8_filtrage_applicatifSNS/Pictures/1000000100000285000000938E1B4A591A62F6BB.png)
+![](../../media/stormshield/fiches/fiche8_filtrage_applicatifSNS/Pictures/1000000100000285000000938E1B4A591A62F6BB.png)
 
 -   Éditer un des 10 profils et le renommer (par exemple, renommer **(0)
     SSLFilter_00** en proxy_SSL)
@@ -279,7 +279,7 @@ exemple de mozilla.org).
 
 **La règle numéro 2** spécifie de déchiffrer tous les autres.
 
-![](../../medias/stormshield/fiches/fiche8_filtrage_applicatifSNS/Pictures/10000000000004AB000003008203CD7E2B1FACB0.png)
+![](../../media/stormshield/fiches/fiche8_filtrage_applicatifSNS/Pictures/10000000000004AB000003008203CD7E2B1FACB0.png)
 
 La catégorie par défaut **proxyssl_bypass** contient donc une liste de
 noms de certificats que Stormshield recommande de laisser passer sans
@@ -338,7 +338,7 @@ proxy SSL.
     FILTRAGE ET NAT =\> onglet FILTRAGE** pour y ajouter la règle
     d'inspection SSL.
 
-![](../../medias/stormshield/fiches/fiche8_filtrage_applicatifSNS/Pictures/10000000000002B80000013E5E20BB2D0973FBC2.png)
+![](../../media/stormshield/fiches/fiche8_filtrage_applicatifSNS/Pictures/10000000000002B80000013E5E20BB2D0973FBC2.png)
 
 L' assistant « Règle d'inspection SSL » a pour but de créer des règles
 inspectant le trafic chiffré SSL. Il est conseillé de passer par cet
@@ -383,7 +383,7 @@ l'inspection relative à l'origine du trafic.
 
 **L'assistant crée deux règles de filtrage :**
 
-![](../../medias/stormshield/fiches/fiche8_filtrage_applicatifSNS/Pictures/100000000000037E0000020B0C00A5F0F2D815E1.png)
+![](../../media/stormshield/fiches/fiche8_filtrage_applicatifSNS/Pictures/100000000000037E0000020B0C00A5F0F2D815E1.png)
 
 1\. **La première règle** est utilisée pour intercepter les flux
 provenant du réseau interne à destination d'internet sur le groupe de
@@ -400,22 +400,22 @@ doivent être activées sur cette règle.
 
 -   **Cliquer Nouvelle règle / règle simple**
 
-![](../../medias/stormshield/fiches/fiche8_filtrage_applicatifSNS/Pictures/10000000000004E6000002765B85494896E31F07.png)
+![](../../media/stormshield/fiches/fiche8_filtrage_applicatifSNS/Pictures/10000000000004E6000002765B85494896E31F07.png)
 
 La suite est classique jusqu'à inspection :
 
-![](../../medias/stormshield/fiches/fiche8_filtrage_applicatifSNS/Pictures/10000000000002E8000001B7A2B82FF3C508D481.png)
+![](../../media/stormshield/fiches/fiche8_filtrage_applicatifSNS/Pictures/10000000000002E8000001B7A2B82FF3C508D481.png)
 
 On obtient la règle :
 
-![](../../medias/stormshield/fiches/fiche8_filtrage_applicatifSNS/Pictures/10000000000007050000004FCD1A7555C39365A4.png)
+![](../../media/stormshield/fiches/fiche8_filtrage_applicatifSNS/Pictures/10000000000007050000004FCD1A7555C39365A4.png)
 
 -   **Cliquer Nouvelle règle / règle simple (ou modifier une règle
     existante)**
 
-![](../../medias/stormshield/fiches/fiche8_filtrage_applicatifSNS/Pictures/10000000000003E5000001CC23CA771578139DF3.png)
+![](../../media/stormshield/fiches/fiche8_filtrage_applicatifSNS/Pictures/10000000000003E5000001CC23CA771578139DF3.png)
 
-![](../../medias/stormshield/fiches/fiche8_filtrage_applicatifSNS/Pictures/10000000000002E3000001CE6A072F32E04FDC40.png)
+![](../../media/stormshield/fiches/fiche8_filtrage_applicatifSNS/Pictures/10000000000002E3000001CE6A072F32E04FDC40.png)
 
 **Installation du certificat racine dans les navigateurs**
 
@@ -425,9 +425,9 @@ l'informer que le certificat reçu n'est pas signé par une autorité
 connue. Cette alerte s'explique par le fait que le proxy SSL envoie un
 certificat usurpé signé par une autorité (CA) non publique.
 
-![](../../medias/stormshield/fiches/fiche8_filtrage_applicatifSNS/Pictures/10000000000004D0000002793A3A2C8E0895CBAD.png)
+![](../../media/stormshield/fiches/fiche8_filtrage_applicatifSNS/Pictures/10000000000004D0000002793A3A2C8E0895CBAD.png)
 
-![](../../medias/stormshield/fiches/fiche8_filtrage_applicatifSNS/Pictures/10000000000003DE000001E5805D2F2FE0AAC554.png)
+![](../../media/stormshield/fiches/fiche8_filtrage_applicatifSNS/Pictures/10000000000003DE000001E5805D2F2FE0AAC554.png)
 
 
 !!! Warning  "A lire attentivement"
@@ -448,7 +448,7 @@ par le proxy SSL, dont :
 -   Ou récupérer le certificat de la CA via l'interface web du firewall,
     dans le menu **CONFIGURATION ⇒ OBJETS ⇒ CERTIFICATS ET PKI**
 
-![](../../medias/stormshield/fiches/fiche8_filtrage_applicatifSNS/Pictures/100000000000071D000000DC30A839BB08B9B1AC.png)
+![](../../media/stormshield/fiches/fiche8_filtrage_applicatifSNS/Pictures/100000000000071D000000DC30A839BB08B9B1AC.png)
 
 Puis
 
@@ -500,14 +500,14 @@ La configuration du proxy SSL s'effectue dans le menu **CONFIGURATION ⇒
 PROTECTION APPLICATIVE ⇒ Protocoles ⇒ SSL ⇒ Profil ssl_01 ⇒ onglet
 PROXY**
 
-![](../../medias/stormshield/fiches/fiche8_filtrage_applicatifSNS/Pictures/100000000000063900000466AF95F267DA8B520D.png)
+![](../../media/stormshield/fiches/fiche8_filtrage_applicatifSNS/Pictures/100000000000063900000466AF95F267DA8B520D.png)
 
 L'encadré **Inspection de contenu** permet de
 définir l'action (déléguer à l'utilisateur, bloquer ou
 continuer l'analyse) qui doit être appliquée par le proxy dans le cas où
 le certificat présenté par le serveur distant est :
 
-![](../../medias/stormshield/fiches/fiche8_filtrage_applicatifSNS/Pictures/10000000000002B1000000B8F212FB38176A5E4D.png)
+![](../../media/stormshield/fiches/fiche8_filtrage_applicatifSNS/Pictures/10000000000002B1000000B8F212FB38176A5E4D.png)
 
 -   un certificat auto-signé ;
 -   un certificat non valide ;
@@ -547,7 +547,7 @@ APPLICATIVE ⇒ Protocoles ⇒ SSL ⇒ Accéder à la configuration globale ⇒
 AUTORITÉS DE CERTIFICATION PUBLIQUES**. L'interface permet
 d'activer/désactiver une autorité en cas de besoin.
 
-![](../../medias/stormshield/fiches/fiche8_filtrage_applicatifSNS/Pictures/1000000000000856000002E02A0B8FE9C80E66B7.png)
+![](../../media/stormshield/fiches/fiche8_filtrage_applicatifSNS/Pictures/1000000000000856000002E02A0B8FE9C80E66B7.png)
 
 ##### Configuration de l'autorité signataire des certificats usurpés
 
@@ -561,7 +561,7 @@ Il suffit de sélectionner la nouvelle autorité dans C.A (signe les
 certificats) et son mot de passe dans Mot de passe de l\'autorité.
 
 !!! Warning  "Information importante"
-    ![](../../medias/stormshield/fiches/fiche8_filtrage_applicatifSNS/Pictures/10000000000004E20000017AEE65B6711E5D37C7.png)
+    ![](../../media/stormshield/fiches/fiche8_filtrage_applicatifSNS/Pictures/10000000000004E20000017AEE65B6711E5D37C7.png)
     Si vous modifiez le CA par défaut, veillez à sauvegarder son mot de
     passe dans le cas d'une réutilisation future. Le mot de passe peut être
     affiché en clair en cliquant sur l'icône représentant une clé.
@@ -578,7 +578,7 @@ globale ⇒ CERTIFICATS DE CONFIANCE.
 
 ### Document 2 : Les étapes du filtrage SSL AVEC déchiffrement
 
-![](../../medias/stormshield/fiches/fiche8_filtrage_applicatifSNS/Pictures/10000001000006A00000046A58A46877D76D9F30.png)
+![](../../media/stormshield/fiches/fiche8_filtrage_applicatifSNS/Pictures/10000001000006A00000046A58A46877D76D9F30.png)
 
 Pour pouvoir analyser les données chiffrées par un tunnel TLS, les
 firewalls SNS utilisent le proxy SSL qui est positionné comme « homme du

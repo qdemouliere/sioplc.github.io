@@ -20,7 +20,7 @@ L'accès à l'interface graphique d'administration du pare-feu SNS se fait
 par https://@IP/admin (https://10.0.0.254/admin sur un boîtier) à partir
 d'un navigateur web :
 
-![](../../medias/stormshield/fiches/fiche2_priseEnMain_SNS/Pictures/10000001000000BE00000124F697C4856E5E8482.png)| L'écran ci-contre apparaît pour vous connecter une fois le pare-feu SNS démarré.  |
+![](../../media/stormshield/fiches/fiche2_priseEnMain_SNS/Pictures/10000001000000BE00000124F697C4856E5E8482.png)| L'écran ci-contre apparaît pour vous connecter une fois le pare-feu SNS démarré.  |
 |----------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------|
 | - Pour modifier les options de langue de l'interface web d'administration, dépliez **Options** puis choisissez la langue.                     | La fenêtre est actualisée, vous pouvez vous connecter à nouveau.                                                    |
 | - Saisir l'identifiant **admin**, le mot de passe **admin** ou celui que vous avez configuré si vous avez effectué la réinitialisation de la machine virtuelle (par ex. **Sio2022\*** ou autre). | **Remarque :** pour s'authentifier, l'utilisateur peut également sélectionner un certificat SSL dans le magasin de son navigateur (à configurer au préalable dans les préférences du pare-feu SNS). Nous étudierons cette possibilité dans la partie avancée sur la mise en place d'une PKI avec Stormshield. |
@@ -34,7 +34,7 @@ La page d'accueil de votre pare-feu SNS s'ouvre sur un **Tableau de
 bord** qui permet de visualiser un certain nombre d'informations sur
 votre équipement et est personnalisable.
 
-![](../../medias/stormshield/fiches/fiche2_priseEnMain_SNS/Pictures/100000010000024E0000012453E64C32419E6269.png)
+![](../../media/stormshield/fiches/fiche2_priseEnMain_SNS/Pictures/100000010000024E0000012453E64C32419E6269.png)
 
 
 ## Première configuration
@@ -51,13 +51,13 @@ v4CSNA_v4_Livre_formation_Stomshield.pdf).
 
 -   Cliquer sur la flèche à droite de l'icône représentant l'utilisateur
     connecté
-    ![](../../medias/stormshield/fiches/fiche2_priseEnMain_SNS/Pictures/100000010000004B000000154D00347AC20C8467.png) en haut à droite.
+    ![](../../media/stormshield/fiches/fiche2_priseEnMain_SNS/Pictures/100000010000004B000000154D00347AC20C8467.png) en haut à droite.
 -   Cliquer sur l'icône
-    **Préférences** ![](../../medias/stormshield/fiches/fiche2_priseEnMain_SNS/Pictures/100000010000005F00000013CBFBEA3DEAC9F4DE.png)
+    **Préférences** ![](../../media/stormshield/fiches/fiche2_priseEnMain_SNS/Pictures/100000010000005F00000013CBFBEA3DEAC9F4DE.png)
 -   Dans la zone **Paramètres de connexion**, sélectionner dans la liste
     « Déconnexion en cas d'inactivité : » la valeur **Toujours rester connecté**.
 
-![](../../medias/stormshield/fiches/fiche2_priseEnMain_SNS/Pictures/100000010000028200000050B7AB828000D23CF7.png)
+![](../../media/stormshield/fiches/fiche2_priseEnMain_SNS/Pictures/100000010000028200000050B7AB828000D23CF7.png)
 
 Nous étudierons notamment les éléments du menu **Configuration / Système
 **qui correspond à la configuration générale : licence, mise à jour, mot
@@ -69,7 +69,7 @@ de passe, etc.
     **Configuration**. Le volet **Configuration générale** est affiché.
 -   Commencer par donner un **nom** à votre boîtier et **changer la langue **de la console.
 
-![](../../medias/stormshield/fiches/fiche2_priseEnMain_SNS/Pictures/1000000100000221000000860A93B72F1B504A84.png)
+![](../../media/stormshield/fiches/fiche2_priseEnMain_SNS/Pictures/1000000100000221000000860A93B72F1B504A84.png)
 
 Il est préférable de mettre les logs en anglais : *Langue du pare-feu
 (traces)* afin de pouvoir rechercher plus facilement des références à
@@ -84,12 +84,12 @@ minimale** correspond à la robustesse du mot de passe. **En utilisation
 en entreprise, il est recommandé de changer le mot de passe de
 l'administrateur et d'augmenter à 12 le nombre de caractères.**
 
-![](../../medias/stormshield/fiches/fiche2_priseEnMain_SNS/Pictures/10000001000002820000007AAA2C8CB4A42A455C.png)
+![](../../media/stormshield/fiches/fiche2_priseEnMain_SNS/Pictures/10000001000002820000007AAA2C8CB4A42A455C.png)
 
 La zone « **Paramètres de date** **et d'heure » **permet de modifier le
 fuseau horaire dans la zone **Fuseau horaire**, sélectionnez **Europe/Paris**.
 
-![](../../medias/stormshield/fiches/fiche2_priseEnMain_SNS/Pictures/1000000100000282000000900A30AA838AD1C612.png)
+![](../../media/stormshield/fiches/fiche2_priseEnMain_SNS/Pictures/1000000100000282000000900A30AA838AD1C612.png)
 
 !!! Info  "NB"
     La modification du fuseau horaire implique un redémarrage immédiat, pour ne pas avoir de décalage dans les journaux ou avec une PKI*.
@@ -98,7 +98,7 @@ fuseau horaire dans la zone **Fuseau horaire**, sélectionnez **Europe/Paris**.
 -   Cliquer le bouton **Appliquer** pour sauvegarder la configuration et **Sauvegarder**
 
 Un avertissement puis une icône
-![](../../medias/stormshield/fiches/fiche2_priseEnMain_SNS/Pictures/100000010000001A0000001B3F67916283BA3075.png) apparaissent vous invitant à redémarrer le pare-feu.
+![](../../media/stormshield/fiches/fiche2_priseEnMain_SNS/Pictures/100000010000001A0000001B3F67916283BA3075.png) apparaissent vous invitant à redémarrer le pare-feu.
 *Il est bien sûr possible de le faire une fois les autres configurations réalisées.*
 
 -   Cliquer sur l'icône et sélectionner **Redémarrer maintenant**.
@@ -115,7 +115,7 @@ Un avertissement puis une icône
     **Administration du pare-feu** pour visualiser les options de
     configuration de l'administration du pare-feu.
 
-![](../../medias/stormshield/fiches/fiche2_priseEnMain_SNS/Pictures/10000001000001FC0000013B44E26F1F67B69CFC.png)
+![](../../media/stormshield/fiches/fiche2_priseEnMain_SNS/Pictures/10000001000001FC0000013B44E26F1F67B69CFC.png)
 
 Plusieurs options sont configurables mais ne sont pas détaillées ici
 (cf. fichier CSNA_v4_Livre_formation_Stomshield.pdf).
@@ -126,7 +126,7 @@ Plusieurs options sont configurables mais ne sont pas détaillées ici
     **Paramètres réseaux** pour visualiser les options de configuration
     réseau du pare-feu.
 
-![](../../medias/stormshield/fiches/fiche2_priseEnMain_SNS/Pictures/10000001000002010000013E31B885828E2E2880.png)
+![](../../media/stormshield/fiches/fiche2_priseEnMain_SNS/Pictures/10000001000002010000013E31B885828E2E2880.png)
 
 Les pare-feu Stormshield Network supportent le protocole IPv6 et
 plusieurs fonctionnalités (interface, routage, filtrage, VPN et
@@ -163,11 +163,11 @@ Pour ajouter un DNS :
     de Google !). Si on passe la souris sur l'objet, on voit les valeurs des
     propriétés de l'objet.
 
-![](../../medias/stormshield/fiches/fiche2_priseEnMain_SNS/Pictures/100000010000042A000001FE66281E09DBC6C5C3.png)
+![](../../media/stormshield/fiches/fiche2_priseEnMain_SNS/Pictures/100000010000042A000001FE66281E09DBC6C5C3.png)
 
 ### Autres configurations
 
-![](../../medias/stormshield/fiches/fiche2_priseEnMain_SNS/Pictures/10000001000001B6000000DFFEC4EC28F9C747BC.png)
+![](../../media/stormshield/fiches/fiche2_priseEnMain_SNS/Pictures/10000001000001B6000000DFFEC4EC28F9C747BC.png)
 
 #### Modification du mot de passe de l'administrateur
 
@@ -200,7 +200,7 @@ licence et permet le cas échéant de l'installer :
 
 Sur une VM, les fonctionnalités sans activation sont limitées :
 
-![](../../medias/stormshield/fiches/fiche2_priseEnMain_SNS/Pictures/100000010000063C00000498EB27F792ED44A57B.png)
+![](../../media/stormshield/fiches/fiche2_priseEnMain_SNS/Pictures/100000010000063C00000498EB27F792ED44A57B.png)
 
 -   **Pour activer la licence sur une VM :**
 
@@ -213,7 +213,7 @@ Sur une VM, les fonctionnalités sans activation sont limitées :
     fois le kit d'activation intégré via l'interface du pare-feu.
 
 !!! Warning  "Attention"
-    ![](../../medias/stormshield/fiches/fiche2_priseEnMain_SNS/Pictures/1000000100000ADE00000426A5A95DC7D1A7B288.png)
+    ![](../../media/stormshield/fiches/fiche2_priseEnMain_SNS/Pictures/1000000100000ADE00000426A5A95DC7D1A7B288.png)
 
 
 Il est nécessaire d'importer d'abord le fichier de mise à jour
@@ -224,7 +224,7 @@ téléchargé via le kit d'activation.
     bouton « ... » et sélectionner la mise à jour récupérée dans le kit
     d'activation à partir d'un poste client ou d'une clé USB.
 
-![](../../medias/stormshield/fiches/fiche2_priseEnMain_SNS/Pictures/10000000000007EB000003619608045726B49408.png)
+![](../../media/stormshield/fiches/fiche2_priseEnMain_SNS/Pictures/10000000000007EB000003619608045726B49408.png)
 
 Depuis la zone **Configuration avancée,** vous pouvez choisir de
 **Télécharger le firmware** **et l'activer** ce qui appliquera la mise à
@@ -235,7 +235,7 @@ faire ultérieurement avec l'option **Activer le firmware**
 -   Dans la zone **Configuration avancée **choisir **Télécharger le
     firmware** **et l'activer.**
 -   Cliquer sur le
-    bouton ![](../../medias/stormshield/fiches/fiche2_priseEnMain_SNS/Pictures/10000001000000B5000000198299287F8910E480.png)
+    bouton ![](../../media/stormshield/fiches/fiche2_priseEnMain_SNS/Pictures/10000001000000B5000000198299287F8910E480.png)
 L'opération prendra plusieurs minutes surtout ne débranchez pas le
 pare-feu pendant la mise à jour. Le pare-feu sera ensuite redémarré.
 
@@ -243,7 +243,7 @@ pare-feu pendant la mise à jour. Le pare-feu sera ensuite redémarré.
     Système / Licence puis cliquer sur « Installer la nouvelle
     licence ». Cette dernière s'active alors automatiquement.
 
-![](../../medias/stormshield/fiches/fiche2_priseEnMain_SNS/Pictures/10000000000007C7000003BD98A2A8D58C320CA6.png)
+![](../../media/stormshield/fiches/fiche2_priseEnMain_SNS/Pictures/10000000000007C7000003BD98A2A8D58C320CA6.png)
 
 #### Mise à jour du système
 
@@ -251,7 +251,7 @@ Le menu **Configuration / Système / Maintenance / **onglet **Mise à jour
 du système** permet de mettre à jour le système le cas échéant. Afin
 d'appliquer un fichier de mise à jour du firmware, vous devrez le
 télécharger sur le pare-feu (soit directement via le lien
-![](../../medias/stormshield/fiches/fiche2_priseEnMain_SNS/Pictures/10000001000000DF000000192CA9E595E0002F9B.png) une fois que la configuration du réseau et de la
+![](../../media/stormshield/fiches/fiche2_priseEnMain_SNS/Pictures/10000001000000DF000000192CA9E595E0002F9B.png) une fois que la configuration du réseau et de la
 passerelle par défaut est réalisée et que le pare-feu a accès à
 Internet, soit en allant le télécharger sur le site
 [*https://mystormshield.eu*](https://mystormshield.eu/)).
@@ -279,13 +279,13 @@ Internet, soit en allant le télécharger sur le site
 -   Dans la zone **Configuration avancée **choisir **Télécharger le
     firmware** **et l'activer.**
 -   Cliquer sur le
-    bouton ![](../../medias/stormshield/fiches/fiche2_priseEnMain_SNS/Pictures/10000001000000B5000000198299287F8910E480.png)
+    bouton ![](../../media/stormshield/fiches/fiche2_priseEnMain_SNS/Pictures/10000001000000B5000000198299287F8910E480.png)
 
 L'opération prendra plusieurs minutes surtout ne débranchez pas le
 pare-feu pendant la mise à jour. Le pare-feu sera ensuite redémarré.
 
 !!! Warning  "Attention"
-    ![](../../medias/stormshield/fiches/fiche2_priseEnMain_SNS/Pictures/10000001000004E00000010A2AAB6308DA950FEF.png)
+    ![](../../media/stormshield/fiches/fiche2_priseEnMain_SNS/Pictures/10000001000004E00000010A2AAB6308DA950FEF.png)
 
 Recharger la page si cette fenêtre boucle indéfiniment.
 

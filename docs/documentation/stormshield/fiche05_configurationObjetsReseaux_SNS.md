@@ -21,9 +21,9 @@ La création et la configuration des objets s'effectuent :
 
 -   Dans le menu : CONFIGURATION / OBJETS
 -   Dans le menu raccourci :
-    ![](../../medias/stormshield/fiches/fiche5_configurationObjetsReseaux_SNS/Pictures/100000010000008F000000158D6CC4E9FC79DC8D.png)
+    ![](../../media/stormshield/fiches/fiche5_configurationObjetsReseaux_SNS/Pictures/100000010000008F000000158D6CC4E9FC79DC8D.png)
 -   Depuis n'importe quel autre menu via le bouton
-    ![](../../medias/stormshield/fiches/fiche5_configurationObjetsReseaux_SNS/Pictures/10000001000000160000001A7BCE2C127862CE4D.png)
+    ![](../../media/stormshield/fiches/fiche5_configurationObjetsReseaux_SNS/Pictures/10000001000000160000001A7BCE2C127862CE4D.png)
 
 Les objets sont classés en 3 catégories :
 
@@ -85,7 +85,7 @@ Les recommandations sont les suivantes :
 
 La syntaxe des noms des objets (insensible à la casse) doit respecter quelques restrictions définies dans le tableau ci-dessous :
 
-![](../../medias/stormshield/fiches/fiche5_configurationObjetsReseaux_SNS/Pictures/100000010000021700000145359243D353809E0B.png)
+![](../../media/stormshield/fiches/fiche5_configurationObjetsReseaux_SNS/Pictures/100000010000021700000145359243D353809E0B.png)
 
 ## Création des objets « Réseaux »
 
@@ -93,13 +93,13 @@ Le menu **Configuration** / **Objets **/ **Objets réseau** ou le menu
 **Objets réseau** permettent de visualiser les objets, de les modifier
 ou d'en ajouter.
 
-![](../../medias/stormshield/fiches/fiche5_configurationObjetsReseaux_SNS/Pictures/1000000100000322000003F0FE2C124FF969C12A.png)
-![](../../medias/stormshield/fiches/fiche5_configurationObjetsReseaux_SNS/Pictures/10000001000001960000036E2768E8C6C689F64F.png)
+![](../../media/stormshield/fiches/fiche5_configurationObjetsReseaux_SNS/Pictures/1000000100000322000003F0FE2C124FF969C12A.png)
+![](../../media/stormshield/fiches/fiche5_configurationObjetsReseaux_SNS/Pictures/10000001000001960000036E2768E8C6C689F64F.png)
 
 -   Ouvrir **Configuration** / **Objets** / **Objets réseau **et cliquer
     sur le bouton **Ajouter** pour ajouter les objets souhaités.
 
-![](../../medias/stormshield/fiches/fiche5_configurationObjetsReseaux_SNS/Pictures/10000001000003DA00000262A23112515D44B2D7.png)
+![](../../media/stormshield/fiches/fiche5_configurationObjetsReseaux_SNS/Pictures/10000001000003DA00000262A23112515D44B2D7.png)
 
 Les types d'objets suivants peuvent être créés :
 
@@ -155,7 +155,7 @@ cas d'erreur d'import, la base d'objets n'est pas modifiée.
 -   Cliquer sur **Exporter**, pour exporter la base d'objets
     précédemment créés dans un fichier CSV.
 
-![](../../medias/stormshield/fiches/fiche5_configurationObjetsReseaux_SNS/Pictures/1000000100000225000000385A356102F4027DA1.png)
+![](../../media/stormshield/fiches/fiche5_configurationObjetsReseaux_SNS/Pictures/1000000100000225000000385A356102F4027DA1.png)
 
 -   Et cliquer sur **Importer**,
 
@@ -166,7 +166,7 @@ cas d'erreur d'import, la base d'objets n'est pas modifiée.
     l'import. Et une fois fini, un rapport statistique affiche le nombre
     d'objets importés par type.
 
-![](../../medias/stormshield/fiches/fiche5_configurationObjetsReseaux_SNS/Pictures/10000001000001A4000000C63A937A64CD9CEA95.png)
+![](../../media/stormshield/fiches/fiche5_configurationObjetsReseaux_SNS/Pictures/10000001000001A4000000C63A937A64CD9CEA95.png)
 
 !!! Info  "Information"
     En cas de problème à l'importation, encodez le fichier en UTF-8 avec des

@@ -47,7 +47,7 @@ cette règle explicite garantit l'application du modèle de sécurité
 positif (tout ce qui n'a pas été autorisé précédemment est interdit) et
 permet de s'assurer que la trace des flux non légitimes est conservée.
 
-![](../../medias/stormshield/fiches/fiche7_filtrage_protocolaire_SNS/Pictures/10000001000005DE0000024C8BF64AEC0E7EDFE9.png)
+![](../../media/stormshield/fiches/fiche7_filtrage_protocolaire_SNS/Pictures/10000001000005DE0000024C8BF64AEC0E7EDFE9.png)
 
 Les pare-feu SNS utilisent la technologie SPI (Stateful Packet
 Inspection) qui leur permet de garder en mémoire l'état des connexions
@@ -67,7 +67,7 @@ filtrage et de NAT.
     il est important de noter que les paquets sont filtrés **avant** que la
     phase de traduction (NAPT).
 
-![](../../medias/stormshield/fiches/fiche7_filtrage_protocolaire_SNS/Pictures/10000001000001B900000165A6DD87A8F8CCA1D5.png)
+![](../../media/stormshield/fiches/fiche7_filtrage_protocolaire_SNS/Pictures/10000001000001B900000165A6DD87A8F8CCA1D5.png)
 
 Le premier paquet reçu est confronté aux règles de filtrage des
 différents niveaux suivant l'ordre présenté dans la figure ci-après. Dès
@@ -102,7 +102,7 @@ Les règles implicites sont accessibles depuis le menu **CONFIGURATION
 
 !!! Warning  "Information importante"
     Ouvrir le menu **Configuration** / **Politique de sécurité** / **Règles
-        implicites**.![](../../medias/stormshield/fiches/fiche7_filtrage_protocolaire_SNS/Pictures/100000010000049C000002A0AC06DBE14419498E.png)
+        implicites**.![](../../media/stormshield/fiches/fiche7_filtrage_protocolaire_SNS/Pictures/100000010000049C000002A0AC06DBE14419498E.png)
 
 !!! Danger  "Information importante"
     La modification de l'état de ces règles a un impact direct sur le
@@ -122,7 +122,7 @@ fonctionnement des règles de filtrage sur un pare-feu Stormshield.
 -   Dans la liste déroulante des politiques de sécurité, choisir**(1)
     Block all**.
 
-![](../../medias/stormshield/fiches/fiche7_filtrage_protocolaire_SNS/Pictures/100000010000049C000001547ED9CCD50EB75141.png)
+![](../../media/stormshield/fiches/fiche7_filtrage_protocolaire_SNS/Pictures/100000010000049C000001547ED9CCD50EB75141.png)
 
 Cette politique bloque presque tous les flux (règle N°3) sauf ceux
 définis par les règles 1 et 2.
@@ -140,7 +140,7 @@ passerelle par défaut échoue, car il n'est pas explicitement autorisé.*
 -   Dans la liste déroulante des politiques de sécurité, choisir **(2)
     High**.
 
-![](../../medias/stormshield/fiches/fiche7_filtrage_protocolaire_SNS/Pictures/10000001000004A60000011470A4DB782DF5F645.png)
+![](../../media/stormshield/fiches/fiche7_filtrage_protocolaire_SNS/Pictures/10000001000004A60000011470A4DB782DF5F645.png)
 
 Cette politique est un peu moins restrictive que la précédente, elle
 autorise plus de chose à partir des réseaux internes.
@@ -182,7 +182,7 @@ comme la politique n°5.
 
 Pour renommer la politique :
 
-![](../../medias/stormshield/fiches/fiche7_filtrage_protocolaire_SNS/Pictures/1000000100000280000000CC60F22C9FF1C32488.png)
+![](../../media/stormshield/fiches/fiche7_filtrage_protocolaire_SNS/Pictures/1000000100000280000000CC60F22C9FF1C32488.png)
 
 -   Cliquer sur **Editer** puis **Renommer**
 -   Modifier le nom et cliquer sur **METTRE À JOUR**
@@ -190,7 +190,7 @@ Pour renommer la politique :
 -   Ouvrir le menu **Configuration** / **Politique de sécurité** /
     **Filtrage et NAT **/ **Filtrage**
 
-![](../../medias/stormshield/fiches/fiche7_filtrage_protocolaire_SNS/Pictures/1000000100000164000000FCB1C15AABFE20820E.png)
+![](../../media/stormshield/fiches/fiche7_filtrage_protocolaire_SNS/Pictures/1000000100000164000000FCB1C15AABFE20820E.png)
 
 L'onglet **FILTRAGE** est composé d'un en-tête pour la gestion des
 règles de filtrage :
@@ -237,7 +237,7 @@ Le réseau interne doit pouvoir émettre un **ping vers n'importe quelle destina
     **Network_internals**
 -   **Protocole** **dest** : Port destination, ici **ICMP**.
 
-![](../../medias/stormshield/fiches/fiche7_filtrage_protocolaire_SNS/Pictures/100000010000017C000000F6A4A1B61158D85058.png)
+![](../../media/stormshield/fiches/fiche7_filtrage_protocolaire_SNS/Pictures/100000010000017C000000F6A4A1B61158D85058.png)
 
 -   **Type de protocole** : **Protocole** **IP**
 -   **Protocole IP** : **icmp**
@@ -246,7 +246,7 @@ Le réseau interne doit pouvoir émettre un **ping vers n'importe quelle destina
 
 La nouvelle règle se présente ainsi :
 
-![](../../medias/stormshield/fiches/fiche7_filtrage_protocolaire_SNS/Pictures/100000010000025D00000020EFCB9988BCB3F841.png)
+![](../../media/stormshield/fiches/fiche7_filtrage_protocolaire_SNS/Pictures/100000010000025D00000020EFCB9988BCB3F841.png)
 
 -   Double-cliquer sur le bouton **off** pour passer la règle à l'état
     **on**, puis cliquez **Appliquer **puis **Oui, activer la
@@ -269,7 +269,7 @@ la règle de filtrage où la publication ARP est également activée. Grâce
 à cette configuration, il n'est pas nécessaire d'ajouter une règle de
 translation pour rediriger ce
 trafic.
-![](../../medias/stormshield/fiches/fiche7_filtrage_protocolaire_SNS/Pictures/100000010000064A000003C0F55C9F2619C6157A.png)
+![](../../media/stormshield/fiches/fiche7_filtrage_protocolaire_SNS/Pictures/100000010000064A000003C0F55C9F2619C6157A.png)
 
 Il existe plusieurs avantages à créer une directive de NAT sur
 destination au sein d'une règle de filtrage :
@@ -298,7 +298,7 @@ permet d'ajouter un certain nombre de règles :
     avoir une réputation à la limite de deux catégories. Le groupe « Bad
     » regroupe les catégories : anonymizer, botnet, malware, phishing,
     scanner, spam et tor.
-   ![](../../medias/stormshield/fiches/fiche7_filtrage_protocolaire_SNS/Pictures/10000001000005760000038EAC9B2234BD4C6BFC.png)
+   ![](../../media/stormshield/fiches/fiche7_filtrage_protocolaire_SNS/Pictures/10000001000005760000038EAC9B2234BD4C6BFC.png)
 -   **Réputation des machines** : Il est possible
     d'activer le filtrage selon le score de réputation des machines du
     réseau interne. Il faut au préalable activer la gestion de

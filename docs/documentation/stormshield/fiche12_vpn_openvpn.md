@@ -14,7 +14,7 @@ La fiche ne concerne que le VPN SSL en mode complet.
 
 ### Concepts et généralités
 
-![](../../medias/stormshield/fiches/fiche12_vpn_SNS/Pictures/10000000000006A6000003E6F4F27FB260C8C38A.png)
+![](../../media/stormshield/fiches/fiche12_vpn_SNS/Pictures/10000000000006A6000003E6F4F27FB260C8C38A.png)
 
 Le VPN SSL permet à des utilisateurs distants d'accéder
 de manière sécurisée aux ressources internes d'une entreprise. Les
@@ -47,7 +47,7 @@ pare-feu et l'utilisateur sera vu comme authentifié.
 La mise en œuvre du tunnel VPN SSL s'effectue en trois étapes
 principales :
 
-![](../../medias/stormshield/fiches/fiche12_vpn_SNS/Pictures/10000000000006890000041038B13ADBEAF36A7C.png)
+![](../../media/stormshield/fiches/fiche12_vpn_SNS/Pictures/10000000000006890000041038B13ADBEAF36A7C.png)
 
 1. Le client VPN SSL authentifie l'utilisateur via le portail captif.
 Durant cette étape, le pare-feu vérifie si l'utilisateur authentifié
@@ -88,16 +88,16 @@ signifie :
 -   qu'un annuaire externe ou interne doit être configuré au niveau du
     pare-feu (voir fiche 10) ;
 
-![](../../medias/stormshield/fiches/fiche12_vpn_SNS/Pictures/10000000000003E4000001A812DE1142F15E7917.png)
+![](../../media/stormshield/fiches/fiche12_vpn_SNS/Pictures/10000000000003E4000001A812DE1142F15E7917.png)
 
 -   qu'une méthode d'authentification doit être configurée :
 
-![](../../medias/stormshield/fiches/fiche12_vpn_SNS/Pictures/10000000000005000000017B7DB101FA2B6832D9.png)
+![](../../media/stormshield/fiches/fiche12_vpn_SNS/Pictures/10000000000005000000017B7DB101FA2B6832D9.png)
 
 -   qu'un profil du portail captif doit être rattaché à l'interface
     depuis laquelle les utilisateurs se connectent :
 
-![](../../medias/stormshield/fiches/fiche12_vpn_SNS/Pictures/1000000000000500000001D4665030E252007043.png)
+![](../../media/stormshield/fiches/fiche12_vpn_SNS/Pictures/1000000000000500000001D4665030E252007043.png)
 
 Les méthodes d'authentification possibles pour le service VPN SSL sont
 les méthodes explicites qui nécessitent un couple identifiant/mot de
@@ -112,14 +112,14 @@ et elle contient un certificat serveur (qui identifie le serveur VPN
 SSL), et un certificat client (qui identifie tous les clients : chacun
 d'entre eux sera ensuite différencié par un couple login/mot de passe).
 
-![](../../medias/stormshield/fiches/fiche12_vpn_SNS/Pictures/1000000000000241000000DCCB66BA1683D314EF.png)
+![](../../media/stormshield/fiches/fiche12_vpn_SNS/Pictures/1000000000000241000000DCCB66BA1683D314EF.png)
 
 Configuration du serveur SSL
 
 -   Cliquer sur le module **Configuration** \> **VPN** \> **VPN SSL** et
     activer le **Activer le VPN SSL**.
 
-![](../../medias/stormshield/fiches/fiche12_vpn_SNS/Pictures/100000000000027E00000250351885088A60B765.png)
+![](../../media/stormshield/fiches/fiche12_vpn_SNS/Pictures/100000000000027E00000250351885088A60B765.png)
 
 Paramètres réseaux
 
@@ -172,7 +172,7 @@ disponibles. Cela correspond au minimum des deux valeurs suivantes :
     -   Le nombre maximal de tunnels autorisés selon le modèle de
         pare-feu utilisé.
 
-![](../../medias/stormshield/fiches/fiche12_vpn_SNS/Pictures/100000000000035D0000014F9CBCDAA3EF7DCDB4.png)
+![](../../media/stormshield/fiches/fiche12_vpn_SNS/Pictures/100000000000035D0000014F9CBCDAA3EF7DCDB4.png)
 
 -   Sélectionner l'objet représentant l'adresse IP de L'UTM pour
     permettre un accès via le port UDP.
@@ -192,11 +192,11 @@ cette méthode. Un exemple de script est présenté dans la section [Pour
 aller plus
 loin](https://documentation.stormshield.eu/SNS/v4/fr/Content/SSL_VPN_tunnels/More-Information.htm).
 
-![](../../medias/stormshield/fiches/fiche12_vpn_SNS/Pictures/100000000000043E00000099CC907349B9E76971.png)
+![](../../media/stormshield/fiches/fiche12_vpn_SNS/Pictures/100000000000043E00000099CC907349B9E76971.png)
 
 -    Certificats utilisés
 
-![](../../medias/stormshield/fiches/fiche12_vpn_SNS/Pictures/100000000000028400000095BC1F4A1903EDDA87.png)
+![](../../media/stormshield/fiches/fiche12_vpn_SNS/Pictures/100000000000028400000095BC1F4A1903EDDA87.png)
 
 Les certificats que doivent présenter le service VPN SSL du pare-feu et
 le client pour établir un tunnel sont créés par défaut.
@@ -213,7 +213,7 @@ Configuration des droits d'accès au VPN SSL
     d'interdire l'utilisation du VPN SSL à l'ensemble des utilisateurs
     sans aucune distinction.
 
-![](../../medias/stormshield/fiches/fiche12_vpn_SNS/Pictures/10000000000002990000020F04BE829CF0877A81.png)
+![](../../media/stormshield/fiches/fiche12_vpn_SNS/Pictures/10000000000002990000020F04BE829CF0877A81.png)
 
 **Pour autoriser des utilisateurs spécifiques** (recommandé par
 Stormshield), il faut laisser « Interdire » ici puis :
@@ -225,7 +225,7 @@ Stormshield), il faut laisser « Interdire » ici puis :
     d'utilisateurs*) et choisir l'action **Autoriser** dans la colonne
     *VPN SSL*.
 
-![](../../medias/stormshield/fiches/fiche12_vpn_SNS/Pictures/100000000000056B0000009B3997A83FD6A8303F.png)
+![](../../media/stormshield/fiches/fiche12_vpn_SNS/Pictures/100000000000056B0000009B3997A83FD6A8303F.png)
 
 ### Méthode d'authentification
 
@@ -238,7 +238,7 @@ entre les clients VPN SSL et les ressources internes**
     connecter sur le service VPN (1194/UDP ou 443/TCP) du pare-feu sur
     son interface externe ;
 
-![](../../medias/stormshield/fiches/fiche12_vpn_SNS/Pictures/100000000000055C00000048AEC5BBEC974C4F1D.png)
+![](../../media/stormshield/fiches/fiche12_vpn_SNS/Pictures/100000000000055C00000048AEC5BBEC974C4F1D.png)
 
 -   l'initiation de connexions à partir des clients VPN SSL et à
     destination des serveurs Web internes
@@ -280,7 +280,7 @@ Sur Windows, il est possible d'utiliser le client VPN de Stormshield. Ce
 client peut être téléchargé sur l'espace privé https://mystormshield.eu
 et sur le portail captif du pare-feu après authentification :
 
-![](../../medias/stormshield/fiches/fiche12_vpn_SNS/Pictures/100000000000034A0000016E02B2A963425E6EA6.png)
+![](../../media/stormshield/fiches/fiche12_vpn_SNS/Pictures/100000000000034A0000016E02B2A963425E6EA6.png)
 
 **Configuration du client VPN SSL Stormshield Network**
 
@@ -322,7 +322,7 @@ nécessaires pour se configurer.
         TCP), l'adresse IP ou le FQDN doit être suivi de
         « :numero_port »
 
-        ![](../../medias/stormshield/fiches/fiche12_vpn_SNS/Pictures/10000000000006AB0000040581A960B952F84132.png)
+        ![](../../media/stormshield/fiches/fiche12_vpn_SNS/Pictures/10000000000006AB0000040581A960B952F84132.png)
 
     -   l'identifiant de l'utilisateur disposant des droits
         pour le VPN SSL ;
@@ -354,7 +354,7 @@ La page de supervision du pare-feu permet de visualiser (et
 éventuellement supprimer en déconnectant l'utiliateur) les tunnels VPN
 SSL ouverts dans l'onglet **Supervision =\> tunnels VPN SSL .**
 
-![](../../medias/stormshield/fiches/fiche12_vpn_SNS/Pictures/1000000000000680000000AB9FBB894BD2F605A8.png)
+![](../../media/stormshield/fiches/fiche12_vpn_SNS/Pictures/1000000000000680000000AB9FBB894BD2F605A8.png)
 
 Les utilisateurs connectés via un tunnel VPN SSL sont considérés comme
 authentifiés et peuvent être visualisés dans les traces.
@@ -433,7 +433,7 @@ reneg-sec 0
 Configuration sur Linux en UDP avec network-manager (seuls les éléments
 modifiés sont précisés) :
 
-![](../../medias/stormshield/fiches/fiche12_vpn_SNS/Pictures/10000000000004D800000451D0E2E228DC433F3A.png)
+![](../../media/stormshield/fiches/fiche12_vpn_SNS/Pictures/10000000000004D800000451D0E2E228DC433F3A.png)
 
 -   Se rendre au menu **Paramètres / Réseau **et cliquer sur « + » au
     niveau du VPN
@@ -445,22 +445,22 @@ port 1195 est redirigé vers le port UDP/1194 du pare-feu Stormshield.
 
 -   Cliquer sur « Advanced »
 
-![](../../medias/stormshield/fiches/fiche12_vpn_SNS/Pictures/100000000000051A00000224A1F397401D3DA60F.png)
+![](../../media/stormshield/fiches/fiche12_vpn_SNS/Pictures/100000000000051A00000224A1F397401D3DA60F.png)
 
 Il s'agit ici du port d'écoute en UDP du serveur VPN configuré sur le
 pare-feu.
 
-![](../../medias/stormshield/fiches/fiche12_vpn_SNS/Pictures/10000000000004AC0000024D3EA0844E51179ED5.png)
+![](../../media/stormshield/fiches/fiche12_vpn_SNS/Pictures/10000000000004AC0000024D3EA0844E51179ED5.png)
 
 -   Cliquer sur l'onglet « Sécurité
 
-    ![](../../medias/stormshield/fiches/fiche12_vpn_SNS/Pictures/10000001000007A200000108A53CD5B0E7AA5F11.png)
+    ![](../../media/stormshield/fiches/fiche12_vpn_SNS/Pictures/10000001000007A200000108A53CD5B0E7AA5F11.png)
 -   Enregistrer en cliquant sur « Appliquer » et activer le VPN
 
 **Configuration sur Linux en TCP **avec network-manager (seuls les
 éléments modifiés sont précisés) :
 
-![](../../medias/stormshield/fiches/fiche12_vpn_SNS/Pictures/10000000000004CF00000459153DAA7B968DD57F.png)
+![](../../media/stormshield/fiches/fiche12_vpn_SNS/Pictures/10000000000004CF00000459153DAA7B968DD57F.png)
 -   Se rendre au menu **Paramètres / Réseau **et cliquer sur « + » au
     niveau du VPN
 
@@ -471,7 +471,7 @@ port 4435 est redirigé vers le port TCP/443 du pare-feu Stormshield.
 
 -   Cliquer sur « Advanced »
 
-![](../../medias/stormshield/fiches/fiche12_vpn_SNS/Pictures/10000000000004D2000001D04C90A26114A5C1C0.png)
+![](../../media/stormshield/fiches/fiche12_vpn_SNS/Pictures/10000000000004D2000001D04C90A26114A5C1C0.png)
 
 Il s'agit ici du port d'écoute en TCP du serveur VPN configuré sur le
 pare-feu.
@@ -479,9 +479,9 @@ pare-feu.
 -   Cocher « Utiliser une connexion TCP » car, par défaut, le client VPN
     initie une connexion UDP »
 
-![](../../medias/stormshield/fiches/fiche12_vpn_SNS/Pictures/10000000000004920000015FC5A748A35DEAE3DF.png)
+![](../../media/stormshield/fiches/fiche12_vpn_SNS/Pictures/10000000000004920000015FC5A748A35DEAE3DF.png)
 
 -   Enregistrer en cliquant sur « Appliquer » et activer le VPN
 
-![](../../medias/stormshield/fiches/fiche12_vpn_SNS/Pictures/10000000000007AD0000017C76A4CFFF20E75BD7.png)
+![](../../media/stormshield/fiches/fiche12_vpn_SNS/Pictures/10000000000007AD0000017C76A4CFFF20E75BD7.png)
 

@@ -27,7 +27,7 @@ Ce système de prévention d'intrusion assure le filtrage des flux ainsi que leu
 
 Ces analyses sont appliquées directement sur les connexions cherchant à traverser la pile réseau du système.
 
-![](../../medias/stormshield/fiches/fiche9_IDS_IPS/Pictures/100000010000000E0000010FD1499AC8B25F9019.png)![](../../medias/stormshield/fiches/fiche9_IDS_IPS/Pictures/10000001000001540000010FCAB7CD219969F7BA.png)
+![](../../media/stormshield/fiches/fiche9_IDS_IPS/Pictures/100000010000000E0000010FD1499AC8B25F9019.png)![](../../media/stormshield/fiches/fiche9_IDS_IPS/Pictures/10000001000001540000010FCAB7CD219969F7BA.png)
 
 Le **système de prévention d'intrusion **ou **IPS **(Intrusion
 Prevention System) **détecte** et **bloque** les tentatives d'attaques
@@ -103,7 +103,7 @@ respectant pas la RFC des protocoles qu'il gère.
 Ces niveaux sont à sélectionner dans la colonne **Inspection de sécurité
 **de la règle de filtrage concernée.
 
-![](../../medias/stormshield/fiches/fiche9_IDS_IPS/Pictures/10000001000000E10000007F63D063E214577A7F.png)
+![](../../media/stormshield/fiches/fiche9_IDS_IPS/Pictures/10000001000000E10000007F63D063E214577A7F.png)
 
 -    IPS : Détecter et bloquer (choix par défaut).
 
@@ -147,7 +147,7 @@ détecter correctement l'application.
     **Protocoles et Applications et protections** sous **Configuration
     **⇒ **Protection applicative**.
 
-![](../../medias/stormshield/fiches/fiche9_IDS_IPS/Pictures/10000000000007D500000491220CC330B7BAC662.png)
+![](../../media/stormshield/fiches/fiche9_IDS_IPS/Pictures/10000000000007D500000491220CC330B7BAC662.png)
 
 Par défaut, la liste des évènements est affichée en vue par profil
 d'inspection. Pour tous les évènements, une action et un niveau d'alerte
@@ -194,13 +194,13 @@ Il peut être intéressant de filtrer sur un mot clé (à noter qu'au
 passage de la souris un texte explicatif concernant l 'évènement
 apparaît) :
 
-![](../../medias/stormshield/fiches/fiche9_IDS_IPS/Pictures/10000000000005F70000020072C47B2650BB1C79.png)
+![](../../media/stormshield/fiches/fiche9_IDS_IPS/Pictures/10000000000005F70000020072C47B2650BB1C79.png)
 
 Un bouton d'aide permet aussi d'avoir une explication (en français) :
 
-![](../../medias/stormshield/fiches/fiche9_IDS_IPS/Pictures/100000000000076D0000008CA7A742816E693C2A.png)
+![](../../media/stormshield/fiches/fiche9_IDS_IPS/Pictures/100000000000076D0000008CA7A742816E693C2A.png)
 
-![](../../medias/stormshield/fiches/fiche9_IDS_IPS/Pictures/1000000000000898000002BA68CB4E06C50B077E.png)
+![](../../media/stormshield/fiches/fiche9_IDS_IPS/Pictures/1000000000000898000002BA68CB4E06C50B077E.png)
 
 Présélection
 
@@ -229,7 +229,7 @@ niveau d'alerte définis par défaut.
     automatiquement et seront livrées avec la signature Stormshield
     Network.
 
-![](../../medias/stormshield/fiches/fiche9_IDS_IPS/Pictures/10000000000004950000029EDABB6D5783390505.png)
+![](../../media/stormshield/fiches/fiche9_IDS_IPS/Pictures/10000000000004950000029EDABB6D5783390505.png)
 
 -   Si vous souhaitez les appliquer vous-mêmes, décocher la case et
     définir les paramètres des champs suivants.
@@ -276,8 +276,8 @@ Les deux autres modèles sont :
 Chaque évènement détectable par la prévention d'intrusion est associé à
 une alarme configurable.
 
-![](../../medias/stormshield/fiches/fiche9_IDS_IPS/Pictures/100000000000077F0000011C0B1A2A1A1CCA9F8E.png)
-![](../../medias/stormshield/fiches/fiche9_IDS_IPS/Pictures/10000000000003740000024060CA1424FE4143F3.png)
+![](../../media/stormshield/fiches/fiche9_IDS_IPS/Pictures/100000000000077F0000011C0B1A2A1A1CCA9F8E.png)
+![](../../media/stormshield/fiches/fiche9_IDS_IPS/Pictures/10000000000003740000024060CA1424FE4143F3.png)
 
 ### Les alarmes globales
 
@@ -303,7 +303,7 @@ alarmes globales.
 
 **Ci-dessous, l'évènement pour un scan de port : **
 
-![](../../medias/stormshield/fiches/fiche9_IDS_IPS/Pictures/10000000000004E20000002E78FA9665AC9CBD0A.png)
+![](../../media/stormshield/fiches/fiche9_IDS_IPS/Pictures/10000000000004E20000002E78FA9665AC9CBD0A.png)
 
 ## Documents
 
@@ -314,7 +314,7 @@ nécessaire de se référer à la documentation officielle du produit
 
 #### 1.1 Analyse protocolaire IP
 
-![](../../medias/stormshield/fiches/fiche9_IDS_IPS/Pictures/100000000000071D0000043A264B7E124959189F.png)
+![](../../media/stormshield/fiches/fiche9_IDS_IPS/Pictures/100000000000071D0000043A264B7E124959189F.png)
 
 Le moteur de prévention d'intrusion Stormshield Network démarre ses
 contrôles à la couche réseau IP :
@@ -361,7 +361,7 @@ contrôles à la couche réseau IP :
 
 #### 1.2 Analyse protocolaire sur la couche transport
 
-![](../../medias/stormshield/fiches/fiche9_IDS_IPS/Pictures/10000000000006DF00000434FD67771F47B51EAD.png)
+![](../../media/stormshield/fiches/fiche9_IDS_IPS/Pictures/10000000000006DF00000434FD67771F47B51EAD.png)
 
 ##### Firewall stateful
 
@@ -433,7 +433,7 @@ tel que décrit ci-dessous :
 
 #### 1.3 Analyse applicative (les plugins applicatifs)
 
-![](../../medias/stormshield/fiches/fiche9_IDS_IPS/Pictures/10000000000006C800000440C5121A2A7D3DF923.png)
+![](../../media/stormshield/fiches/fiche9_IDS_IPS/Pictures/10000000000006C800000440C5121A2A7D3DF923.png)
 
 ##### La caractérisation des flux et l'évasion de données
 
@@ -486,7 +486,7 @@ retour, formatage des contenus protocolaires, ...).
 
 #### 1.4 Analyse des signatures contextuelles
 
-![](../../medias/stormshield/fiches/fiche9_IDS_IPS/Pictures/100000000000067200000429112E46CAE7C23E93.png)
+![](../../media/stormshield/fiches/fiche9_IDS_IPS/Pictures/100000000000067200000429112E46CAE7C23E93.png)
 
 ##### Détection par signature
 

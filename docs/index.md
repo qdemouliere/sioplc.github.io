@@ -1,13 +1,13 @@
 # Introduction
 
-# Documentation Pédagogique
+## Documentation Pédagogique
 
 Bienvenue dans cette documentation pédagogique générée automatiquement à l'aide de MkDocs et hébergée sur GitHub Pages. Cette documentation a été créée dans le but de vous fournir Les informations essentielles sur le contexte commun utilisé avec vos enseignants dans les bloc 2 et 3
 du BTS SIO SISR 2.
 
 Cette production est librement inspirée de [celle](https://github.com/lmeryFulbert/SportLudique2024-2025) de Ludovic Mery, professeur d'informatique en BTS SIO au lycée Fulbert de Chartres.
 
-## Comment utiliser cette Documentation
+### Comment utiliser cette documentation
 
 - **Navigation** : Utilisez la barre de navigation sur la gauche pour accéder aux différentes sections de la documentation. Cliquez sur les liens pour explorer les sujets qui vous intéressent.
 
@@ -15,7 +15,7 @@ Cette production est librement inspirée de [celle](https://github.com/lmeryFulb
 
 - **Contributions et Corrections** : Cette documentation est hébergée sur GitHub. Si vous identifiez des erreurs, des inexactitudes ou si vous souhaitez contribuer en ajoutant du contenu, vous êtes invité à soumettre des Pull Requests.
 
-## Hébergement sur GitHub Pages
+### Hébergement sur GitHub Pages
 
 Cette documentation est automatiquement mise en ligne grâce à **GitHub Pages**, une fonctionnalité de GitHub qui permet de publier facilement du contenu statique. Chaque fois que des modifications sont apportées à la documentation et poussées vers la branche principale du dépôt (main), les **GitHub Actions** sont déclenchées pour **générer et déployer automatiquement** les changements dans la documentation à chaque "Push". Ce principe d'automatisation s'apparente à une approche CI/CD.
 
@@ -26,7 +26,7 @@ Cette documentation est automatiquement mise en ligne grâce à **GitHub Pages**
     -    Continuous Deployment (CD) : Variante de Continuous Delivery où le code est automatiquement déployé en production dès qu'il passe les tests automatisés. Cela permet des mises à jour fréquentes et rapides en production.</br>
     Ces pratiques favorisent une approche agile et réactive, réduisent les risques et améliorent la qualité du produit final.
 
-# Outils de documentation
+## Outils de documentation
 
 Il existe de nombreux outils dédiés à la documentation. Nous vous suggérons d'utiliser **mkdocs**.
 
@@ -52,9 +52,9 @@ Si vous souhaitez utiliser d'autres outils similaires à mkdocs, cela reste bien
     ```bash
     https://www.sphinx-doc.org/en/master/usage/installation.html
     ```
+## À propos de la documentation Stormshield
 
-=== "Astro"
+L'intégralité des fiches techniques Stormshield présentes sur ce site est issue de la production [Mise en oeuvre d'une gestion unifiée des menaces informatiques](https://www.reseaucerta.org/mise-en-oeuvre-utm-stormshield) proposée dans le cadre du réseau Certa par Quentin Demoulière et Apollonie Raffalli.
 
-    ```bash
-    https://docs.astro.build/fr/getting-started/
-    ```
+Le travail important de mise en forme au format Markdown a été réalisé par Ludovic Mery.
+

@@ -18,7 +18,7 @@ IPsec, administration du firewall, etc.).
 
 Les étapes de configuration sont les suivantes :
 
-![](../../medias/stormshield/fiches/fiche10_utilisateurs_authentification_SNS/Pictures/10000000000003030000012E41F2632330A6150A.png)
+![](../../media/stormshield/fiches/fiche10_utilisateurs_authentification_SNS/Pictures/10000000000003030000012E41F2632330A6150A.png)
 
 1\. Les annuaires stockent des informations de manière hiérarchisée dans
 une arborescence. La norme LDAP permet l'organisation des données dans
@@ -52,7 +52,7 @@ d'authentification retenue (par exemple, via le portail captif).
 
 ## Liaison à un annuaire
 
-![](../../medias/stormshield/fiches/fiche10_utilisateurs_authentification_SNS/Pictures/10000000000003A8000001F8D103EEE3CE8531A5.png)
+![](../../media/stormshield/fiches/fiche10_utilisateurs_authentification_SNS/Pictures/10000000000003A8000001F8D103EEE3CE8531A5.png)
 
 Les pare-feu supportent quatre types d'annuaire qui peuvent être classés
 en deux catégories.
@@ -73,7 +73,7 @@ Ajout et configuration d'un annuaire
 -   Se rendre au menu **CONFIGURATION ⇒ UTILISATEURS ⇒ Configuration des
     annuaires**
 
-![](../../medias/stormshield/fiches/fiche10_utilisateurs_authentification_SNS/Pictures/1000000000000655000004C22BECAA45548DC9A9.png)
+![](../../media/stormshield/fiches/fiche10_utilisateurs_authentification_SNS/Pictures/1000000000000655000004C22BECAA45548DC9A9.png)
 
 -   Choisir le type d'annuaire ou Ajouter un annuaire (si un annuaire a
     déjà été configuré)
@@ -84,7 +84,7 @@ Ajout et configuration d'un annuaire
 
 Type d'annuaire: (Microsoft Active Directory,LDAP et LDAP de type PosixAccount) est sensiblement identique
 
-![](../../medias/stormshield/fiches/fiche10_utilisateurs_authentification_SNS/Pictures/10000000000003370000026EA86253ADBFEB2848.png)
+![](../../media/stormshield/fiches/fiche10_utilisateurs_authentification_SNS/Pictures/10000000000003370000026EA86253ADBFEB2848.png)
 
 -   Renseigner les paramètres du serveur à contacter :
 
@@ -114,7 +114,7 @@ Par la suite, l'assistant propose d'activer le profil d'authentification
     Authentification ⇒ onglet PORTAIL CAPTIF ou onglet PROFILS DU PORTAIL
     CAPTIF pour modifier les paramétrages).
 
-![](../../medias/stormshield/fiches/fiche10_utilisateurs_authentification_SNS/Pictures/10000000000005EF000003AAE4FEDCC048E555CB.png)
+![](../../media/stormshield/fiches/fiche10_utilisateurs_authentification_SNS/Pictures/10000000000005EF000003AAE4FEDCC048E555CB.png)
 
 -   Renseigner ensuite Les paramètres de l'annuaire externe (voir la
     documentation en ligne pour le détail :
@@ -122,7 +122,7 @@ Par la suite, l'assistant propose d'activer le profil d'authentification
 
 ### Configuration d'un annuaire interne
 
-![](../../medias/stormshield/fiches/fiche10_utilisateurs_authentification_SNS/Pictures/1000000000000649000002257FD8A4FFE2320F31.png){width="11.658cm"
+![](../../media/stormshield/fiches/fiche10_utilisateurs_authentification_SNS/Pictures/1000000000000649000002257FD8A4FFE2320F31.png){width="11.658cm"
 height="4.962cm"}
 
 -    **Organisation :** le nom de l'organisation.
@@ -163,9 +163,9 @@ captif via l'URL : **https://(@IP_firewall \| FQDN_firewall)/auth**
     navigateur LDAP. **Si cet accès n'est pas nécessaire, il est
     vivement conseillé de ne pas activer cette option.**
 
-![](../../medias/stormshield/fiches/fiche10_utilisateurs_authentification_SNS/Pictures/10000000000004D1000001842E668A19EA29EC00.png)
+![](../../media/stormshield/fiches/fiche10_utilisateurs_authentification_SNS/Pictures/10000000000004D1000001842E668A19EA29EC00.png)
 
-![](../../medias/stormshield/fiches/fiche10_utilisateurs_authentification_SNS/Pictures/100000000000097D000004AB3FF14CD89DA2E85C.png)
+![](../../media/stormshield/fiches/fiche10_utilisateurs_authentification_SNS/Pictures/100000000000097D000004AB3FF14CD89DA2E85C.png)
 
 -   **Saisir un mot de passe** : permet de se connecter à l'annuaire, il
     est possible de le modifier.
@@ -197,7 +197,7 @@ ses paramètres s'affichent à droite de la page.
 
 -   Se rendre au menu CONFIGURATION⇒ UTILISATEURS ⇒ Utilisateurs :
 
-![](../../medias/stormshield/fiches/fiche10_utilisateurs_authentification_SNS/Pictures/1000000000000843000001F16302FA9A618E5F6B.png)
+![](../../media/stormshield/fiches/fiche10_utilisateurs_authentification_SNS/Pictures/1000000000000843000001F16302FA9A618E5F6B.png)
 
 Création d'un utilisateur
 
@@ -225,7 +225,7 @@ l'annuaire (et non pas le nom du domaine). Par exemple (<user@cub.fr>).
     Web, et cocher la case « Afficher les utilisateurs dès le démarrage
     du module ».
 
-![](../../medias/stormshield/fiches/fiche10_utilisateurs_authentification_SNS/Pictures/10000000000002C10000010DC68782B9AB98FBDD.png)
+![](../../media/stormshield/fiches/fiche10_utilisateurs_authentification_SNS/Pictures/10000000000002C10000010DC68782B9AB98FBDD.png)
 
 Sinon, pour voir les utilisateurs ou les groupes :
 
@@ -262,7 +262,7 @@ interface.
 -   Cliquer sur +Ajouter
 -   Sélectionner l'interface, choisir le profil, puis « Appliquer »
 
-![](../../medias/stormshield/fiches/fiche10_utilisateurs_authentification_SNS/Pictures/10000000000004C5000001C7444468594D1962F8.png)
+![](../../media/stormshield/fiches/fiche10_utilisateurs_authentification_SNS/Pictures/10000000000004C5000001C7444468594D1962F8.png)
 
 La seconde partie de la page permet d'ajouter une charte d'utilisation
 de l'accès réseau qui doit être acceptée par l'utilisateur une fois
@@ -272,7 +272,7 @@ peut être téléchargée en format PDF ou en format HTML. Le bouton
 l'accès à Internet **permet de supprimer une charte préalablement
 téléchargée.
 
-![](../../medias/stormshield/fiches/fiche10_utilisateurs_authentification_SNS/Pictures/10000000000006370000023052CE4F6DEAD374E1.png)
+![](../../media/stormshield/fiches/fiche10_utilisateurs_authentification_SNS/Pictures/10000000000006370000023052CE4F6DEAD374E1.png)
 
 La configuration avancée permet :
 
@@ -283,7 +283,7 @@ La configuration avancée permet :
     portail, télécharger un nouveau logo et modifier la feuille de
     style.
 
-![](../../medias/stormshield/fiches/fiche10_utilisateurs_authentification_SNS/Pictures/1000000000000622000002BFA2CFCEB2B527F438.png)
+![](../../media/stormshield/fiches/fiche10_utilisateurs_authentification_SNS/Pictures/1000000000000622000002BFA2CFCEB2B527F438.png)
 
 #### Configuration d'un profil d'authentification
 
@@ -305,7 +305,7 @@ Il existe 10 profils différents, les cinq premiers sont préconfigurés :
 Il faut configurer la méthode ou l'annuaire par défaut utilisé par le
 profil sélectionné dans l'étape précédente. Par exemple :
 
-![](../../medias/stormshield/fiches/fiche10_utilisateurs_authentification_SNS/Pictures/10000000000004B1000001272323D54E1C78AFBE.png)
+![](../../media/stormshield/fiches/fiche10_utilisateurs_authentification_SNS/Pictures/10000000000004B1000001272323D54E1C78AFBE.png)
 
 -   Activer chaque profil pour consulter la pré-configuration (qu'il est possible de modifier).
 
@@ -348,7 +348,7 @@ classées en deux catégories :
     transparente vis-à-vis de l'utilisateur qui n'a pas besoin de
     renseigner son identité explicitement pour accéder au réseau.
 
-![](../../medias/stormshield/fiches/fiche10_utilisateurs_authentification_SNS/Pictures/100000000000068B0000042EBD119CA790538C7F.png)
+![](../../media/stormshield/fiches/fiche10_utilisateurs_authentification_SNS/Pictures/100000000000068B0000042EBD119CA790538C7F.png)
 
 Pour ajouter une méthode d'authentification utilisées par le pare-feu
 
@@ -377,7 +377,7 @@ appliquées suivant l'ordre d'apparition dans la règle. Si une méthode
 permet d'authentifier l'utilisateur, les méthodes suivantes ne seront
 pas testées. Par exemple :
 
-![](../../medias/stormshield/fiches/fiche10_utilisateurs_authentification_SNS/Pictures/10000000000004A90000038B8D93A54485B6786D.png)
+![](../../media/stormshield/fiches/fiche10_utilisateurs_authentification_SNS/Pictures/10000000000004A90000038B8D93A54485B6786D.png)
 
 Dans la règle 3, tous les utilisateurs du domaine « institute.com » qui
 se connectent depuis le réseau interne doivent, en premier lieu,
@@ -404,7 +404,7 @@ Pour créer une politique
 
 -   Cliquer sur **Nouvelle règle ⇒ Règle Standard.**
 
-![](../../medias/stormshield/fiches/fiche10_utilisateurs_authentification_SNS/Pictures/100000000000065F000001E6451CEA2C9D9C340D.png)
+![](../../media/stormshield/fiches/fiche10_utilisateurs_authentification_SNS/Pictures/100000000000065F000001E6451CEA2C9D9C340D.png)
 
 -   Renseigner les utilisateurs ou les groupes,
 -   Renseigner les réseaux ou les interfaces sources. Dans le cas de la
@@ -439,21 +439,21 @@ authentifié à être redirigé vers le portail ⇒ Le pare-feu doit rediriger
 les requêtes HTTP et HTTPS des utilisateurs non authentifiés vers le
 portail captif.
 
-![](../../medias/stormshield/fiches/fiche10_utilisateurs_authentification_SNS/Pictures/10000000000001B800000141BFEC3087691816BB.png)
+![](../../media/stormshield/fiches/fiche10_utilisateurs_authentification_SNS/Pictures/10000000000001B800000141BFEC3087691816BB.png)
 
 -   Cliquer sur **Nouvelle règle** puis **règle d'authentification**
 
 Un assistant permet de créer une règle par défaut qu'il sera possible de
 modifier :
 
-![](../../medias/stormshield/fiches/fiche10_utilisateurs_authentification_SNS/Pictures/100000000000060A00000154D3C83E2CF5FA1576.png)
+![](../../media/stormshield/fiches/fiche10_utilisateurs_authentification_SNS/Pictures/100000000000060A00000154D3C83E2CF5FA1576.png)
 
 Ci-dessous la règle modifiée pour rediriger tous les flux HTTP et HTTPS
 provenant des réseaux protégés vers le portail captif :
 
-![](../../medias/stormshield/fiches/fiche10_utilisateurs_authentification_SNS/Pictures/100000000000078F0000006FC420E3FA75F0A1BD.png)
+![](../../media/stormshield/fiches/fiche10_utilisateurs_authentification_SNS/Pictures/100000000000078F0000006FC420E3FA75F0A1BD.png)
 
-![](../../medias/stormshield/fiches/fiche10_utilisateurs_authentification_SNS/Pictures/1000000000000590000001350F8AAECF465C1209.png)
+![](../../media/stormshield/fiches/fiche10_utilisateurs_authentification_SNS/Pictures/1000000000000590000001350F8AAECF465C1209.png)
 
 Le champ Utilisateur permet de spécifier l'utilisateur (ou le groupe) devant
 être authentifié pour que la règle s'applique dont :
@@ -495,12 +495,12 @@ l'utilisateur.
 Vous pouvez ensuite ajouter des règles spécifiques pour les utilisateurs
 ou les groupes authentifiés (Source \> Utilisateur:).
 
-![](../../medias/stormshield/fiches/fiche10_utilisateurs_authentification_SNS/Pictures/100000000000051D000000297DD98DA72E6D7A68.png)
+![](../../media/stormshield/fiches/fiche10_utilisateurs_authentification_SNS/Pictures/100000000000051D000000297DD98DA72E6D7A68.png)
 
 La connexion via le portail captif avec Firefox :
 
-![](../../medias/stormshield/fiches/fiche10_utilisateurs_authentification_SNS/Pictures/10000000000004E3000000919F757761506068B5.png)
+![](../../media/stormshield/fiches/fiche10_utilisateurs_authentification_SNS/Pictures/10000000000004E3000000919F757761506068B5.png)
 
-![](../../medias/stormshield/fiches/fiche10_utilisateurs_authentification_SNS/Pictures/100000000000051800000227EB81B35692648A7B.png)
+![](../../media/stormshield/fiches/fiche10_utilisateurs_authentification_SNS/Pictures/100000000000051800000227EB81B35692648A7B.png)
 
 Une fois connectée, l'accès à Internet est possible.

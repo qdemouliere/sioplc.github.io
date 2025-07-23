@@ -29,7 +29,7 @@ protocole ESP (Encapsultating Security Payload) qui assure la
 confidentialité et l'intégrité des données échangées. Le protocole ESP
 est encapsulé directement dans un datagramme IP.
 
-![](../../medias/stormshield/fiches/fiche12_vpn_SNS/Pictures/10000000000004EB000002EBFA355742B0E16CD6.png)
+![](../../media/stormshield/fiches/fiche12_vpn_SNS/Pictures/10000000000004EB000002EBFA355742B0E16CD6.png)
 
 !!! danger "Important "
     Dans le respect des bonnes pratiques, il est recommandé d'utiliser le
@@ -38,7 +38,7 @@ est encapsulé directement dans un datagramme IP.
 
     Vous pouvez bien evidement commencer par un premier test avec une Shared Key (clé partagé) aux deux extermités du tunnel.
 
-![](../../medias/stormshield/fiches/fiche12_vpn_SNS/Pictures/10000000000004DD000002E9C45A59457F2F9473.png)
+![](../../media/stormshield/fiches/fiche12_vpn_SNS/Pictures/10000000000004DD000002E9C45A59457F2F9473.png)
 
 **Phase 1 :** Les deux extrémités du tunnel négocient un profil de
 chiffrement phase 1 et s'authentifient avec un clé pré-partagée ou des
@@ -83,32 +83,32 @@ un certificat pour le pare-feu de frankfurt).
 
 Cliquer sur Configuration \> Objets \> Certificats et PKI
 
-![](../../medias/stormshield/fiches/fiche12_vpn_SNS/Pictures/100000000000036D000002C4B7F8F37ECA2391D3.png)
+![](../../media/stormshield/fiches/fiche12_vpn_SNS/Pictures/100000000000036D000002C4B7F8F37ECA2391D3.png)
 
 Puis sur Ajouter \> Autorité racine
 
-![](../../medias/stormshield/fiches/fiche12_vpn_SNS/Pictures/10000000000002F0000002657DB16C064E616CBC.png)
+![](../../media/stormshield/fiches/fiche12_vpn_SNS/Pictures/10000000000002F0000002657DB16C064E616CBC.png)
 
-![](../../medias/stormshield/fiches/fiche12_vpn_SNS/Pictures/10000000000002EE00000281D2094D3AD3B6B497.png)
+![](../../media/stormshield/fiches/fiche12_vpn_SNS/Pictures/10000000000002EE00000281D2094D3AD3B6B497.png)
 
-![](../../medias/stormshield/fiches/fiche12_vpn_SNS/Pictures/10000000000002EE0000027BCFC79F505DAAEB02.png)
+![](../../media/stormshield/fiches/fiche12_vpn_SNS/Pictures/10000000000002EE0000027BCFC79F505DAAEB02.png)
 
-![](../../medias/stormshield/fiches/fiche12_vpn_SNS/Pictures/10000000000002F2000002C07BF5936F4770D923.png)
+![](../../media/stormshield/fiches/fiche12_vpn_SNS/Pictures/10000000000002F2000002C07BF5936F4770D923.png)
 
 Une fois la nouvelle PKI créée, il est nécessaire de générer 2
 certificats pour les 2 pare-feux concernés. Pour cela, sélectionner la
 PKI pki.cub.fr et cliquer sur Ajouter \> Identité serveur afin de créer
 un certificat pour le pare-feu d'Edimbourg.
 
-![](../../medias/stormshield/fiches/fiche12_vpn_SNS/Pictures/10000000000002F10000019470C0D50C91220659.png)
+![](../../media/stormshield/fiches/fiche12_vpn_SNS/Pictures/10000000000002F10000019470C0D50C91220659.png)
 
-![](../../medias/stormshield/fiches/fiche12_vpn_SNS/Pictures/10000000000002F20000030DCC36697CC6DC368E.png)
+![](../../media/stormshield/fiches/fiche12_vpn_SNS/Pictures/10000000000002F20000030DCC36697CC6DC368E.png)
 
-![](../../medias/stormshield/fiches/fiche12_vpn_SNS/Pictures/10000000000002EE000001B98DB70C7BEE9753AD.png)
+![](../../media/stormshield/fiches/fiche12_vpn_SNS/Pictures/10000000000002EE000001B98DB70C7BEE9753AD.png)
 
-![](../../medias/stormshield/fiches/fiche12_vpn_SNS/Pictures/10000000000002EF0000024BBD5D5A7FAAC8BC87.png)
+![](../../media/stormshield/fiches/fiche12_vpn_SNS/Pictures/10000000000002EF0000024BBD5D5A7FAAC8BC87.png)
 
-![](../../medias/stormshield/fiches/fiche12_vpn_SNS/Pictures/10000000000002F2000002C19F325C56C4B06544.png)
+![](../../media/stormshield/fiches/fiche12_vpn_SNS/Pictures/10000000000002F2000002C19F325C56C4B06544.png)
 
 Il faut ensuite réaliser la même opération afin de créer un certificat
 pour le pare-feu de Frankfurt en adaptant certains paramètres dont en
@@ -117,7 +117,7 @@ particulier le CN (Common Name) du certificat.
 Nous avons maintenant à notre disposition une PKI et 2 certificats
 générés.
 
-![](../../medias/stormshield/fiches/fiche12_vpn_SNS/Pictures/100000000000035D00000189C2B5878C9D73C236.png)
+![](../../media/stormshield/fiches/fiche12_vpn_SNS/Pictures/100000000000035D00000189C2B5878C9D73C236.png)
 
 Comme la PKI a été créée sur le pare-feu d'Edimbourg, il est nécessaire
 d'exporter le certificat du pare-feu de Frankfurt sur le pare-feu de
@@ -137,9 +137,9 @@ de compromission.
     - **Sécurité** : Le fichier **P12** peut être protégé par un mot de passe pour sécuriser les clés privées qu'il contient.<br/>
     - **Lisibilité** : Non lisible en texte brut, car c'est un fichier binaire. Il doit être ouvert avec des outils spécialisés (comme `OpenSSL` ou les gestionnaires de certificats dans les systèmes d'exploitation).
 
-![](../../medias/stormshield/fiches/fiche12_vpn_SNS/Pictures/1000000000000216000000E3D93FDA75A57E9422.png)
+![](../../media/stormshield/fiches/fiche12_vpn_SNS/Pictures/1000000000000216000000E3D93FDA75A57E9422.png)
 
-![](../../medias/stormshield/fiches/fiche12_vpn_SNS/Pictures/10000000000002EF000000C949515E5A62812ECD.png)
+![](../../media/stormshield/fiches/fiche12_vpn_SNS/Pictures/10000000000002EF000000C949515E5A62812ECD.png)
 
 Une fois le fichier p12 téléchargé sur le poste, il est nécessaire de
 l'importer dans l'autre pare-feu en l'occurence celui de Franckfurt.
@@ -150,9 +150,9 @@ d'administration.
 Puis cliquer sur Configuration \> Objets \> Certificats et PKI puis sur
 Ajouter \> Importer un fichier.
 
-![](../../medias/stormshield/fiches/fiche12_vpn_SNS/Pictures/10000000000001F40000017D2F00BEDD0E7D30BC.png)
+![](../../media/stormshield/fiches/fiche12_vpn_SNS/Pictures/10000000000001F40000017D2F00BEDD0E7D30BC.png)
 
-![](../../medias/stormshield/fiches/fiche12_vpn_SNS/Pictures/100000000000035A0000015CF2DA913BCEECB803.png)
+![](../../media/stormshield/fiches/fiche12_vpn_SNS/Pictures/100000000000035A0000015CF2DA913BCEECB803.png)
 
 #### Configuration du VPN IPSEC
 
@@ -164,7 +164,7 @@ Sur le pare-feu de Edimbourg, cliquer sur Configuration \> VPN \> VPN
 IPsec et choisir la politique IPsec 04 (04) qu'il faudra renommer
 IPsec-EdFk.
 
-![](../../medias/stormshield/fiches/fiche12_vpn_SNS/Pictures/10000000000005BF000001E45E0354C594DF0E9C.png)
+![](../../media/stormshield/fiches/fiche12_vpn_SNS/Pictures/10000000000005BF000001E45E0354C594DF0E9C.png)
 
 Puis cliquer sur Ajouter \> Tunnel site à site simple.
 
@@ -180,11 +180,11 @@ En réseaux distants, vous indiquerez un objet réseau correspondant au
 sous-réseau à joindre dans l'autre agence. Enfin, il sera indispensable
 de définir un correspondant et de le sélectionner.
 
-![](../../medias/stormshield/fiches/fiche12_vpn_SNS/Pictures/1000000000000366000001F69CF684732786CEA1.png)
+![](../../media/stormshield/fiches/fiche12_vpn_SNS/Pictures/1000000000000366000001F69CF684732786CEA1.png)
 
-![](../../medias/stormshield/fiches/fiche12_vpn_SNS/Pictures/10000000000002EC000001F47867737AB1ED92D0.png)
+![](../../media/stormshield/fiches/fiche12_vpn_SNS/Pictures/10000000000002EC000001F47867737AB1ED92D0.png)
 
-![](../../medias/stormshield/fiches/fiche12_vpn_SNS/Pictures/10000000000002EE000001F5F25DFDD1676C743F.png)
+![](../../media/stormshield/fiches/fiche12_vpn_SNS/Pictures/10000000000002EE000001F5F25DFDD1676C743F.png)
 
 !!! Warning "Attention"
     **Attention ! Cette étape peut porter à confusion**. Bien que le terme
@@ -192,11 +192,11 @@ de définir un correspondant et de le sélectionner.
     certificat du pare-feu sur lequel vous êtes connecté (ici pare-feu
     Edimbourg) qu'il faut indiquer et non celui du pare-feu distant.
 
-![](../../medias/stormshield/fiches/fiche12_vpn_SNS/Pictures/10000000000002EC000001F5E56051B8F1850077.png)
+![](../../media/stormshield/fiches/fiche12_vpn_SNS/Pictures/10000000000002EC000001F5E56051B8F1850077.png)
 
-![](../../medias/stormshield/fiches/fiche12_vpn_SNS/Pictures/1000000000000367000001F464AF582BBA392D22.png)
+![](../../media/stormshield/fiches/fiche12_vpn_SNS/Pictures/1000000000000367000001F464AF582BBA392D22.png)
 
-![](../../medias/stormshield/fiches/fiche12_vpn_SNS/Pictures/10000000000005730000014968EA98A212141118.png)
+![](../../media/stormshield/fiches/fiche12_vpn_SNS/Pictures/10000000000005730000014968EA98A212141118.png)
 
 Lorsque la création du tunnel IPSec est effective, il faut bien
 évidemment l'activer (on) **et définir une valeur en seconde de
@@ -231,13 +231,13 @@ cependant lors de différentes phases de test, cela s'est avéré peu
 concluant, ce qui nous amène à proposer des règles explicites à ce
 sujet.
 
-![](../../medias/stormshield/fiches/fiche12_vpn_SNS/Pictures/100000000000052E000000433A912FD1B3404FB2.png)
+![](../../media/stormshield/fiches/fiche12_vpn_SNS/Pictures/100000000000052E000000433A912FD1B3404FB2.png)
 
 Enfin, il faut définir les règles nécessaires autorisant la
 communication des sous-réseaux définis dans la configuration du tunnel
 au niveau des règles de filtrage.
 
-![](../../medias/stormshield/fiches/fiche12_vpn_SNS/Pictures/10000000000004AB00000055B2E2BFE413B212EB.png)
+![](../../media/stormshield/fiches/fiche12_vpn_SNS/Pictures/10000000000004AB00000055B2E2BFE413B212EB.png)
 
 La directive « via Tunnel VPN IPsec » dans la seconde règle est très
 importante et obligatoire. Il est possible de la définir lors de la

@@ -19,7 +19,7 @@ virtuelles, il faut donc le cas échéant le configurer.
 Sur **une machine virtuelle**, celui-ci est activé par défaut et occupe
 un **espace disque de 6Go** :
 
-![](../../medias/stormshield/fiches/fiche3_gestionJournaux_SNS/Pictures/1000000100000282000000A7E0568EFCA0EE8753.png)
+![](../../media/stormshield/fiches/fiche3_gestionJournaux_SNS/Pictures/1000000100000282000000A7E0568EFCA0EE8753.png)
 
 **Sur un boîtier physique,** le stockage local des logs n'est pas activé
 par défaut.
@@ -29,20 +29,20 @@ par défaut.
     lors du démarrage (*sauf si vous n'avez pas installé la licence*) et
     le système vous proposera de la formater avant utilisation.
 
-![](../../medias/stormshield/fiches/fiche3_gestionJournaux_SNS/Pictures/100000010000025D0000009A181376370298DCFD.png)
+![](../../media/stormshield/fiches/fiche3_gestionJournaux_SNS/Pictures/100000010000025D0000009A181376370298DCFD.png)
 
 La zone **Support de stockage** permet de sélectionner le support de
 stockage local « disque dur interne » ou « carte mémoire SD ». Au
 besoin :
 
 -   cocher le bouton
-    **ON ;**![](../../medias/stormshield/fiches/fiche3_gestionJournaux_SNS/Pictures/100000000000059E000001945020079C69A930E2.png)
+    **ON ;**![](../../media/stormshield/fiches/fiche3_gestionJournaux_SNS/Pictures/100000000000059E000001945020079C69A930E2.png)
 -   dans la zone **Support de stockage** sélectionner dans la liste
     **Périphérique** la carte SD comme support de stockage.
 
 Le système vous propose de la formater avant utilisation.
 
-![](../../medias/stormshield/fiches/fiche3_gestionJournaux_SNS/Pictures/1000000000000269000000C2DBB284ACF9F3D8DD.png)
+![](../../media/stormshield/fiches/fiche3_gestionJournaux_SNS/Pictures/1000000000000269000000C2DBB284ACF9F3D8DD.png)
 
 -   Cliquer **Formater Carte SD**. Cette opération prend quelques secondes.
 
@@ -56,17 +56,17 @@ Une fois le support formaté, la liste des journaux pré-configurés est
 activée avec pour chaque journal un espace dédié. Vous pouvez désactiver
 certains journaux si vous le souhaitez.
 
-![](../../medias/stormshield/fiches/fiche3_gestionJournaux_SNS/Pictures/10000000000005990000030C4F76B3E6BA831DC1.png)
+![](../../media/stormshield/fiches/fiche3_gestionJournaux_SNS/Pictures/10000000000005990000030C4F76B3E6BA831DC1.png)
 
 -   Le cas échéant, cliquer **Appliquer** puis **Sauvegarder** pour
     activer le stockage local des journaux.
 
-![](../../medias/stormshield/fiches/fiche3_gestionJournaux_SNS/Pictures/1000000000000326000000C1CE65C3D1DD468E70.png)
+![](../../media/stormshield/fiches/fiche3_gestionJournaux_SNS/Pictures/1000000000000326000000C1CE65C3D1DD468E70.png)
 
 -   Le cas échéant, cliquer **Conserver les rapports d'activité
     désactivés.**
 
-![](../../medias/stormshield/fiches/fiche3_gestionJournaux_SNS/Pictures/10000001000001BC00000108DC618C3DEEE29370.png)
+![](../../media/stormshield/fiches/fiche3_gestionJournaux_SNS/Pictures/10000001000001BC00000108DC618C3DEEE29370.png)
 
 La zone **Configuration de l'espace réservé pour les traces** permet
 d'activer ou non l'écriture des traces pour une famille donnée en
@@ -90,7 +90,7 @@ Notifications / Configuration des rapports.**
     sélectionnez les rapports souhaités dans le panneau **Liste des
     rapports**.
 
-![](../../medias/stormshield/fiches/fiche3_gestionJournaux_SNS/Pictures/100000010000026F000001448E028CAA7F5E34B2.png)
+![](../../media/stormshield/fiches/fiche3_gestionJournaux_SNS/Pictures/100000010000026F000001448E028CAA7F5E34B2.png)
 
 Par défaut le rapport sur le **Top des protocoles** par volume est
 activé si vous activez les rapports.
@@ -98,7 +98,7 @@ activé si vous activez les rapports.
 L'onglet **Liste des graphiques historiques** permet de visualiser et
 modifier les graphiques activés par défaut.
 
-![](../../medias/stormshield/fiches/fiche3_gestionJournaux_SNS/Pictures/10000001000001BD0000009482F4E07BF5226A81.png)
+![](../../media/stormshield/fiches/fiche3_gestionJournaux_SNS/Pictures/10000001000001BD0000009482F4E07BF5226A81.png)
 
 ## Les Journaux
 
@@ -146,7 +146,7 @@ récente est en tête de liste).
     (RGPD), l'accès aux logs des pare-feus SNS est restreint par défaut pour
     tous les administrateurs.
 
-![](../../medias/stormshield/fiches/fiche3_gestionJournaux_SNS/Pictures/100000000000027C000000F33FD7EAA8354E6553.png)
+![](../../media/stormshield/fiches/fiche3_gestionJournaux_SNS/Pictures/100000000000027C000000F33FD7EAA8354E6553.png)
 
 Le super administrateur « admin », ainsi que les
 administrateurs disposant du droit « Accès aux données personnelles »
@@ -154,20 +154,20 @@ peuvent accéder aux logs complets en cliquant simplement sur **Obtenir
 le droit d'accès aux données personnelles (logs)**. Cette manipulation
 ajoute une entrée dans les journaux qui permet de la tracer.
 
-![](../../medias/stormshield/fiches/fiche3_gestionJournaux_SNS/Pictures/100000000000018600000074DDF44A3F67E4D562.png)
+![](../../media/stormshield/fiches/fiche3_gestionJournaux_SNS/Pictures/100000000000018600000074DDF44A3F67E4D562.png)
 
 ## Consultation des Journaux
 
 -   Cliquer **Monitoring **puis **LOGS - JOURNAUX D'AUDIT **puis, par
     exemple, **Trafic réseau**.
 
-![](../../medias/stormshield/fiches/fiche3_gestionJournaux_SNS/Pictures/100000010000025D0000009A6A6F3E8A2DFEC687.png)
+![](../../media/stormshield/fiches/fiche3_gestionJournaux_SNS/Pictures/100000010000025D0000009A6A6F3E8A2DFEC687.png)
 
 Pour voir l'ensemble des données relatives à une trace, mettez la ligne
 désirée en surbrillance et cliquez sur la flèche en haut à droite
 **Détails de la ligne de log**.
 
-![](../../medias/stormshield/fiches/fiche3_gestionJournaux_SNS/Pictures/100000010000021C0000011EF4BA2F9EFE73D397.png)
+![](../../media/stormshield/fiches/fiche3_gestionJournaux_SNS/Pictures/100000010000021C0000011EF4BA2F9EFE73D397.png)
 
 L'affichage des journaux peut être restreint à une plage temporelle
 prédéfinie (dernière heure, aujourd'hui, hier, semaine dernière ou mois
@@ -183,4 +183,4 @@ Pour **filtrer les traces**, une barre de recherche simple permet de
 rechercher une chaîne de caractères dans toutes les colonnes de toutes
 les traces, voir l'exemple ci-dessous pour **icmp**.
 
-![](../../medias/stormshield/fiches/fiche3_gestionJournaux_SNS/Pictures/100000010000022400000162B656DBCD699443C5.png)
+![](../../media/stormshield/fiches/fiche3_gestionJournaux_SNS/Pictures/100000010000022400000162B656DBCD699443C5.png)
