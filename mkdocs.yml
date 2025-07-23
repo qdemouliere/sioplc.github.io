@@ -1,5 +1,11 @@
 site_name: Le contexte CUB
-site_url: https://sioplc.github.io/cub
+site_url: https://qdemouliere.github.io/cub
 theme:
   name: material
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+
+
 
