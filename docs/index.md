@@ -7,7 +7,7 @@ du BTS SIO SISR 2.
 
 Cette production est librement inspirée de [celle](https://github.com/lmeryFulbert/SportLudique2024-2025) de Ludovic Mery, professeur d'informatique en BTS SIO au lycée Fulbert de Chartres.
 
-## Comment Utiliser Cette Documentation
+## Comment utiliser cette Documentation
 
 - **Navigation** : Utilisez la barre de navigation sur la gauche pour accéder aux différentes sections de la documentation. Cliquez sur les liens pour explorer les sujets qui vous intéressent.
 
