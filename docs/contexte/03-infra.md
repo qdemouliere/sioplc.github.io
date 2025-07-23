@@ -36,3 +36,21 @@ prévoir un plan d'adressage capable d'accueillir au minimum le double
 d'équipements par rapport au recensement initial afin d'éviter toute
 possibilité de saturation.
 
+## Administration des équipements réseaux
+
+| Matériel                       | Administration                                       | Description                                                                                                                                      |
+|--------------------------------|------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------|
+| fw.local.agence.cub.sioplc.fr  | 192.168.XX.254/30 depuis 192.168.X.192/28 uniquement | Le pare-feu de l’agence doit être administré uniquement sur son interface IN (réseau d’interco) depuis le VLAN d’Administration.                 |
+| sw0.local.agence.cub.sioplc.fr | 192.168.X.205/28 depuis 192.168.X.192/28 uniquement  | Le switch cœur de réseau L3 doit disposer d’une configuration réseau dans le VLAN d’Administration uniquement et être administré depuis ce VLAN. |
+| sw1.local.agence.cub.sioplc.fr | 192.168.X.204/28 depuis 192.168.X.192/28 uniquement  | Le switch de distribution doit disposer d’une configuration réseau dans le VLAN d’Administration uniquement et être administré depuis ce VLAN.   |
+
+## Gestion des ports sur les commutateurs
+
+| Ports des commutateurs | Attribution                                                                                                   |
+|------------------------|---------------------------------------------------------------------------------------------------------------|
+| Les ports 1 à 10       | Réservés aux équipements dit « terminaux » (PC, téléphone, PC portable).                                      |
+| Les ports de 11 à 18   | Réservés aux serveurs                                                                                         |
+| Les ports de 19 à 24   | Réservés à l’interconnexion avec d’autres équipements réseaux (commutateurs, routeurs, pare-feu, borne-wifi). |
+
+!!! info "Pourquoi cette approche ?"
+    L’intérêt d’appliquer une telle méthodologie est d’avoir une rigueur dans l’organisation du réseau permettant de savoir très rapidement repérer la fonction d’un port sur un commutateur.
