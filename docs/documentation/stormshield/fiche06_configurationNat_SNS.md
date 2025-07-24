@@ -1,4 +1,4 @@
-# Fiche 06-- Configuration du NAT/PAT
+# Fiche 06 -- Configuration du NAT/PAT
 
 Dans les pare-feu SNS, les règles de filtrage et NAT
 (traduction d'adresses) sont regroupées sous une même politique. Il est
