@@ -1,6 +1,6 @@
 # Introduction
 
-## Documentation Pédagogique
+## Documentation pédagogique
 
 Bienvenue dans cette documentation pédagogique générée automatiquement à l'aide de MkDocs et hébergée sur GitHub Pages. Cette documentation a été créée dans le but de vous fournir Les informations essentielles sur le contexte commun utilisé avec vos enseignants dans les bloc 2 et 3
 du BTS SIO SISR 2.

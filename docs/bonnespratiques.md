@@ -6,7 +6,7 @@ Un référentiel est une collection de bonnes pratiques sur un sujet donné. Lor
 
 **ex: ITIL 4, Guides de recommandation de l'ANSSI, COBIT.**
 
-La norme se différencie des référentiels dans la mesure où il s'agit d'un document édité par une instance de normalisation indépendante faisant état de l'art d'un sujet donné. La norme peut aussi avoir un niveau de contrainte supplémentaire par rapport au référentiel. Elle peut enfin amener une entreprise à être certifiée via un audit réalisé par un organisme indépendant. C'est l'AFNOR qui assure les certifications en France.
+La norme se différencie des référentiels dans la mesure où il s'agit d'un document édité par une instance de normalisation indépendante faisant état de l'art d'un sujet donné. La norme peut aussi avoir un niveau de contrainte supplémentaire par rapport au référentiel. Elle peut enfin amener une entreprise à être certifiée via un audit réalisé par un organisme indépendant. C'est l'AFNOR qui assure les certifications en France.[^1]
 
 **ex: ISO-9001, ISO-27001.**
 
@@ -30,3 +30,5 @@ La norme se différencie des référentiels dans la mesure où il s'agit d'un do
 
 1. Les mots de passe de chaque équipe doivent être stockés dans un gestionnaire de mots de passe accessible par l'ensemble de l'équipe (Bitwarden, LastPass, KeePass, etc).
 2. Les connexions administrateur aux serveurs de chaque agence devront se faire via une authentification multifacteur à l'aide d'un mot de passe et d'un code à usage unique TOTP (utilisation des smartphones avec une application dédiée type FreeOTP+).
+
+[^1]: [Les référentiels de la DSI, état de l'art, usages et bonnes pratiques](https://www.cigref.fr/cigref_publications/RapportsContainer/Parus2009/Referentiels_de_la_DSI_CIGREF_2009.pdf) publié par le CIGREF

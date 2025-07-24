@@ -1,4 +1,4 @@
-# Mise en place d'un serveur DNS récursif (résolveur) avec Unvound sous Debian 12
+# Mise en place d'un serveur DNS récursif
 
 ## 1.  Vérification préalable
 
@@ -8,7 +8,7 @@ Mettez à jour votre serveur
 admineleve@template-debianSISR:~$ sudo apt update && sudo apt upgrade
 ```
 
-Sur votre serveur Debian 12, installez le service de journalisation rsyslog à la place de journactl. Cela vous permettra de disposer de fichiers de log clairs au format txt situés dans /var/log.
+Sur votre serveur Debian 12, installez le service de journalisation rsyslog à la place de journalctl. Cela vous permettra de disposer de fichiers de log clairs au format texte situés dans /var/log.
 
 ```bash
 admineleve@template-debianSISR:~$ sudo apt install rsyslog

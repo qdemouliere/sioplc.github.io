@@ -1,5 +1,7 @@
 # Présentation du contexte CUB
 
+![](../media/cub/cub.png)
+
 Née en décembre 2010, la société CUB est une entreprise spécialisée dans l’incubation de startups partageant les mêmes valeurs de solidarité et de développement durable. Au travers de sa plate-forme web, CUB permet à des professionnels d’accéder à des espaces de travail dédiés : salles de réunion, de formation ou de séminaire.
 
 Chaque agence disposera d’une adresse IPv4 publique propre et nominative. Pour cela, l’entreprise CUB a demandé auprès du RIPE NCC l’obtention d’un numéro d’AS et d’un préfixe IPv4 : 192.36.0.0/16. Elle est donc considérée comme un LIR (Local Internet Registry). De plus, l’entreprise possède également un nom de domaine cub.sioplc.fr dont elle a la charge géré par le bureau d’enregistrement OVH.
