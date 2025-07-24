@@ -1,4 +1,4 @@
-# Fiche 09 - Prévention d'intrusion IDS/IPS
+# Fiche 09 -- Prévention d'intrusion IDS/IPS
 
 ## Définition rapide des systèmes IDS et IPS
 
