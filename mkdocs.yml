@@ -1,7 +1,11 @@
 site_name: Le contexte CUB
 site_url: https://qdemouliere.github.io/cub
+copyright: Licence CC 4.0 FR BY-NC-SA - 2025 D. Balny et Q. Demoulière - Lycée Paul-Louis Courier 
 theme:
   name: material
+  logo: assets/logo.png
+  features:
+    - navigation.footer
 markdown_extensions:
   - admonition
   - tables
