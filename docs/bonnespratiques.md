@@ -13,7 +13,7 @@ La norme se différencie des référentiels dans la mesure où il s'agit d'un do
 !!! Warning  "Attention !"
     La DSI impose donc à l'ensemble de son personnel de respecter le référentiel présenté ci-dessous
 
-## Bonnes pratiques réseaux
+## Extrait des bonnes pratiques réseaux
 
 1. Réalisez **OBLIGATOIREMENT** un schéma physique et un schéma logique du réseau de votre agence (à imprimer).
 2. Respectez le processus suivant : maquettage, prototypage, mise en production.
@@ -22,7 +22,7 @@ La norme se différencie des référentiels dans la mesure où il s'agit d'un do
 5. Les fichiers de configuration de tous vos équipements réseaux devront être sauvegardés.
 6. Les règles de filtrage définies en production doivent être maintenues. Elles ne peuvent être désactivées que lors d'opérations de test ou de diagnostic.
 
-## Bonnes pratiques systèmes
+## Extrait des bonnes pratiques systèmes
 
 1. Sur vos serveurs Debian GNU/Linux, il est obligatoire de mettre en place une gestion de version de vos fichiers de configuration à l'aide du logiciel **etckeeper**.
 
