@@ -4,8 +4,10 @@ copyright: Licence CC 4.0 FR BY-NC-SA - 2025 D. Balny et Q. Demoulière - Lycée
 theme:
   name: material
   logo: ./media/cub/logo.png
+  language: fr
   features:
     - navigation.footer
+    - content.code.copy
 markdown_extensions:
   - admonition
   - tables

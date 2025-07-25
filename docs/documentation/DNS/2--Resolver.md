@@ -4,7 +4,7 @@
 
 Mettez à jour votre serveur
 
-```bash
+```console { .yaml .copy }
 admineleve@template-debianSISR:~$ sudo apt update && sudo apt upgrade
 ```
 
@@ -71,10 +71,6 @@ dns0
 ```
 !!! Info  "Information"
     Le fichier hosts, ancêtre des stubresolver DNS, permet de faire la correspondance entre un nom et une IP. Il est généralement prioritaire sur la résolution DNS (pour modifier l’ordre de préférence, éditez le fichier /etc/nsswitch.conf). Dans ce fichier, il est important de renseigner la correspondance entre votre adresse de boucle locale et un nom. Ainsi, si votre machine sollicite le nom indiqué lors d'un processus particulier, cela la renverra vers l'adresse de loopback.
-
-```bash
-admineleve@template-debianSISR:~$ sudoedit /etc/hosts
-```
 
 ```bash
 admineleve@template-debianSISR:~$ sudoedit /etc/hosts
