@@ -4,7 +4,7 @@
 
 Mettez à jour votre serveur
 
-```console { .yaml .copy }
+```console
 admineleve@template-debianSISR:~$ sudo apt update && sudo apt upgrade
 ```
 
@@ -146,6 +146,13 @@ logfile: /var/log/unbound.log
 verbosity: 1
 log-queries: yes
 ```
+
+Il est important de vérifier ensuite que la syntaxe des lignes contenues dans le fichier de configuration est correcte pour cela il existe la commande **unbound-checkconf**.
+
+```bash
+admineleve@dns0:~$ sudo unbound-checkconf
+```
+
 Notre serveur récursif va nativement s’adresser aux serveurs faisant autorité sur Internet en sollicitant en premier l’un des serveurs racines. Dans le cas où le serveur récursif serait amené à devoir traiter des domaines locaux qui se trouvent en dehors de l’arborescence DNS réelle (ex : btssio.lan ou epoka.local), il est important de l’indiquer dans le fichier de configuration (/etc/unbound/unbound.conf) de la manière suivante :
 
 ```bash
