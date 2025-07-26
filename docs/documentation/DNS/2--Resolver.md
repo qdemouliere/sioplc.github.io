@@ -1,5 +1,8 @@
 # Mise en place d'un serveur DNS récursif
 
+!!! Warning  "Attention"
+    Puisque vous allez être amené à modifier des fichiers de configuration présents dans le fichier /etc, vous devez utiliser **etckeeper** pour faire du versioning.
+
 ## 1.  Vérification préalable
 
 Mettez à jour votre serveur
@@ -77,7 +80,7 @@ sudoedit /etc/hosts
 ```
 ```bash
 127.0.0.1	localhost
-127.0.1.1	dns0.tours.tierslieux86.fr	dns0
+127.0.1.1	dns0.local.tours.tierslieux86.fr	dns0
 
 # The following lines are desirable for IPv6 capable hosts
 ::1     localhost ip6-localhost ip6-loopback
@@ -147,7 +150,7 @@ verbosity: 1
 log-queries: yes
 ```
 
-Il est important de vérifier ensuite que la syntaxe des lignes contenues dans le fichier de configuration est correcte pour cela il existe la commande **unbound-checkconf**.
+Il est important de vérifier ensuite que la syntaxe des lignes contenues dans le fichier de configuration est correcte. Pour cela, il existe la commande **unbound-checkconf**.
 
 ```bash
 sudo unbound-checkconf
