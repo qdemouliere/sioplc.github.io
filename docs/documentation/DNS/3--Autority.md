@@ -1,4 +1,4 @@
-# Mise en place d'un serveur DNS faisant autorité
+# Mise en place d'un serveur DNS maître faisant autorité
 
 !!! Warning  "Attention"
     Puisque vous allez être amené à modifier des fichiers de configuration présents dans le fichier /etc, vous devez utiliser **etckeeper** pour faire du versioning.
