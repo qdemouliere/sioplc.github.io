@@ -1,7 +1,7 @@
 # Mise en place d'un serveur DNS maître faisant autorité
 
 !!! Warning  "Attention"
-    Puisque vous allez être amené à modifier des fichiers de configuration présents dans le fichier /etc, vous devez utiliser **etckeeper** pour faire du versioning.
+    Puisque vous allez être amené à modifier des fichiers de configuration présents dans le dossier /etc, vous devez utiliser **etckeeper** pour faire du versioning.
 
 ## 1.  Vérification préalable
 
@@ -53,7 +53,7 @@ nameserver 86.54.11.100
 nameserver 9.9.9.9
 ```
 
-??? info "CI/CD"
+??? info "Pourquoi choisir ces serveurs DNS récursifs ?"
     Pour rappel, les serveurs DNS faisant autorité gèrent, dans la majorité des cas, des zones publiques appartenant à l'arborescence réelle. Ainsi, ils seront la plupart du temps hébergés dans une DMZ contrairement aux serveurs DNS récursifs qui seront installés dans le LAN. Pour des raisons évidentes de sécurité, il est plus pertinent que les serveurs définis dans le fichier /etc/resolv.conf soient des résolveurs publics plutôt que les résolveurs internes paramétrés précédemment. 
 
 ## 4. Prendre en compte les modifications des paramètres réseaux
@@ -302,7 +302,7 @@ sudo systemctl restart apparmor
 ```
 
 ??? info "named-checkconf"
-La commande named-checkconf permet de vérifier si des erreurs de syntaxe sont présentes et de fournir les éléments ou lignes qui posent problème dans un fichier en particulier.
+    La commande named-checkconf permet de vérifier si des erreurs de syntaxe sont présentes et de fournir les éléments ou lignes qui posent problème dans un fichier en particulier.
 
 ```bash
 sudo named-checkconf -z
