@@ -17,6 +17,12 @@ Sur votre serveur Debian 12, installez le service de journalisation rsyslog à l
 sudo apt install rsyslog
 ```
 
+Installez le service Bind 9 et les outils diagnostics DNS
+
+```bash
+sudo apt install bind9 dnsutils
+```
+
 ## 2. Définir les paramètres réseaux du serveur
 
 ```bash
