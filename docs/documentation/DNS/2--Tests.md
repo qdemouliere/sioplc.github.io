@@ -155,7 +155,7 @@ Si l'on trouve, après status, le mot clé _SERVFAIL_, il n'y a pas de réponse 
     Cela ne vient pas forcément de votre serveur mais d'un des serveurs interrogés de manière récursive.
 
 !!! Info  "Remarque"
- Attention au cache qui pourrait fournir des réponses qui ne sont plus valables ; la commande rndc flush  permet de supprimer toutes données en cache.
+    Attention au cache qui pourrait fournir des réponses qui ne sont plus valables ; la commande rndc flush  permet de supprimer toutes données en cache.
 
 ## 4.Troisième batterie de tests : vérification de la non récursivité d'un serveur DNS
 
