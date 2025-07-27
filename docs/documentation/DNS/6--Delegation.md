@@ -46,7 +46,7 @@ ns0.tours	IN A	172.16.3.10
 ns1.tours	IN A	172.16.3.11
 ```
 
-??? info "Qu'est-ce les glue records (colle ou enregistrements de raccord) ?"
+??? info "Qu'est-ce que les glue records (colle ou enregistrements de raccord) ?"
     Lorsqu'une zone est déléguée à des serveurs dont le nom est dans la zone fille, la résolution DNS se heurte à un problème d'œuf et de poule. Pour trouver l'adresse de ns1.mazone.example, le résolveur doit passer par les serveurs de mazone.example, qui est déléguée à ns1.mazone.example et ainsi de suite... On rompt ce cercle vicieux en ajoutant, dans la zone parente, des données qui ne font pas autorité sur les adresses de ces serveurs (RFC 1034, section 4.2.1). Il faut donc bien veiller à les garder synchrones avec la zone fille[^1]. Si vous voulez en savoir plus, jetez un oeil à [cet article](https://www.afnic.fr/observatoire-ressources/papier-expert/le-dns-ca-colle-ou-ca-ne-colle-pas/) de l'AFNIC.
 
 Enfin, il est nécessaire de tester la validité de la syntaxe des nouveaux enregistrements puis de prendre en compte les modifications du fichier de zone à l’aide des commandes suivantes :
