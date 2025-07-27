@@ -99,7 +99,7 @@ Il est nécessaire de redémarrer le serveur pour prendre en compte le changemen
 ```bash
 sudo shutdown -r now
 ```
-## 5. Exemple de configuration d'un serveur DNS esclave faisant autorité
+## 6. Exemple de configuration d'un serveur DNS esclave faisant autorité
 
 Déclaration de la zone que l’on souhaite transférer depuis le serveur maître sur le serveur esclave :
 
@@ -120,7 +120,7 @@ sudo touch /var/cache/bind/db.tours.tierslieux86.fr
 sudo chown bind:bind /var/cache/bind/db.tours.tierslieux86.fr
 ```
 
-## 6. Mise en place de la journalisation
+## 7. Mise en place de la journalisation
 
 ```bash
 sudoedit /etc/bind.named.conf.log
