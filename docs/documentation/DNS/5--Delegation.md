@@ -1,4 +1,4 @@
-# Délégation de zone entre un serveur parent et un serveur enfant
+# Délégation de zone
 
 Pour réaliser une délégation de zone entre un serveur parent et un serveur enfant, il suffit de se connecter sur le serveur parent.
 
@@ -52,7 +52,7 @@ ns1.tours	IN A	172.16.3.11
 Enfin, il est nécessaire de tester la validité de la syntaxe des nouveaux enregistrements puis de prendre en compte les modifications du fichier de zone à l’aide des commandes suivantes :
 
 ```bash
-sudo named-checkonf -z
+sudo named-checkconf -z
 sudo systemctl reload bind9
 ```
 

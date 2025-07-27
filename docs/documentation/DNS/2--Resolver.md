@@ -1,4 +1,4 @@
-# Mise en place d'un serveur DNS récursif
+# Serveur DNS récursif
 
 !!! Warning  "Attention"
     Puisque vous allez être amené à modifier des fichiers de configuration présents dans le dossier /etc, vous devez utiliser **etckeeper** pour faire du versioning.
