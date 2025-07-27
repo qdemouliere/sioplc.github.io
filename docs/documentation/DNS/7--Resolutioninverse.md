@@ -10,6 +10,9 @@ Les recherches DNS inversées interrogent les serveurs DNS pour obtenir un enreg
 
 Dans IPv6, la dernière version du protocole Internet, les enregistrements PTR sont stockés dans le domaine « .ip6.arpa » au lieu de « .in-addr.arpa. » [^1]
 
+!!! Warning  "Attention"
+    Une résolution inverse opérationnelle est **indispensable** notamment dans le cadre de la mise en place d'un service de messagerie (mail) lors de la vérification de la légitimité des serveurs SMTP utilisés.
+
 ## 2. Mise en place d'une résolution inverse
 
 ### 2.1 Création d’un fichier de zone pour le réseau 172.16.3.0/24
