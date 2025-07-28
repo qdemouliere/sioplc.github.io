@@ -1,0 +1,1706 @@
+
+<!doctype html>
+<html lang="fr" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://qdemouliere.github.io/cub/documentation/Stormshield/fiche04_configurationReseau_SNS/">
+      
+      
+        <link rel="prev" href="../fiche03_gestionJournaux_SNS/">
+      
+      
+        <link rel="next" href="../fiche05_configurationObjetsReseaux_SNS/">
+      
+      
+      <link rel="icon" href="../../../media/cub/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.16">
+    
+    
+      
+        <title>Fiche 04 -- Configuration du réseau - Le contexte CUB</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.7e37652d.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#fiche-04-configuration-du-reseau" class="md-skip">
+          Aller au contenu
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="En-tête">
+    <a href="../../.." title="Le contexte CUB" class="md-header__button md-logo" aria-label="Le contexte CUB" data-md-component="logo">
+      
+  <img src="../../../media/cub/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Le contexte CUB
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Fiche 04 -- Configuration du réseau
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Rechercher" placeholder="Rechercher" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Recherche">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Effacer" aria-label="Effacer" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initialisation de la recherche
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Le contexte CUB" class="md-nav__button md-logo" aria-label="Le contexte CUB" data-md-component="logo">
+      
+  <img src="../../../media/cub/logo.png" alt="logo">
+
+    </a>
+    Le contexte CUB
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Introduction
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Contexte
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Contexte
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../contexte/01-presentation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Présentation du contexte CUB
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../contexte/02-schemas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Schémas réseaux de l'entreprise CUB
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../contexte/03-infra/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Description de l'infrastructure
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../contexte/bonnespratiques/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Référentiel défini par la DSI
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Documentation
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Documentation
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    DNS
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            DNS
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DNS/1--Pr%C3%A9ambule/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Introduction
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DNS/2--Resolver/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Serveur DNS récursif
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DNS/3--Autority/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Serveur DNS maître faisant autorité
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DNS/4--Slave/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Serveur DNS esclave faisant autorité
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DNS/5--Delegation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Délégation de zone
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DNS/6--Resolutioninverse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    La résolution inverse
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DNS/7--Tests/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tests et diagnostics DNS
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Linux
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            Linux
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Linux/2--OTP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Authentification TOTP sur Debian
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Stormshield
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            Stormshield
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../commandesUtilesConsole_SNS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CheatSheet
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fiche01_initialiser_SNS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Fiche 01 -- Initialiser un Pare-feu SNS
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fiche02_priseEnMain_SNS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Fiche 02 -- Prise en main d'un Pare-feu SNS
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fiche03_gestionJournaux_SNS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Fiche 03 -- Traces, Journaux et supervision
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Fiche 04 -- Configuration du réseau
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Fiche 04 -- Configuration du réseau
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#configuration-des-interfaces-reseau" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configuration des interfaces réseau
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#route-par-defaut" class="md-nav__link">
+    <span class="md-ellipsis">
+      Route par défaut
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuration-du-proxy-cache-dns" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configuration du proxy cache DNS
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#politique-de-securite-et-nat-en-bref" class="md-nav__link">
+    <span class="md-ellipsis">
+      Politique de sécurité et NAT en bref
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creation-de-sous-interfaces-pour-la-gestion-des-trames-etiquetees-8021q-et-des-vlan" class="md-nav__link">
+    <span class="md-ellipsis">
+      Création de sous-interfaces pour la gestion des trames étiquetées (802.1q) et des VLAN
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fiche05_configurationObjetsReseaux_SNS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Fiche 05 -- Configuration des Objets Réseau
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fiche06_configurationNat_SNS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Fiche 06 -- Configuration du NAT/PAT
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fiche07_filtrage_protocolaire_SNS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Fiche 07-- Filtrage protocolaire
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fiche08_filtrage_applicatifSNS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Fiche 08 -- Filtrage applicatif
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fiche09_IDS_IPS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Fiche 09 -- Prévention d'intrusion IDS/IPS
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fiche10_utilisateurs_authentification_SNS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Fiche 10 -- Utilisateurs, authentification et portail captif
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fiche11_infrastructure_cles_publiques_SNS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Fiche 11 -- Infrastructures à clés pubiques (PKI)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fiche12_vpn_openvpn/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Fiche 12 -- VPN pour utilisateurs nomades
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fiche13_vpn_ipsec/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Fiche 13 -- VPN site à site
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Versioning
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            Versioning
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Versioning/2--Etckeeper/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Gestion des versions de /etc avec Etckeeper
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#configuration-des-interfaces-reseau" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configuration des interfaces réseau
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#route-par-defaut" class="md-nav__link">
+    <span class="md-ellipsis">
+      Route par défaut
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuration-du-proxy-cache-dns" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configuration du proxy cache DNS
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#politique-de-securite-et-nat-en-bref" class="md-nav__link">
+    <span class="md-ellipsis">
+      Politique de sécurité et NAT en bref
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creation-de-sous-interfaces-pour-la-gestion-des-trames-etiquetees-8021q-et-des-vlan" class="md-nav__link">
+    <span class="md-ellipsis">
+      Création de sous-interfaces pour la gestion des trames étiquetées (802.1q) et des VLAN
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="fiche-04-configuration-du-reseau">Fiche 04 -- Configuration du réseau</h1>
+<h2 id="configuration-des-interfaces-reseau">Configuration des interfaces réseau</h2>
+<p><em>Dans une configuration usine, la </em><em>première interface</em><em> du pare-feu SNS
+210 est nommée « OUT » (qui correspond à l'interface WAN sur un boitier
+physique) et la </em><em>seconde</em>* « IN ». Les suivantes (3 à 7) sont des ports
+de commutateurs. La dernière interface « DMZ1 » (qui correspond à
+l'interface  DMZ  sur un boitier physique 210) sert à connecter le
+pare-feu sur une zone démilitarisée. *</p>
+<p>L'interface « OUT » est une <strong>interface externe</strong>, utilisée pour
+connecter le pare-feu SNS à internet (WAN) et le reste des interfaces
+sont internes et servent principalement à connecter le pare-feu SNS à
+des réseaux locaux. <em>La distinction interface interne/externe permet de
+se protéger contre les attaques d'usurpation d'adresse IP.</em></p>
+<div class="admonition warning">
+<p class="admonition-title">Attention</p>
+<p>Pour accéder à l'interface d'administration du
+pare-feu SNS, il faut connecter votre machine sur une interface interne
+(in, dmz1, dmz2, etc) **sous peine d'être détecté comme tentative
+d'intrusion qui nécessite le redémarrage du firewall.</p>
+</div>
+<div class="admonition info">
+<p class="admonition-title">Attention</p>
+<p>Dans ce cas, on aura un message « forbidden » sur le navigateur,
+on peut déconnecter le câble (faisable aussi en virtuel en désactivant
+la carte), changer son IP et se reconnecter à une autre interface
+interne sans redémarrage.*</p>
+</div>
+<p>La <strong>configuration des interfaces </strong>s'effectue
+dans le menu <strong>Configuration / Réseau / Interfaces</strong>, en faisant
+« sortir » les interfaces Ethernet de l'interface bridge créée par
+défaut sur le boîtier.</p>
+<ul>
+<li>Sélectionner <strong>Configuration / Réseau / Interfaces</strong>.</li>
+</ul>
+<p>Configuration par défaut avec bridge</p>
+<p><img alt="" src="../../../media/stormshield/fiches/fiche4_configurationReseau_SNS/Pictures/100000010000008000000092A21F9EFD2B265510.png" /></p>
+<p>Configuration en mode routeur</p>
+<p><img alt="" src="../../../media/stormshield/fiches/fiche4_configurationReseau_SNS/Pictures/100000010000008D0000008B6F36E6772B8B10AA.png" /></p>
+<ul>
+<li>Choisir une interface (par exemple <strong>IN</strong>), pour la sortir du bridge
+    ou la configurer avec une IP fixe, les manipulations sont
+    identiques.</li>
+</ul>
+<p><img alt="" src="../../../media/stormshield/fiches/fiche4_configurationReseau_SNS/Pictures/1000000100000211000001483A7A6FA48E54903C.png" /></p>
+<div class="admonition warning">
+<p class="admonition-title">Attention</p>
+<p>Il s'agit ici d'une interface interne (protégée), le bouton radio
+correspondant doit être coché.</p>
+</div>
+<ul>
+<li>Le cas échéant, cliquer dans la zone <strong>Plan d'adressage </strong>sur
+    <strong>Dynamique/Statique</strong>.</li>
+<li>Cliquer <strong>Ip</strong> <strong>fixe (statique)</strong>, un tableau apparaît :</li>
+</ul>
+<p><img alt="" src="../../../media/stormshield/fiches/fiche4_configurationReseau_SNS/Pictures/100000010000025D0000009779E66DFBF2E9066D.png" /></p>
+<ul>
+<li>Cliquer <strong>+Ajouter</strong> et dans la zone <strong>Adresse / Masque</strong> et saisir
+    <strong>l'adresse IP de l'interface IN </strong>puis le masque en CIDR (<strong>/24 par
+    exemple)</strong> ou en notation décimale pointée : 255.255.255.0.</li>
+</ul>
+<p><img alt="" src="../../../media/stormshield/fiches/fiche4_configurationReseau_SNS/Pictures/1000000100000282000000A612BEC6144C29CF6A.png" /></p>
+<ul>
+<li>Cliquer le bouton <strong>Appliquer </strong>puis <strong>Sauvegarder </strong>et à nouveau
+    <strong>Sauvegarder</strong>.</li>
+</ul>
+<h2 id="route-par-defaut">Route par défaut</h2>
+<ul>
+<li>Cliquer <strong>Configuration / Réseau / Routage / </strong>onglet <strong>Routes
+    statiques IPv4</strong>.</li>
+</ul>
+<p><img alt="" src="../../../media/stormshield/fiches/fiche4_configurationReseau_SNS/Pictures/10000001000002090000009C73F3619D1695A2FC.png" /></p>
+<ul>
+<li>Cliquer sur
+    l'icône <img alt="" src="../../../media/stormshield/fiches/fiche4_configurationReseau_SNS/Pictures/1000000100000013000000160328502F2D2A239F.png" /> pour <strong>ajouter un objet réseau (cf. fiche 4 pour
+    plus de détails), </strong>choisir <strong>Machine</strong> et renseigner les champs
+    <strong>Nom</strong> (Ex : <strong>FW</strong><strong><em>-</em></strong><strong>Siege</strong>) et <strong>Adresse IPv4</strong> du
+    pare-feu SNS <strong>Siège </strong>puis cliquer sur le bouton <strong>Créer</strong>.</li>
+</ul>
+<p>Par exemple :</p>
+<p><img alt="" src="../../../media/stormshield/fiches/fiche4_configurationReseau_SNS/Pictures/1000000100000282000000DD1ED64F0F370CE6EC.png" /></p>
+<p>Il est bien sûr possible de procéder autrement en créant au préalable
+l'objet réseau. Il suffit ensuite de le sélectionner.</p>
+<h2 id="configuration-du-proxy-cache-dns">Configuration du proxy cache DNS</h2>
+<p>Le proxy cache DNS doit être activé pour permettre la résolution de noms
+DNS de façon correcte pour la mise en œuvre des activités (labs).</p>
+<ul>
+<li>Dans le volet <strong>Système / Configuration</strong>, ouvrez l'onglet
+    <strong>Paramètres réseaux</strong> pour visualiser les options de configuration
+    réseau du pare-feu.</li>
+</ul>
+<p><img alt="" src="../../../media/stormshield/fiches/fiche4_configurationReseau_SNS/Pictures/10000001000001B40000007ACA607F62CEE39C5B.png" /></p>
+<p>La liste des serveurs DNS utilisés par le pare-feu doit permettre la
+résolution DNS vers des serveurs de l'Internet, vous pouvez conserver
+les serveurs de <em>google</em> (par défaut) ou les remplacer par d'autres.</p>
+<p>Le pare-feu intercepte les requêtes DNS à destination d'Internet, et
+effectue lui-même la requête vers le serveur DNS configuré. Si le nom
+demandé est dans son cache, le pare-feu répond directement à la demande
+selon les informations qu'il possède. Il est possible de configurer le
+proxy cache afin que le serveur DNS présent sur la DMZ puisse
+l'interroger.</p>
+<ul>
+<li>Dans le volet <strong>Configuration / Réseau, </strong>ouvrir <strong>Proxy cache
+    DNS</strong>.</li>
+<li>Cliquer sur <strong>OFF</strong> pour activer le cache DNS, il passe à <strong>ON</strong>.</li>
+<li>Dans la « liste des clients autorisés à utiliser le cache DNS »,
+    cliquer <strong>+ Ajouter</strong> puis cliquer sur l'icône
+    <img alt="" src="../../../media/stormshield/fiches/fiche4_configurationReseau_SNS/Pictures/1000000100000013000000160328502F2D2A239F.png" /> pour ajouter un objet <strong>Machine</strong>, dans <strong>Nom de
+    l'objet</strong>, saisir un nom (par exemple <strong>srv_dns_priv)</strong>, dans
+    <strong>Adresse IPv4 </strong>saisir l'adresse du DNS puis <strong>Créer</strong> pour
+    l'ajouter puis <strong>Appliquer</strong>.</li>
+</ul>
+<h2 id="politique-de-securite-et-nat-en-bref">Politique de sécurité et NAT en bref</h2>
+<p>Le détail des différentes possibilités de paramétrage figure dans les
+fiches 5 et 6.</p>
+<p><img alt="" src="../../../media/stormshield/fiches/fiche4_configurationReseau_SNS/Pictures/10000001000000190000001611338230E4300D82.png" />
+Dans les pare-feu SNS, les règles de filtrage et NAT
+(traduction d'adresses) sont regroupées sous une même politique. Il est
+possible de définir 10 politiques différentes mais une seule politique
+est active à la fois, identifiée par l'icône :</p>
+<p>La politique de sécurité active en configuration usine est
+<strong>(1)</strong> <strong>Block all</strong>, elle n'autorise que le <em>ping</em> des interfaces du
+pare-feu et l'accès en https à l'administration du boîtier.</p>
+<p>Une politique implicite <strong>Block all </strong>est également configurée sur le
+pare-feu SNS.</p>
+<p>Pour modifier :</p>
+<ul>
+<li>Ouvrir le menu <strong>Configuration</strong> / <strong>Politique de sécurité</strong> /
+    <strong>Filtrage et NAT.</strong></li>
+</ul>
+<p><img alt="" src="../../../media/stormshield/fiches/fiche4_configurationReseau_SNS/Pictures/1000000100000269000000EBDE0C030BC3B5A16B.png" />{width="15.947cm"
+height="6.075cm"}</p>
+<ul>
+<li>Procéder aux modifications voulues (cf. fiche 6)</li>
+<li>Cliquer <strong>Sauvegarder les modifications.</strong></li>
+</ul>
+<p>Voici ci-dessus le résultat si on applique la dernière politique « Pass
+all ».</p>
+<p><img alt="" src="../../../media/stormshield/fiches/fiche4_configurationReseau_SNS/Pictures/10000001000009900000017E658CADE6AE6FAC16.png" /></p>
+<p><strong>Pour ajouter une règle de NAT dynamique NAPT afin que les machines du
+réseau interne (Network_internals) puissent accéder au réseau externe
+(Network_Out) et à Internet</strong></p>
+<p>La règle de <strong>NAT dynamique</strong> est créée avec le bouton <strong>Nouvelle
+règle</strong> / <strong>règle de partage d'adresse source (masquerading)</strong> qui
+ajoute automatiquement la plage de ports
+prédéfinie <strong>ephemeral_fw</strong> [20000-59999] au niveau du port source
+dans le trafic après traduction. Par défaut, les ports sont choisis
+séquentiellement dans cette plage, cependant une option est disponible
+pour permettre un choix aléatoire du numéro de port pour chaque nouvelle
+connexion et le rendre ainsi moins prédictible.</p>
+<ul>
+<li>Dans votre politique <strong>(10)</strong>, sélectionner l'onglet NAT puis
+    <strong>Nouvelle règle</strong> / <strong>règle de partage d'adresse source
+    (masquerading)</strong> </li>
+</ul>
+<p><img alt="" src="../../../media/stormshield/fiches/fiche4_configurationReseau_SNS/Pictures/100000010000025D0000005D37DB1C8FCAFB5DB3.png" /></p>
+<p>Une nouvelle règle non activée apparaît avec des valeurs par défaut any,
+any. Dans la section <strong>Trafic après translation</strong>, le port source sera
+traduit par un numéro de port choisi dans la plage <strong>ephemeral_fw</strong>.</p>
+<p>La configuration du <strong>Trafic original (avant translation)</strong> permet de
+renseigner les valeurs des paramètres avant traduction (par défaut any,
+any) :</p>
+<ul>
+<li><strong>Source </strong>permet de définir l'adresse IP d'un hôte ou du réseau
+    source ;</li>
+<li><strong>Destination </strong>permet de définir l'adresse IP d'un hôte ou du
+    réseau destination.</li>
+</ul>
+<p>La configuration du <strong>Trafic après translation</strong> permet de renseigner
+les nouvelles valeurs des paramètres après traduction (par défaut any,
+any) :</p>
+<ul>
+<li><strong>Source</strong> définit l'adresse IP ou le réseau source et le <strong>port</strong>
+    source vus de l'extérieur.</li>
+<li><strong>Destination</strong> définit l'adresse IP ou le réseau destination et
+    <strong>Port destination</strong> translatée le port de destination.</li>
+</ul>
+<p>Pour configurer un NAT/PAT pour permettre la sortie sur Internet</p>
+<ul>
+<li>Double-cliquer sur une zone vide de la règle pour ouvrir la fenêtre
+    de configuration détaillée « <strong>Edition de la règle N°1 </strong>».</li>
+<li>Cliquer l'onglet du menu de gauche <strong>Général</strong>, dans la
+    zone <strong>Commentaire,</strong> saisir un commentaire, par exemple
+    « Configuration de la règle de NAT/PAT pour la sortie internet ».</li>
+<li>Cliquer sur l'onglet du menu de gauche <strong>Source Originale.</strong></li>
+<li>Double-cliquer sur Any et avec la flèche choisir
+    <strong>Network_internals</strong> (qui renvoie à tous les réseaux internes
+    protégés), dans l'onglet Configuration avancée, laissez <strong>Any</strong> pour
+    le port de destination.</li>
+</ul>
+<p><img alt="" src="../../../media/stormshield/fiches/fiche4_configurationReseau_SNS/Pictures/100000010000025C000000C98CB41F68EC1A4782.png" /></p>
+<ul>
+<li>Cliquer sur l'onglet du menu de gauche <strong>Destination originale.</strong></li>
+<li>Double-cliquer sur <strong>Any</strong> et avec la flèche choisir <strong>Internet</strong>,
+    laissez <strong>Any </strong>pour le port de destination.</li>
+</ul>
+<p><img alt="" src="../../../media/stormshield/fiches/fiche4_configurationReseau_SNS/Pictures/10000001000001E3000000E1B6F7047F81623EC0.png" /></p>
+<div class="admonition warning">
+<p class="admonition-title">Vigilence</p>
+<p><strong>Attention</strong> : si dans la zone <strong>destination
+originale</strong>, vous laissez <strong>Any</strong>, plutôt qu'<strong>Internet</strong> qui désigne
+tous les réseaux sauf ceux internes au pare-feu SNS, le pare-feu SNS
+bloquera les flux d'administration (en ssh et en https). En effet, les
+flux d'administration subiront également une traduction NAT vers
+l'interface <strong>OUT</strong> qui l'interprétera comme une tentative d'intrusion
+et les bloquera.</p>
+</div>
+<div class="admonition info">
+<p class="admonition-title">Vigilence</p>
+<p>Vous pouvez rendre cette règle plus restrictive en choisissant
+explicitement l'interface de sortie.</p>
+</div>
+<ul>
+<li>Cliquer sur l'onglet <strong>Configuration avancée</strong> et sélectionnez
+    <strong>out</strong> dans <strong>Interface de sortie</strong>.</li>
+</ul>
+<p><img alt="" src="../../../media/stormshield/fiches/fiche4_configurationReseau_SNS/Pictures/10000001000001E20000009A05AB94690DDD9521.png" /></p>
+<ul>
+<li>Cliquer sur l'onglet <strong>Source translatée </strong>et
+    sélectionner <strong>Firewall_Out </strong>dans <strong>Machine source translatée</strong>.</li>
+<li>Dans <strong>Port source translaté</strong>, laisser <strong>ephemeral_fw </strong>et cocher
+    <strong>choisir aléatoirement le port source translaté</strong>.</li>
+</ul>
+<div class="admonition info">
+<p class="admonition-title">Vigilence</p>
+<p>Cette option <strong>choisit aléatoirement le port source
+translaté</strong>, ce qui permet d'éviter les attaques utilisant la
+prédictibilité des ports utilisés. Ainsi si le premier port est 10000,
+le suivant ne sera pas 10001. Cette précaution n'empêche pas les
+attaques, elle permet de les rendre plus complexes.</p>
+</div>
+<p><img alt="" src="../../../media/stormshield/fiches/fiche4_configurationReseau_SNS/Pictures/1000000100000282000000E4263B6D14E5D74200.png" /></p>
+<ul>
+<li>Cliquer l'onglet du menu de gauche <strong>Protocole</strong>, cela permet de
+    définir le type de protocole : applicatif, IP ou Ethernet, laisser
+    <strong>Détection automatique du protocole (par défaut)</strong></li>
+</ul>
+<p><img alt="" src="../../../media/stormshield/fiches/fiche4_configurationReseau_SNS/Pictures/1000000100000282000000D9D67F857B0B841622.png" /></p>
+<ul>
+<li>Cliquer sur l'onglet du menu de gauche <strong>Options</strong>, cela permet de
+    tracer le trafic qui correspond à la règle de traduction dans le
+    journal de connexions, choisir <strong>tracer</strong>.</li>
+</ul>
+<p><img alt="" src="../../../media/stormshield/fiches/fiche4_configurationReseau_SNS/Pictures/1000000100000282000000C64CD2B9D6CBB11E3E.png" /></p>
+<div class="admonition info">
+<p class="admonition-title">Information</p>
+<p>NB : Le NAT ne laisse jamais de traces dans le journal de connexions.
+Pour tracer une règle de NAT, il faut choisir l'option « tracer »,
+sinon, aucune journalisation de NAT ne sera effectuée.</p>
+</div>
+<p><img alt="" src="../../../media/stormshield/fiches/fiche4_configurationReseau_SNS/Pictures/10000001000000980000003EB64457464695E7CE.png" /></p>
+<ul>
+<li>Cliquer sur <strong>OK</strong> pour sauvegarder les
+    modifications de la règle de NAT dynamique que vous venez de créer.</li>
+<li>
+<p>Dans la colonne <strong>État</strong>, sélectionner avec la flèche <strong>Définir
+    l'état on</strong> <img alt="" src="../../../media/stormshield/fiches/fiche4_configurationReseau_SNS/Pictures/100000010000003200000017E469BC9134DE71E7.png" /> La règle passe.</p>
+</li>
+<li>
+<p>Cliquer sur <strong>Appliquer</strong> puis <strong>Oui, Activer</strong> <strong>la politique</strong>
+    puis confirmer.</p>
+</li>
+</ul>
+<p><img alt="" src="../../../media/stormshield/fiches/fiche4_configurationReseau_SNS/Pictures/100000010000025D0000007FC2AA7F9A3313EB68.png" /></p>
+<p>Pour gérer les statistiques d'utilisation</p>
+<p>Dans la liste des règles la barre devient verte quand les règles
+s'appliquent et une info-bulle indique le nombre de fois où la règle a
+été appliquée :</p>
+<p><img alt="" src="../../../media/stormshield/fiches/fiche4_configurationReseau_SNS/Pictures/1000000100000285000000739E0225667E887616.png" /></p>
+<p>Dans le bandeau d'affichage des règles, dépliez le menu
+<img alt="" src="../../../media/stormshield/fiches/fiche4_configurationReseau_SNS/Pictures/100000010000001500000012C004A96468C7D42F.png" />cliquez sur <strong>Réinitialiser les statistiques des
+règles </strong>pour remettre les compteurs à zéro.</p>
+<blockquote>
+<p><img alt="" src="../../../media/stormshield/fiches/fiche4_configurationReseau_SNS/Pictures/100000010000019F0000006895FA7BF1553E2276.png" /></p>
+</blockquote>
+<h2 id="creation-de-sous-interfaces-pour-la-gestion-des-trames-etiquetees-8021q-et-des-vlan">Création de sous-interfaces pour la gestion des trames étiquetées (802.1q) et des VLAN</h2>
+<div class="admonition warning">
+<p class="admonition-title">Vigilence</p>
+<p>Lorsque le pare-feu doit également gérer le routage
+inter-vlan, il est nécessaire de créer à partir d'une interface physique
+des sous-interfaces à même d'interpréter des trames Ethernet étiquetées
+<strong>802.1q</strong> en fonction des VLAN créés.</p>
+</div>
+<p>Si l'interface <strong>IN</strong> est celle utilisée pour se connecter à la page web
+d'administration du pare-feu mais également pour la création de
+sous-interfaces, il est <strong>indispensable</strong> d'avoir un accès à cette même
+application par une autre interface telle que DMZ. Sans cela, il ne sera
+plus possible de se connecter au pare-feu pour l'administrer.</p>
+<div class="admonition information">
+<p class="admonition-title">Vigilence</p>
+<p>La désactivation de l'interface parent peut se faire dans un second temps une fois que les interfaces virtuelles sont configurées.</p>
+</div>
+<p>Pour créer une sous-interface, il est nécessaire de se rendre dans le
+menu <strong>Configuration / Réseau / Interfaces</strong>.</p>
+<p><img alt="" src="../../../media/stormshield/fiches/fiche4_configurationReseau_SNS/Pictures/100000010000021B00000074852BE7A252130609.png" /></p>
+<p>Contrairement à la création de sous-interfaces sur des routeurs Cisco
+qui consiste à activer l'interface réseau physique sans lui attribuer de
+configuration IP, Stormshield recommande de désactiver
+<img alt="" src="../../../media/stormshield/fiches/fiche4_configurationReseau_SNS/Pictures/100000010000002D0000001028F121B1FA1779C8.png" /> l'interface parente qui servira à la création des
+sous-interfaces associées à chaque VLAN :</p>
+<ul>
+<li>double-cliquer sur l'interface physique concernée par le routage
+    inter-vlan (<strong>in</strong> la plupart du temps) puis dans l'onglet
+    <strong>Configuration</strong> <strong>Générale</strong> pour la désactiver, passer
+    l'<strong>Etat</strong> à <strong>Off</strong>.</li>
+</ul>
+<p><img alt="" src="../../../media/stormshield/fiches/fiche4_configurationReseau_SNS/Pictures/10000001000001B7000001012CFA78BC1EDC0537.png" /></p>
+<ul>
+<li>Sélectionner ensuite l'interface physique que vous venez de
+    désactiver puis cliquer sur <strong>Ajouter / VLAN / Pour in</strong> (ou toute
+    autre interface concernée).</li>
+</ul>
+<p><img alt="" src="../../../media/stormshield/fiches/fiche4_configurationReseau_SNS/Pictures/100000010000022B000000F823243E13859E7ED1.png" /></p>
+<ul>
+<li>Définir un nom pour la sous-interface en respectant une convention
+    de nommage cohérente puis un commentaire permettant d'expliciter
+    l'utilité de celle-ci.</li>
+<li>Le cas échéant, choisir l'interface parente correspondante et
+    définir un identifiant correspondant au VID du VLAN concerné (10,
+    100, 200...).</li>
+<li>Cette sous-interface est interne puisque les VLAN sont très souvent
+    implémentés sur le réseau local de l'entreprise.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Pied de page" >
+        
+          
+          <a href="../fiche03_gestionJournaux_SNS/" class="md-footer__link md-footer__link--prev" aria-label="Précédent: Fiche 03 -- Traces, Journaux et supervision">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Précédent
+              </span>
+              <div class="md-ellipsis">
+                Fiche 03 -- Traces, Journaux et supervision
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../fiche05_configurationObjetsReseaux_SNS/" class="md-footer__link md-footer__link--next" aria-label="Suivant: Fiche 05 -- Configuration des Objets Réseau">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Suivant
+              </span>
+              <div class="md-ellipsis">
+                Fiche 05 -- Configuration des Objets Réseau
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Licence CC 4.0 FR BY-NC-SA - 2025 D. Balny et Q. Demoulière - Lycée Paul-Louis Courier
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.footer", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.50899def.min.js"></script>
+      
+    
+  </body>
+</html>

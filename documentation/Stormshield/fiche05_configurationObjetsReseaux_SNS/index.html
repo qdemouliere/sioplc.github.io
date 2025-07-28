@@ -1,0 +1,1518 @@
+
+<!doctype html>
+<html lang="fr" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://qdemouliere.github.io/cub/documentation/Stormshield/fiche05_configurationObjetsReseaux_SNS/">
+      
+      
+        <link rel="prev" href="../fiche04_configurationReseau_SNS/">
+      
+      
+        <link rel="next" href="../fiche06_configurationNat_SNS/">
+      
+      
+      <link rel="icon" href="../../../media/cub/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.16">
+    
+    
+      
+        <title>Fiche 05 -- Configuration des Objets Réseau - Le contexte CUB</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.7e37652d.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#fiche-05-configuration-des-objets-reseau" class="md-skip">
+          Aller au contenu
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="En-tête">
+    <a href="../../.." title="Le contexte CUB" class="md-header__button md-logo" aria-label="Le contexte CUB" data-md-component="logo">
+      
+  <img src="../../../media/cub/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Le contexte CUB
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Fiche 05 -- Configuration des Objets Réseau
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Rechercher" placeholder="Rechercher" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Recherche">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Effacer" aria-label="Effacer" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initialisation de la recherche
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Le contexte CUB" class="md-nav__button md-logo" aria-label="Le contexte CUB" data-md-component="logo">
+      
+  <img src="../../../media/cub/logo.png" alt="logo">
+
+    </a>
+    Le contexte CUB
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Introduction
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Contexte
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Contexte
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../contexte/01-presentation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Présentation du contexte CUB
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../contexte/02-schemas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Schémas réseaux de l'entreprise CUB
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../contexte/03-infra/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Description de l'infrastructure
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../contexte/bonnespratiques/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Référentiel défini par la DSI
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Documentation
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Documentation
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    DNS
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            DNS
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DNS/1--Pr%C3%A9ambule/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Introduction
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DNS/2--Resolver/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Serveur DNS récursif
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DNS/3--Autority/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Serveur DNS maître faisant autorité
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DNS/4--Slave/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Serveur DNS esclave faisant autorité
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DNS/5--Delegation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Délégation de zone
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DNS/6--Resolutioninverse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    La résolution inverse
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DNS/7--Tests/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tests et diagnostics DNS
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Linux
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            Linux
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Linux/2--OTP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Authentification TOTP sur Debian
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Stormshield
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            Stormshield
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../commandesUtilesConsole_SNS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CheatSheet
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fiche01_initialiser_SNS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Fiche 01 -- Initialiser un Pare-feu SNS
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fiche02_priseEnMain_SNS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Fiche 02 -- Prise en main d'un Pare-feu SNS
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fiche03_gestionJournaux_SNS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Fiche 03 -- Traces, Journaux et supervision
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fiche04_configurationReseau_SNS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Fiche 04 -- Configuration du réseau
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Fiche 05 -- Configuration des Objets Réseau
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Fiche 05 -- Configuration des Objets Réseau
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#presentation-des-objets" class="md-nav__link">
+    <span class="md-ellipsis">
+      Présentation des Objets
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creation-des-objets-reseaux" class="md-nav__link">
+    <span class="md-ellipsis">
+      Création des objets « Réseaux »
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#importexport-des-objets" class="md-nav__link">
+    <span class="md-ellipsis">
+      Import/Export des Objets
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fiche06_configurationNat_SNS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Fiche 06 -- Configuration du NAT/PAT
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fiche07_filtrage_protocolaire_SNS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Fiche 07-- Filtrage protocolaire
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fiche08_filtrage_applicatifSNS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Fiche 08 -- Filtrage applicatif
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fiche09_IDS_IPS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Fiche 09 -- Prévention d'intrusion IDS/IPS
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fiche10_utilisateurs_authentification_SNS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Fiche 10 -- Utilisateurs, authentification et portail captif
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fiche11_infrastructure_cles_publiques_SNS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Fiche 11 -- Infrastructures à clés pubiques (PKI)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fiche12_vpn_openvpn/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Fiche 12 -- VPN pour utilisateurs nomades
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fiche13_vpn_ipsec/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Fiche 13 -- VPN site à site
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Versioning
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            Versioning
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Versioning/2--Etckeeper/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Gestion des versions de /etc avec Etckeeper
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#presentation-des-objets" class="md-nav__link">
+    <span class="md-ellipsis">
+      Présentation des Objets
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creation-des-objets-reseaux" class="md-nav__link">
+    <span class="md-ellipsis">
+      Création des objets « Réseaux »
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#importexport-des-objets" class="md-nav__link">
+    <span class="md-ellipsis">
+      Import/Export des Objets
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="fiche-05-configuration-des-objets-reseau">Fiche 05 -- Configuration des Objets Réseau</h1>
+<p>Les objets réseau sont notamment nécessaires à la mise en place de
+règles de filtrage et de NAT.</p>
+<h2 id="presentation-des-objets">Présentation des Objets</h2>
+<p>Les menus de configuration des pare-feu Stormshield Network utilisent
+des objets qui représentent des valeurs (adresse IP, adresse réseau,
+URL, événement temporel, etc.). L'utilisation d'objets au lieu de
+valeurs présente deux avantages majeurs :</p>
+<ol>
+<li>
+<p>Cela permet à l'administrateur de manipuler des noms, plus parlants
+    que des valeurs.</p>
+</li>
+<li>
+<p>Dans le cas où une valeur change, il suffira de modifier la valeur
+    au niveau de l'objet et non dans tous les menus où l'objet est
+    utilisé.</p>
+</li>
+</ol>
+<p>La création et la configuration des objets s'effectuent :</p>
+<ul>
+<li>Dans le menu : CONFIGURATION / OBJETS</li>
+<li>Dans le menu raccourci :
+    <img alt="" src="../../../media/stormshield/fiches/fiche5_configurationObjetsReseaux_SNS/Pictures/100000010000008F000000158D6CC4E9FC79DC8D.png" /></li>
+<li>Depuis n'importe quel autre menu via le bouton
+    <img alt="" src="../../../media/stormshield/fiches/fiche5_configurationObjetsReseaux_SNS/Pictures/10000001000000160000001A7BCE2C127862CE4D.png" /></li>
+</ul>
+<p>Les objets sont classés en 3 catégories :</p>
+<ol>
+<li><strong>Objets Réseau</strong> : regroupe tous les objets en relation avec les
+    valeurs réseaux (adresse IP, numéro de port, numéro de protocole,
+    etc.) et les objets temps (par exemple, <strong>l'objet Machine
+    FWOUT_Siege</strong> qui représente la passerelle des agences).</li>
+<li><strong>Objets Web </strong>: groupes d'URL (ou groupes de catégories) et groupes
+    de noms de certificats.</li>
+<li><strong>Certificats et PKI</strong> : permet la création et la gestion des
+    autorités de certification et de tous les certificats (de type
+    serveur, utilisateur, ou smartcard) qui en découlent.</li>
+</ol>
+<p>On peut distinguer deux types d'objets particuliers en plus des objets
+qui peuvent être créés par l'administrateur :</p>
+<ul>
+<li><strong>Objets implicites :</strong> ils sont créés automatiquement par le
+    pare-feu et dépendent de la configuration réseau. Ces objets sont en
+    lecture seule et ne peuvent être ni modifiés ni supprimés par
+    l'administrateur. Par exemple, l'objet « <strong>Firewall_out »</strong>, créé
+    automatiquement lorsqu'une adresse IP est associée à l'interface
+    «<strong> OUT </strong>» ou l'objet <strong>« Network_internals</strong> <strong>»</strong> qui regroupe
+    tous les réseaux accessibles via les interfaces internes.</li>
+<li><strong>Objets pré-configurés :</strong> ils sont présents par défaut dans la
+    liste des objets. Ils représentent des valeurs de paramètres réseaux
+    standardisées (ports, protocoles, réseaux) et des valeurs
+    nécessaires pour le fonctionnement du pare-feu (adresse IP des
+    serveurs Stormshield pour les mises à jour). On trouvera par exemple
+    le protocole ICMP et l'objet « <strong>Internet »</strong> qui regroupe
+    l'ensemble des machines ne faisant pas partie des réseaux internes.</li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Attention</p>
+<p>Il est conseillé d'utiliser les objets implicites et pré-configurés et
+d'éviter de créer d'autres objets portant les mêmes valeurs.</p>
+</div>
+<p>Les recommandations sont les suivantes :</p>
+<ul>
+<li><strong>utiliser les objets implicites</strong> ou pré-configurés ;</li>
+<li><strong>suivre une convention de nommage</strong> des objets bien définie et
+    l'appliquer strictement évite la création de doublons et facilite la
+    lecture des objets ;</li>
+<li>utiliser un <strong>groupe d'objet d'administration</strong> contenant l'ensemble
+    des IP et des réseaux d'administration permet de réutiliser ce
+    groupe dans toutes les règles de filtrage liées à l'administration
+    et donc de maintenir leur cohérence tout en facilitant leur
+    modification ;</li>
+<li>limiter l'usage des objets dynamiques (type FQDN et Dynamic Host) :
+    ils génèrent des requêtes DNS régulières. Cela sollicite le réseau
+    et le pare-feu, utilisez cette fonctionnalité lorsqu'elle est
+    nécessaire ;</li>
+<li>limiter le nombre d'objets inutilisés : ils chargent l'affichage et
+    sont bien souvent oubliés et recréés ;</li>
+<li><strong>éviter les doublons</strong>, ils doivent être traqués et supprimés car
+    c'est une source d'erreur courante lors de la modification de règles
+    de filtrage. On se retrouve dans un cas où la modification d'un
+    objet n'impacte pas toutes les règles qui auraient dû l'être, créant
+    ainsi des trous dans la sécurité.</li>
+</ul>
+<p>La syntaxe des noms des objets (insensible à la casse) doit respecter quelques restrictions définies dans le tableau ci-dessous :</p>
+<p><img alt="" src="../../../media/stormshield/fiches/fiche5_configurationObjetsReseaux_SNS/Pictures/100000010000021700000145359243D353809E0B.png" /></p>
+<h2 id="creation-des-objets-reseaux">Création des objets « Réseaux »</h2>
+<p>Le menu <strong>Configuration</strong> / <strong>Objets </strong>/ <strong>Objets réseau</strong> ou le menu
+<strong>Objets réseau</strong> permettent de visualiser les objets, de les modifier
+ou d'en ajouter.</p>
+<p><img alt="" src="../../../media/stormshield/fiches/fiche5_configurationObjetsReseaux_SNS/Pictures/1000000100000322000003F0FE2C124FF969C12A.png" />
+<img alt="" src="../../../media/stormshield/fiches/fiche5_configurationObjetsReseaux_SNS/Pictures/10000001000001960000036E2768E8C6C689F64F.png" /></p>
+<ul>
+<li>Ouvrir <strong>Configuration</strong> / <strong>Objets</strong> / <strong>Objets réseau </strong>et cliquer
+    sur le bouton <strong>Ajouter</strong> pour ajouter les objets souhaités.</li>
+</ul>
+<p><img alt="" src="../../../media/stormshield/fiches/fiche5_configurationObjetsReseaux_SNS/Pictures/10000001000003DA00000262A23112515D44B2D7.png" /></p>
+<p>Les types d'objets suivants peuvent être créés :</p>
+<ul>
+<li>Machine : une adresse IP,</li>
+<li>Nom DNS (FQDN) : toutes les adresses IP associées à un nom FQDN par
+    résolution DNS,</li>
+<li>Réseau : une adresse réseau,</li>
+<li>Plage d'adresses IP : une plage d'adresses,</li>
+<li>Routeur : permet de renseigner une ou plusieurs passerelles pour un
+    routage par répartition de charge avec ou sans passerelle de
+    secours.</li>
+<li>Groupe : un groupe d'objets portant une ou plusieurs adresses IP :
+    machines, plages d'adresses IP, réseaux ou d'autres groupes,</li>
+<li>Protocole IP : l'ID du protocole au niveau IP,</li>
+<li>Port - Plage de ports : un port ou une plage de ports. Il/Elle peut
+    être limité(e) à un protocole de transport particulier (TCP ou UDP),</li>
+<li>Groupe de ports : un groupe d'objets portant des ports ou des plages
+    de ports, ainsi que d'autres groupes de ports,</li>
+<li>Groupe de régions : un groupe de pays ou de continents. Ce type
+    d'objet peut être utilisé dans la géolocalisation des adresses IP,</li>
+<li>Objet temps : un événement temporel (ponctuel, jour de l'année,
+    jour(s) de la semaine ou plage(s) horaire(s)).</li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Attention</p>
+<p><strong>ATTENTION</strong>, il faut utiliser un typage d'objets adéquat (objet réseau
+pour les réseaux, objet machine pour les pare-feu, etc.).</p>
+</div>
+<ul>
+<li>Cliquer sur <strong>+ CRÉER</strong> pour ajouter l'objet.</li>
+</ul>
+<h2 id="importexport-des-objets">Import/Export des Objets</h2>
+<p>Il est possible d'exporter la base d'objets du pare-feu SNS dans un
+fichier CSV en cliquant sur le bouton « <strong>Exporter</strong> ». Le fichier CSV
+généré contient les objets machines, plages d'adresses IP, réseaux,
+FQDN, ports -- plages de ports, protocoles, groupes et groupes de ports.</p>
+<p>Les objets sont organisés par catégorie et séparés par des lignes
+contenant les noms des paramètres : #type, #name, #IP, etc. (les
+paramètres diffèrent en fonction des catégories d'objets). Les attributs
+d'un objet, quant à eux, sont séparés par des virgules.</p>
+<p>Il est possible d'importer des objets depuis un fichier CSV possédant le
+même format que le fichier exporté.</p>
+<p>Un rapport statistique affiche le nombre d'objets importés par type. En
+cas d'erreur d'import, la base d'objets n'est pas modifiée.</p>
+<div class="admonition danger">
+<p class="admonition-title">Attention</p>
+<p>Les objets du fichier importé écrasent ceux du firewall s'ils portent le
+même nom. Les autres objets ne sont pas affectés.</p>
+</div>
+<ul>
+<li>Cliquer sur <strong>Exporter</strong>, pour exporter la base d'objets
+    précédemment créés dans un fichier CSV.</li>
+</ul>
+<p><img alt="" src="../../../media/stormshield/fiches/fiche5_configurationObjetsReseaux_SNS/Pictures/1000000100000225000000385A356102F4027DA1.png" /></p>
+<ul>
+<li>
+<p>Et cliquer sur <strong>Importer</strong>,</p>
+</li>
+<li>
+<p>Cliquer sur <strong>Importer</strong>, pour importer le fichier CSV après une
+    éventuelle modification, puis choisissez le fichier « csv » et
+    cliquer sur <strong>Transférer </strong>pour commencer l'import puis <strong>Fermer</strong>.
+    Une barre d'avancement permet de visualiser le déroulement de
+    l'import. Et une fois fini, un rapport statistique affiche le nombre
+    d'objets importés par type.</p>
+</li>
+</ul>
+<p><img alt="" src="../../../media/stormshield/fiches/fiche5_configurationObjetsReseaux_SNS/Pictures/10000001000001A4000000C63A937A64CD9CEA95.png" /></p>
+<div class="admonition info">
+<p class="admonition-title">Information</p>
+<p>En cas de problème à l'importation, encodez le fichier en UTF-8 avec des
+retours à la ligne type Unix (LF).</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Pied de page" >
+        
+          
+          <a href="../fiche04_configurationReseau_SNS/" class="md-footer__link md-footer__link--prev" aria-label="Précédent: Fiche 04 -- Configuration du réseau">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Précédent
+              </span>
+              <div class="md-ellipsis">
+                Fiche 04 -- Configuration du réseau
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../fiche06_configurationNat_SNS/" class="md-footer__link md-footer__link--next" aria-label="Suivant: Fiche 06 -- Configuration du NAT/PAT">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Suivant
+              </span>
+              <div class="md-ellipsis">
+                Fiche 06 -- Configuration du NAT/PAT
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Licence CC 4.0 FR BY-NC-SA - 2025 D. Balny et Q. Demoulière - Lycée Paul-Louis Courier
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.footer", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.50899def.min.js"></script>
+      
+    
+  </body>
+</html>

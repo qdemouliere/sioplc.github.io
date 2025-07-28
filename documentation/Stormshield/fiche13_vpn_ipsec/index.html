@@ -1,0 +1,1676 @@
+
+<!doctype html>
+<html lang="fr" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://qdemouliere.github.io/cub/documentation/Stormshield/fiche13_vpn_ipsec/">
+      
+      
+        <link rel="prev" href="../fiche12_vpn_openvpn/">
+      
+      
+        <link rel="next" href="../../Versioning/2--Etckeeper/">
+      
+      
+      <link rel="icon" href="../../../media/cub/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.16">
+    
+    
+      
+        <title>Fiche 13 -- VPN site à site - Le contexte CUB</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.7e37652d.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#fiche-13-vpn-site-a-site" class="md-skip">
+          Aller au contenu
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="En-tête">
+    <a href="../../.." title="Le contexte CUB" class="md-header__button md-logo" aria-label="Le contexte CUB" data-md-component="logo">
+      
+  <img src="../../../media/cub/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Le contexte CUB
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Fiche 13 -- VPN site à site
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Rechercher" placeholder="Rechercher" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Recherche">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Effacer" aria-label="Effacer" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initialisation de la recherche
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Le contexte CUB" class="md-nav__button md-logo" aria-label="Le contexte CUB" data-md-component="logo">
+      
+  <img src="../../../media/cub/logo.png" alt="logo">
+
+    </a>
+    Le contexte CUB
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Introduction
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Contexte
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Contexte
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../contexte/01-presentation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Présentation du contexte CUB
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../contexte/02-schemas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Schémas réseaux de l'entreprise CUB
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../contexte/03-infra/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Description de l'infrastructure
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../contexte/bonnespratiques/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Référentiel défini par la DSI
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Documentation
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Documentation
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    DNS
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            DNS
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DNS/1--Pr%C3%A9ambule/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Introduction
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DNS/2--Resolver/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Serveur DNS récursif
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DNS/3--Autority/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Serveur DNS maître faisant autorité
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DNS/4--Slave/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Serveur DNS esclave faisant autorité
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DNS/5--Delegation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Délégation de zone
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DNS/6--Resolutioninverse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    La résolution inverse
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DNS/7--Tests/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tests et diagnostics DNS
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Linux
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            Linux
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Linux/2--OTP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Authentification TOTP sur Debian
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Stormshield
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            Stormshield
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../commandesUtilesConsole_SNS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CheatSheet
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fiche01_initialiser_SNS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Fiche 01 -- Initialiser un Pare-feu SNS
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fiche02_priseEnMain_SNS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Fiche 02 -- Prise en main d'un Pare-feu SNS
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fiche03_gestionJournaux_SNS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Fiche 03 -- Traces, Journaux et supervision
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fiche04_configurationReseau_SNS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Fiche 04 -- Configuration du réseau
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fiche05_configurationObjetsReseaux_SNS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Fiche 05 -- Configuration des Objets Réseau
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fiche06_configurationNat_SNS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Fiche 06 -- Configuration du NAT/PAT
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fiche07_filtrage_protocolaire_SNS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Fiche 07-- Filtrage protocolaire
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fiche08_filtrage_applicatifSNS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Fiche 08 -- Filtrage applicatif
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fiche09_IDS_IPS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Fiche 09 -- Prévention d'intrusion IDS/IPS
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fiche10_utilisateurs_authentification_SNS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Fiche 10 -- Utilisateurs, authentification et portail captif
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fiche11_infrastructure_cles_publiques_SNS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Fiche 11 -- Infrastructures à clés pubiques (PKI)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fiche12_vpn_openvpn/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Fiche 12 -- VPN pour utilisateurs nomades
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Fiche 13 -- VPN site à site
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Fiche 13 -- VPN site à site
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#le-vpn-ipsec" class="md-nav__link">
+    <span class="md-ellipsis">
+      Le VPN IPSec
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Le VPN IPSec">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#concepts-et-generalites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Concepts et généralités
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configurer-le-service-vpn-ipsec" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configurer le service VPN IPSec
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Configurer le service VPN IPSec">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#gestion-de-la-pki-du-sns" class="md-nav__link">
+    <span class="md-ellipsis">
+      Gestion de la PKI du SNS
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuration-du-vpn-ipsec" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configuration du VPN IPSEC
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mise-en-uvre-des-regles-de-filtrage-adaptees" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mise en œuvre des règles de filtrage adaptées
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gestion-du-nat-traversal-nat-t" class="md-nav__link">
+    <span class="md-ellipsis">
+      Gestion du NAT-Traversal (NAT-T)
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Versioning
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            Versioning
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Versioning/2--Etckeeper/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Gestion des versions de /etc avec Etckeeper
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#le-vpn-ipsec" class="md-nav__link">
+    <span class="md-ellipsis">
+      Le VPN IPSec
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Le VPN IPSec">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#concepts-et-generalites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Concepts et généralités
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configurer-le-service-vpn-ipsec" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configurer le service VPN IPSec
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Configurer le service VPN IPSec">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#gestion-de-la-pki-du-sns" class="md-nav__link">
+    <span class="md-ellipsis">
+      Gestion de la PKI du SNS
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuration-du-vpn-ipsec" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configuration du VPN IPSEC
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mise-en-uvre-des-regles-de-filtrage-adaptees" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mise en œuvre des règles de filtrage adaptées
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gestion-du-nat-traversal-nat-t" class="md-nav__link">
+    <span class="md-ellipsis">
+      Gestion du NAT-Traversal (NAT-T)
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="fiche-13-vpn-site-a-site">Fiche 13 -- VPN site à site</h1>
+<h2 id="le-vpn-ipsec">Le VPN IPSec</h2>
+<h3 id="concepts-et-generalites">Concepts et généralités</h3>
+<p>Le tunnel VPN IPsec site-à-site permet de connecter deux réseaux privés
+via un réseau public tout en assurant les services de sécurité suivants :</p>
+<ul>
+<li>l<strong>'authentification</strong> : permet la vérification des identités des
+    deux extrémités de tunnel. Deux méthodes d'authentification sont
+    possibles : clé pré-partagée (PSK : Pre-Shared key) ou certificats
+    (PKI : Public Key Infrastructure) ;</li>
+<li>l<strong>'intégrité</strong> : vérifie que les données n'ont pas été modifiées en
+    utilisant les algorithmes de hachage ;</li>
+<li>l<strong>a confidentialité</strong> : assure que les données ne peuvent être lues
+    par une personne tierce capturant le trafic ;</li>
+<li>l<strong>'anti-rejeu</strong> : permet d'ignorer des anciens paquets (des
+    paquets dont le numéro de séquence est antérieur à un certain seuil)
+    déjà reçus, s'ils sont transmis à nouveau.</li>
+</ul>
+<p>La négociation du tunnel entre les deux extrémités s'effectue avec le
+protocole <strong>ISAKMP</strong> (Internet Security Association Key Management
+Protocol) appelé aussi IKE dont la dernière version se nomme IKEv2.</p>
+<p>Une fois le tunnel établi entre les deux équipements, les extrémités de
+trafic correspondantes aux réseaux privés peuvent communiquer via le
+protocole ESP (Encapsultating Security Payload) qui assure la
+confidentialité et l'intégrité des données échangées. Le protocole ESP
+est encapsulé directement dans un datagramme IP.</p>
+<p><img alt="" src="../../../media/stormshield/fiches/fiche12_vpn_SNS/Pictures/10000000000004EB000002EBFA355742B0E16CD6.png" /></p>
+<div class="admonition danger">
+<p class="admonition-title">Important </p>
+<p>Dans le respect des bonnes pratiques, il est recommandé d'utiliser le
+protocole <strong>IKEv2</strong> pour la mise en œuvre du tunnel et une
+authentification forte par <strong>certificats X509</strong>.</p>
+<p>Vous pouvez bien evidement commencer par un premier test avec une Shared Key (clé partagé) aux deux extermités du tunnel.</p>
+</div>
+<p><img alt="" src="../../../media/stormshield/fiches/fiche12_vpn_SNS/Pictures/10000000000004DD000002E9C45A59457F2F9473.png" /></p>
+<p><strong>Phase 1 :</strong> Les deux extrémités du tunnel négocient un profil de
+chiffrement phase 1 et s'authentifient avec un clé pré-partagée ou des
+certificats X509. Un dialogue d'application chiffré nommé PARENT-SA
+permet ensuite de démarrer la négociation de la phase 2. Si les deux
+extrémités n'arrivent pas à se mettre d'accord sur un profil de
+chiffrement ou à s'authentifier, la négociation s'arrête immédiatement.</p>
+<p><strong>Phase 2 :</strong> Les deux extrémités vont négocier le profil de chiffrement
+de la phase 2 et les extrémités de trafic qui permettront la
+communication à travers le tunnel. Deux canaux sont ouverts pour le
+transmission des données, un pour chaque direction. Chaque canal utilise
+sa propre clé de chiffrement appelée CHILD-SA1 et CHILD-SA2. Chaque
+extrémité possédera donc deux clés symétriques, une pour chiffrer les
+données à envoyer et l'autre pour déchiffrer les données reçues dans
+l'autre canal.</p>
+<div class="admonition danger">
+<p class="admonition-title">Attention </p>
+<p>Les tunnels IPSec sont générallement monté sur des routeurs ayant des <strong>IP Publiques</strong>. 
+Quand le Tunnel doit être monté sur des routeurs "cachés" derrière du NAT, il faut configurer ce qu'on appelle communément le NAT-T (NAT Traversal)</p>
+</div>
+<h3 id="configurer-le-service-vpn-ipsec">Configurer le service VPN IPSec</h3>
+<p>L'authentification lors de la création d'un tunnel VPN IPSec peut se
+faire de deux façons :</p>
+<ul>
+<li>par la définition d'une <strong>clé pré-partagée commune</strong> ;</li>
+<li>par l'utilisation de <strong>certificats X509</strong> créés pour chaque extrémité à
+    l'aide d'une PKI (Infrastructure à clés publiques utilisant une
+    autorité de certification).</li>
+</ul>
+<p>L'utilisation de la clé pré-partagée est déconseillée en production et
+valable uniquement lors de phase de tests ou du maquettage. Nous
+choisirons ici l'authentification par certificats.</p>
+<h4 id="gestion-de-la-pki-du-sns">Gestion de la PKI du SNS</h4>
+<p>Dans un premier temps, il est donc nécessaire de créer une PKI sur l'un
+des pare-feux puis de créer des certificats serveurs pour chaque
+extrémité du tunnel (ex : un certificat pour le pare-feu de edimbourg et
+un certificat pour le pare-feu de frankfurt).</p>
+<p>Cliquer sur Configuration &gt; Objets &gt; Certificats et PKI</p>
+<p><img alt="" src="../../../media/stormshield/fiches/fiche12_vpn_SNS/Pictures/100000000000036D000002C4B7F8F37ECA2391D3.png" /></p>
+<p>Puis sur Ajouter &gt; Autorité racine</p>
+<p><img alt="" src="../../../media/stormshield/fiches/fiche12_vpn_SNS/Pictures/10000000000002F0000002657DB16C064E616CBC.png" /></p>
+<p><img alt="" src="../../../media/stormshield/fiches/fiche12_vpn_SNS/Pictures/10000000000002EE00000281D2094D3AD3B6B497.png" /></p>
+<p><img alt="" src="../../../media/stormshield/fiches/fiche12_vpn_SNS/Pictures/10000000000002EE0000027BCFC79F505DAAEB02.png" /></p>
+<p><img alt="" src="../../../media/stormshield/fiches/fiche12_vpn_SNS/Pictures/10000000000002F2000002C07BF5936F4770D923.png" /></p>
+<p>Une fois la nouvelle PKI créée, il est nécessaire de générer 2
+certificats pour les 2 pare-feux concernés. Pour cela, sélectionner la
+PKI pki.cub.fr et cliquer sur Ajouter &gt; Identité serveur afin de créer
+un certificat pour le pare-feu d'Edimbourg.</p>
+<p><img alt="" src="../../../media/stormshield/fiches/fiche12_vpn_SNS/Pictures/10000000000002F10000019470C0D50C91220659.png" /></p>
+<p><img alt="" src="../../../media/stormshield/fiches/fiche12_vpn_SNS/Pictures/10000000000002F20000030DCC36697CC6DC368E.png" /></p>
+<p><img alt="" src="../../../media/stormshield/fiches/fiche12_vpn_SNS/Pictures/10000000000002EE000001B98DB70C7BEE9753AD.png" /></p>
+<p><img alt="" src="../../../media/stormshield/fiches/fiche12_vpn_SNS/Pictures/10000000000002EF0000024BBD5D5A7FAAC8BC87.png" /></p>
+<p><img alt="" src="../../../media/stormshield/fiches/fiche12_vpn_SNS/Pictures/10000000000002F2000002C19F325C56C4B06544.png" /></p>
+<p>Il faut ensuite réaliser la même opération afin de créer un certificat
+pour le pare-feu de Frankfurt en adaptant certains paramètres dont en
+particulier le CN (Common Name) du certificat.</p>
+<p>Nous avons maintenant à notre disposition une PKI et 2 certificats
+générés.</p>
+<p><img alt="" src="../../../media/stormshield/fiches/fiche12_vpn_SNS/Pictures/100000000000035D00000189C2B5878C9D73C236.png" /></p>
+<p>Comme la PKI a été créée sur le pare-feu d'Edimbourg, il est nécessaire
+d'exporter le certificat du pare-feu de Frankfurt sur le pare-feu de
+l'agence de Frankfurt.</p>
+<p>Pour cela, clique droit sur le certificat concerné puis Télécharger &gt;
+Identité &gt; au <strong>format P12</strong>. Il est demandé d'entrer un mot de passe qui
+permettra de protéger votre clé privée en particulier en cas de vol ou
+de compromission.</p>
+<details class="info">
+<summary>Format P12</summary>
+<p>Certificat <strong>P12</strong> (PKCS#12)<br/>
+- <strong>Encodage</strong> : Le format <strong>P12</strong> est encodé en <strong>binaire</strong>.<br/>
+- <strong>Structure</strong> : C'est un conteneur binaire qui peut stocker à la fois des certificats, des clés privées et même des chaînes de certificats (certificats intermédiaires et racine).<br/>
+- <strong>Utilisation</strong> : Le format <strong>P12</strong> est utilisé pour transporter à la fois un certificat et sa clé privée dans un seul fichier, souvent pour les besoins d'import/export (ex. : sur les navigateurs, serveurs ou clients).<br/>
+- <strong>Extension de fichier</strong> : Les fichiers <strong>P12</strong> ont souvent l'extension <code>.p12</code> ou <code>.pfx</code>.<br/>
+- <strong>Sécurité</strong> : Le fichier <strong>P12</strong> peut être protégé par un mot de passe pour sécuriser les clés privées qu'il contient.<br/>
+- <strong>Lisibilité</strong> : Non lisible en texte brut, car c'est un fichier binaire. Il doit être ouvert avec des outils spécialisés (comme <code>OpenSSL</code> ou les gestionnaires de certificats dans les systèmes d'exploitation).</p>
+</details>
+<p><img alt="" src="../../../media/stormshield/fiches/fiche12_vpn_SNS/Pictures/1000000000000216000000E3D93FDA75A57E9422.png" /></p>
+<p><img alt="" src="../../../media/stormshield/fiches/fiche12_vpn_SNS/Pictures/10000000000002EF000000C949515E5A62812ECD.png" /></p>
+<p>Une fois le fichier p12 téléchargé sur le poste, il est nécessaire de
+l'importer dans l'autre pare-feu en l'occurence celui de Franckfurt.
+Pour cela, se connecter sur l'interface d'administration du pare-feu
+concerné en s'assurant de disposer du fichier p12 sur le poste client
+d'administration.</p>
+<p>Puis cliquer sur Configuration &gt; Objets &gt; Certificats et PKI puis sur
+Ajouter &gt; Importer un fichier.</p>
+<p><img alt="" src="../../../media/stormshield/fiches/fiche12_vpn_SNS/Pictures/10000000000001F40000017D2F00BEDD0E7D30BC.png" /></p>
+<p><img alt="" src="../../../media/stormshield/fiches/fiche12_vpn_SNS/Pictures/100000000000035A0000015CF2DA913BCEECB803.png" /></p>
+<h4 id="configuration-du-vpn-ipsec">Configuration du VPN IPSEC</h4>
+<p>Maintenant que chaque pare-feu dispose de son certificat signé par la
+PKI précédemment créée, il s'agit de configurer le tunnel VPN IPSEC sur
+les deux extrémités.</p>
+<p>Sur le pare-feu de Edimbourg, cliquer sur Configuration &gt; VPN &gt; VPN
+IPsec et choisir la politique IPsec 04 (04) qu'il faudra renommer
+IPsec-EdFk.</p>
+<p><img alt="" src="../../../media/stormshield/fiches/fiche12_vpn_SNS/Pictures/10000000000005BF000001E45E0354C594DF0E9C.png" /></p>
+<p>Puis cliquer sur Ajouter &gt; Tunnel site à site simple.</p>
+<p>Un assistant s'ouvre et permet de définir quel sous-réseau ou VLAN de
+votre agence (ici Edimbourg) pourra envoyer et recevoir des flux par le
+tunnel VPN IPSec jusqu'à l'autre agence (ici Frankfurt). Ainsi, en
+ressources locales, indiquer le sous-réseau ou le VLAN présent dans
+votre agence (si vous souhaitez permettre la communication de plusieurs
+sous-réseaux, il faut au préalable créer un objet groupe contenant
+l'ensemble des sous-réseaux concernés).</p>
+<p>En réseaux distants, vous indiquerez un objet réseau correspondant au
+sous-réseau à joindre dans l'autre agence. Enfin, il sera indispensable
+de définir un correspondant et de le sélectionner.</p>
+<p><img alt="" src="../../../media/stormshield/fiches/fiche12_vpn_SNS/Pictures/1000000000000366000001F69CF684732786CEA1.png" /></p>
+<p><img alt="" src="../../../media/stormshield/fiches/fiche12_vpn_SNS/Pictures/10000000000002EC000001F47867737AB1ED92D0.png" /></p>
+<p><img alt="" src="../../../media/stormshield/fiches/fiche12_vpn_SNS/Pictures/10000000000002EE000001F5F25DFDD1676C743F.png" /></p>
+<div class="admonition warning">
+<p class="admonition-title">Attention</p>
+<p><strong>Attention ! Cette étape peut porter à confusion</strong>. Bien que le terme
+« identification du correspondant » soit employé ici, c'est bien le
+certificat du pare-feu sur lequel vous êtes connecté (ici pare-feu
+Edimbourg) qu'il faut indiquer et non celui du pare-feu distant.</p>
+</div>
+<p><img alt="" src="../../../media/stormshield/fiches/fiche12_vpn_SNS/Pictures/10000000000002EC000001F5E56051B8F1850077.png" /></p>
+<p><img alt="" src="../../../media/stormshield/fiches/fiche12_vpn_SNS/Pictures/1000000000000367000001F464AF582BBA392D22.png" /></p>
+<p><img alt="" src="../../../media/stormshield/fiches/fiche12_vpn_SNS/Pictures/10000000000005730000014968EA98A212141118.png" /></p>
+<p>Lorsque la création du tunnel IPSec est effective, il faut bien
+évidemment l'activer (on) <strong>et définir une valeur en seconde de
+Keepalive (vous veillerez à définir la même valeur sur le pare-feu
+distant, ici, Frankfurt)</strong>. Cela permettra de faciliter l'activation du
+tunnel et assurera le maintien de ce dernier même en cas d'absence de
+trafic à l'intérieur de celui-ci (lire l'explication ci-dessous).</p>
+<div class="admonition info">
+<p class="admonition-title">KeepAlive</p>
+<p>L'option supplémentaire <strong>Keepalive</strong> permet de maintenir les
+tunnels montés de façon artificielle. Cette mécanique envoie des paquets
+initialisant et forçant le maintien du tunnel. Cette option est
+désactivée par défaut pour éviter une charge inutile, dans le cas de
+configuration contenant de nombreux tunnels, montés en même temps sans
+réel besoin.</p>
+</div>
+<p><strong>Pour activer cette option</strong>, affectez une valeur suppérieur à  0,
+correspondant à l'intervalle en seconde, entre chaque envoi de paquet
+UDP.</p>
+<h3 id="mise-en-uvre-des-regles-de-filtrage-adaptees">Mise en œuvre des règles de filtrage adaptées</h3>
+<p>Pour que la communication par l'intermédiaire de ce tunnel IPsec soit
+pleinement fonctionnel, il est nécessaire de créer les règles de
+filtrage permettant d'autoriser la création du VPN puis la communication
+entre les sous-réseaux distants.</p>
+<p>Toujours sur le pare-feu de l'agence d'Edimbourg, il faut autoriser
+l'établissement du tunnel (protocoles ISAKMP et ESP) entre les deux
+pare-feux. Normalement, une règle implicite est prévue à cet effet,
+cependant lors de différentes phases de test, cela s'est avéré peu
+concluant, ce qui nous amène à proposer des règles explicites à ce
+sujet.</p>
+<p><img alt="" src="../../../media/stormshield/fiches/fiche12_vpn_SNS/Pictures/100000000000052E000000433A912FD1B3404FB2.png" /></p>
+<p>Enfin, il faut définir les règles nécessaires autorisant la
+communication des sous-réseaux définis dans la configuration du tunnel
+au niveau des règles de filtrage.</p>
+<p><img alt="" src="../../../media/stormshield/fiches/fiche12_vpn_SNS/Pictures/10000000000004AB00000055B2E2BFE413B212EB.png" /></p>
+<p>La directive « via Tunnel VPN IPsec » dans la seconde règle est très
+importante et obligatoire. Il est possible de la définir lors de la
+création de la règle dans le menu Source &gt; Configuration avancée &gt;
+Via : Tunnel VPN IPSec.</p>
+<p>À partir de là, <strong>il s'agira de réaliser exactement les mêmes opérations
+dans le sens inverse sur le pare-feu de l'autre agence (ici Frankfurt)</strong>
+afin de rendre le tunnel pleinement opérationnel.</p>
+<div class="admonition danger">
+<p class="admonition-title">Nota Bene</p>
+<p><strong>NB :</strong> La plupart des erreurs rencontrées proviennent de différences
+de configuration entre les deux extrémités du tunnel (Profil de
+chiffrement utilisé, Keepalive, définition des sous-réseaux habilités à
+solliciter le tunnel VPN, etc). Il s'agit donc de faire preuve de
+rigueur et d'attention sur ces éléments en particulier.</p>
+</div>
+<h2 id="gestion-du-nat-traversal-nat-t">Gestion du NAT-Traversal (NAT-T)</h2>
+<p>Lorsque vous montez un tunnel IPSec entre deux équipements Stormshield, ces équipements vont chiffrer les paquets et les encapsuler dans le protocole <strong>ESP (Encapsulating Security Payload)</strong>, qui est un protocole de la suite IPSec.</p>
+<p>Problème :
+Les routeurs Cisco situés entre les deux équipements effectuent du NAT (Network Address Translation). Le NAT pose un problème avec ESP, car :</p>
+<ul>
+<li>ESP est un protocole IP (“protocol 50”) et ne possède pas de numéro de port. Cela pose un problème avec le NAT (Network Address Translation) (comme avec TCP ou UDP).</li>
+<li>Le NAT modifie les adresses IP : Cela casse l’intégrité du paquet IPSec, car les équipements IPSec vérifient l’intégrité des paquets (checksum + hash) et détectent toute modification comme une attaque.</li>
+</ul>
+<p>Solution : <strong>NAT-Traversal (NAT-T)</strong>
+Pour contourner ce problème, on encapsule les paquets ESP dans de l'UDP/4500.</p>
+<p>Voici les étapes du NAT-T :</p>
+<ul>
+<li>Détection du NAT : Lors de la phase d’établissement du tunnel IPSec (IKE), les équipements Stormshield et Cisco échangent des messages pour détecter s’il y a un NAT entre eux.</li>
+<li>L’usage du NAT-T provoquera l’ajout d’un en-tête UDP de 8 octets.</li>
+<li>Encapsulation ESP dans UDP/4500 : Une fois le NAT détecté, les paquets ESP sont encapsulés dans des paquets UDP, port 4500, ce qui permet au NAT de fonctionner correctement.</li>
+<li>Décapsulation : À la réception, l’équipement IPSec retire l’en-tête UDP et traite normalement le paquet ESP.</li>
+</ul>
+<p><img alt="" src="../media/media/nat-t-encapsulation.png" /></p>
+<div class="admonition danger">
+<p class="admonition-title">Important</p>
+<p><strong>NB :</strong> Certains routeurs supportent l'autodetection de NAT-T, dautres non. Il faut evidement s'adapter au materiel utilisé. Nos vieux routeurs ne le supporte pas.</p>
+</div>
+<p>Si l'équipement supporte nativement NAT-T il suffit de l'activer. 
+Exemple sur un équipement cisco:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>crypto<span class="w"> </span>isakmp<span class="w"> </span>nat-traversal<span class="w"> </span><span class="m">20</span><span class="w">  </span><span class="c1">#Le 20 correspond au délai en secondes pour détecter un NAT.</span>
+</span></code></pre></div>
+<p>Dans le cas contraire, il faut forcer l'activation du NAT-T sur le firewall (Stromshield en l'occurence). et bien configurer la redirection du port UDP 4500 (pour ikeV2). Le port UDP 500 était autrefois utilisé pour IKEv1.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="w">    </span>!<span class="w"> </span>Activer<span class="w"> </span>la<span class="w"> </span>redirection<span class="w"> </span>des<span class="w"> </span>ports<span class="w"> </span>UDP<span class="w"> </span><span class="m">4500</span><span class="w"> </span><span class="o">(</span>NAT-T<span class="o">)</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>ip<span class="w"> </span>nat<span class="w"> </span>inside<span class="w"> </span><span class="nb">source</span><span class="w"> </span>static<span class="w"> </span>udp<span class="w"> </span><span class="m">192</span>.168.1.1<span class="w"> </span><span class="m">4500</span><span class="w"> </span>interface<span class="w"> </span>GigabitEthernet0/0<span class="w"> </span><span class="m">4500</span>
+</span></code></pre></div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Pied de page" >
+        
+          
+          <a href="../fiche12_vpn_openvpn/" class="md-footer__link md-footer__link--prev" aria-label="Précédent: Fiche 12 -- VPN pour utilisateurs nomades">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Précédent
+              </span>
+              <div class="md-ellipsis">
+                Fiche 12 -- VPN pour utilisateurs nomades
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../../Versioning/2--Etckeeper/" class="md-footer__link md-footer__link--next" aria-label="Suivant: Gestion des versions de /etc avec Etckeeper">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Suivant
+              </span>
+              <div class="md-ellipsis">
+                Gestion des versions de /etc avec Etckeeper
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Licence CC 4.0 FR BY-NC-SA - 2025 D. Balny et Q. Demoulière - Lycée Paul-Louis Courier
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.footer", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.50899def.min.js"></script>
+      
+    
+  </body>
+</html>

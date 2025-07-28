@@ -1,0 +1,1587 @@
+
+<!doctype html>
+<html lang="fr" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://qdemouliere.github.io/cub/documentation/DNS/7--Tests/">
+      
+      
+        <link rel="prev" href="../6--Resolutioninverse/">
+      
+      
+        <link rel="next" href="../../Linux/2--OTP/">
+      
+      
+      <link rel="icon" href="../../../media/cub/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.16">
+    
+    
+      
+        <title>Tests et diagnostics DNS - Le contexte CUB</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.7e37652d.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#tests-et-diagnostics-dns" class="md-skip">
+          Aller au contenu
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="En-tête">
+    <a href="../../.." title="Le contexte CUB" class="md-header__button md-logo" aria-label="Le contexte CUB" data-md-component="logo">
+      
+  <img src="../../../media/cub/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Le contexte CUB
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Tests et diagnostics DNS
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Rechercher" placeholder="Rechercher" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Recherche">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Effacer" aria-label="Effacer" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initialisation de la recherche
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Le contexte CUB" class="md-nav__button md-logo" aria-label="Le contexte CUB" data-md-component="logo">
+      
+  <img src="../../../media/cub/logo.png" alt="logo">
+
+    </a>
+    Le contexte CUB
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Introduction
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Contexte
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Contexte
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../contexte/01-presentation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Présentation du contexte CUB
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../contexte/02-schemas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Schémas réseaux de l'entreprise CUB
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../contexte/03-infra/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Description de l'infrastructure
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../contexte/bonnespratiques/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Référentiel défini par la DSI
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Documentation
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Documentation
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    DNS
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            DNS
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1--Pr%C3%A9ambule/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Introduction
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2--Resolver/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Serveur DNS récursif
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3--Autority/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Serveur DNS maître faisant autorité
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../4--Slave/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Serveur DNS esclave faisant autorité
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../5--Delegation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Délégation de zone
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../6--Resolutioninverse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    La résolution inverse
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Tests et diagnostics DNS
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tests et diagnostics DNS
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-les-outils-de-diagnostic-dont-on-doit-disposer" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Les outils de diagnostic dont on doit disposer
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-premiere-batterie-de-tests-le-serveur-bind-9-a-til-correctement-demarre-ou-redemarre" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Première batterie de tests : le serveur bind 9 a-t'il correctement démarré ou redémarré ?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-deuxieme-batterie-de-tests-verification-des-donnees-relatives-a-chaque-zone" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Deuxième batterie de tests : vérification des données relatives à chaque zone.
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4troisieme-batterie-de-tests-verification-de-la-non-recursivite-dun-serveur-dns" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.Troisième batterie de tests : vérification de la non récursivité d'un serveur DNS
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5quatrieme-batterie-de-tests-controle-des-transferts-de-zone" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.Quatrième batterie de tests : contrôle des transferts de zone
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Linux
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            Linux
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Linux/2--OTP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Authentification TOTP sur Debian
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Stormshield
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            Stormshield
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Stormshield/commandesUtilesConsole_SNS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CheatSheet
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Stormshield/fiche01_initialiser_SNS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Fiche 01 -- Initialiser un Pare-feu SNS
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Stormshield/fiche02_priseEnMain_SNS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Fiche 02 -- Prise en main d'un Pare-feu SNS
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Stormshield/fiche03_gestionJournaux_SNS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Fiche 03 -- Traces, Journaux et supervision
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Stormshield/fiche04_configurationReseau_SNS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Fiche 04 -- Configuration du réseau
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Stormshield/fiche05_configurationObjetsReseaux_SNS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Fiche 05 -- Configuration des Objets Réseau
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Stormshield/fiche06_configurationNat_SNS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Fiche 06 -- Configuration du NAT/PAT
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Stormshield/fiche07_filtrage_protocolaire_SNS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Fiche 07-- Filtrage protocolaire
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Stormshield/fiche08_filtrage_applicatifSNS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Fiche 08 -- Filtrage applicatif
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Stormshield/fiche09_IDS_IPS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Fiche 09 -- Prévention d'intrusion IDS/IPS
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Stormshield/fiche10_utilisateurs_authentification_SNS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Fiche 10 -- Utilisateurs, authentification et portail captif
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Stormshield/fiche11_infrastructure_cles_publiques_SNS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Fiche 11 -- Infrastructures à clés pubiques (PKI)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Stormshield/fiche12_vpn_openvpn/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Fiche 12 -- VPN pour utilisateurs nomades
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Stormshield/fiche13_vpn_ipsec/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Fiche 13 -- VPN site à site
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Versioning
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            Versioning
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Versioning/2--Etckeeper/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Gestion des versions de /etc avec Etckeeper
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-les-outils-de-diagnostic-dont-on-doit-disposer" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Les outils de diagnostic dont on doit disposer
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-premiere-batterie-de-tests-le-serveur-bind-9-a-til-correctement-demarre-ou-redemarre" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Première batterie de tests : le serveur bind 9 a-t'il correctement démarré ou redémarré ?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-deuxieme-batterie-de-tests-verification-des-donnees-relatives-a-chaque-zone" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Deuxième batterie de tests : vérification des données relatives à chaque zone.
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4troisieme-batterie-de-tests-verification-de-la-non-recursivite-dun-serveur-dns" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.Troisième batterie de tests : vérification de la non récursivité d'un serveur DNS
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5quatrieme-batterie-de-tests-controle-des-transferts-de-zone" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.Quatrième batterie de tests : contrôle des transferts de zone
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="tests-et-diagnostics-dns">Tests et diagnostics DNS</h1>
+<div class="admonition info">
+<p class="admonition-title">Information</p>
+<p>Cette partie de la documentation DNS est issue de la production <a href="https://www.reseaucerta.org/content/mise-en-oeuvre-du-dns">Mise en oeuvre du système DNS</a> publiée par Frédéric Varni et Apollonie Raffalli sur le site du <a href="https://www.reseaucerta.org/">réseau CERTA</a>.</p>
+</div>
+<h2 id="1-les-outils-de-diagnostic-dont-on-doit-disposer">1. Les outils de diagnostic dont on doit disposer</h2>
+<p>Le paquet <strong>dnsutils</strong> (parfois installé par défaut sur le système debian) fournit quelques commandes utiles :</p>
+<ul>
+<li>Pour vérifier les fichiers de configuration globale : named-checkconf et named-checkconf -z</li>
+</ul>
+<p>Si la commande ne renvoie rien, c'est qu'il n'y a pas d'erreurs de syntaxe dans les fichiers. </p>
+<ul>
+<li>Pour vérifier la syntaxe des fichiers de zone : named-checkzone zonename filename</li>
+</ul>
+<p>Il ne faut pas toujours se fier au "OK" final mais lire les phrases qui précèdent... </p>
+<ul>
+<li>Les commandes nslookup, host et dig permettent de vérifier les données relatives à chaque zone.</li>
+</ul>
+<p>Mais pour ne pas perdre de temps, il est important de procéder méthodiquement.</p>
+<h2 id="2-premiere-batterie-de-tests-le-serveur-bind-9-a-til-correctement-demarre-ou-redemarre">2. Première batterie de tests : le serveur bind 9 a-t'il correctement démarré ou redémarré ?</h2>
+<div class="admonition warning">
+<p class="admonition-title">Attention</p>
+<p>SAUF s'il y a une erreur de syntaxe dans les fichiers de configuration globaux, le serveur va apparemment démarrer ou redémarrer sans erreur. Pour voir si tout c'est réellement bien passer, il faut lire les fichiers de trace (logs).</p>
+</div>
+<p>Lorsque vous lancez ou relancez le serveur, il est judicieux d'ouvrir une autre console, d'y lancer la commande "<strong>tail -f /var/log/bind.log</strong>" pour lire en direct les fichiers de trace concernant le démon <em>named</em>.</p>
+<p>Voici par exemple 2 cas où il y a un problème :</p>
+<p><strong>Premier cas - le fichier de zone n'est pas trouvé :</strong>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Jan<span class="w"> </span><span class="m">26</span><span class="w"> </span><span class="m">16</span>:01:33<span class="w"> </span>ns1<span class="w"> </span>named<span class="o">[</span><span class="m">21056</span><span class="o">]</span>:<span class="w"> </span>zone<span class="w"> </span>tours.tierslieux86.fr/IN:<span class="w"> </span>loading<span class="w"> </span>from<span class="w"> </span>master<span class="w"> </span>file<span class="w"> </span>/var/named/db.tours.tierslieux86.fr<span class="w"> </span>failed:<span class="w"> </span>file<span class="w"> </span>not<span class="w"> </span>found
+</span></code></pre></div></p>
+<p>Il n'y a pas ici une erreur de syntaxe, la commande named-checkconf n'aurait rien renvoyée.</p>
+<p><strong>Deuxième cas : le fichier de zone est trouvé mais présente une erreur :</strong>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Jan<span class="w"> </span><span class="m">26</span><span class="w"> </span><span class="m">16</span>:13:57<span class="w"> </span>ns1<span class="w"> </span>named<span class="o">[</span><span class="m">21652</span><span class="o">]</span>:<span class="w"> </span>zone<span class="w"> </span>tours.tierslieux86.fr/IN:<span class="w"> </span>loading<span class="w"> </span>from<span class="w"> </span>master<span class="w"> </span>file<span class="w"> </span>/var/named/db.tours.tierslieux86.fr<span class="w"> </span>failed:<span class="w"> </span>unexpected<span class="w"> </span>end<span class="w"> </span>of<span class="w"> </span>input
+</span></code></pre></div></p>
+<p>Une erreur se situe ici dans le fichier de configuration de la zone.</p>
+<p>On a le détail des erreurs avec la commande :
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>named-checkzone<span class="w"> </span>zonename<span class="w"> </span>filename<span class="w"> </span>/var/named/db.tours.tierslieux86.fr
+</span></code></pre></div></p>
+<p>Erreurs courantes :
+* les nombreux ";"  des fichiers de configuration globale ;
+* les noms DNS pleinement qualifiés dans les fichiers de zone non suffixés par un point ;
+* les parenthèses mal placées de l'enregistrement SOA ;
+* la non relecture de bind9 lorsqu'un fichier de configuration est modifié et le non vidage du cache.</p>
+<h2 id="3-deuxieme-batterie-de-tests-verification-des-donnees-relatives-a-chaque-zone">3. Deuxième batterie de tests : vérification des données relatives à chaque zone.</h2>
+<p>L'utilisation des commandes <em>nslookup, host ou dig</em> vous permettra de vérifier les données relatives à chaque zone.
+Nous ne détaillerons ici que la commande dig (Domain Information Groper) qui donne beaucoup de détails... À l'inverse de nslookup, cette commande n'est pas interactive.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>dig<span class="w"> </span>www.reseaucerta.org
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="p">;</span><span class="w"> </span>&lt;&lt;&gt;&gt;<span class="w"> </span>DiG<span class="w"> </span><span class="m">9</span>.5.0-P2<span class="w"> </span>&lt;&lt;&gt;&gt;<span class="w"> </span>www.reseaucerta.org
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="p">;;</span><span class="w"> </span>global<span class="w"> </span>options:<span class="w">  </span>printcmd
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="p">;;</span><span class="w"> </span>Got<span class="w"> </span>answer:
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="p">;;</span><span class="w"> </span>-&gt;&gt;HEADER<span class="s">&lt;&lt;- opco</span>de:<span class="w"> </span>QUERY,<span class="w"> </span>status:<span class="w"> </span>NOERROR,<span class="w"> </span>id:<span class="w"> </span><span class="m">26702</span>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="p">;;</span><span class="w"> </span>flags:<span class="w"> </span>qr<span class="w"> </span>rd<span class="w"> </span>ra<span class="p">;</span><span class="w"> </span>QUERY:<span class="w"> </span><span class="m">1</span>,<span class="w"> </span>ANSWER:<span class="w"> </span><span class="m">2</span>,<span class="w"> </span>AUTHORITY:<span class="w"> </span><span class="m">3</span>,<span class="w"> </span>ADDITIONAL:<span class="w"> </span><span class="m">3</span>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>
+</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="p">;;</span><span class="w"> </span>QUESTION<span class="w"> </span>SECTION:<span class="w"> </span><span class="o">(</span><span class="m">1</span><span class="o">)</span>
+</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="p">;</span>www.reseaucerta.org.<span class="w">           </span>IN<span class="w">      </span>A
+</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>
+</span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="p">;;</span><span class="w"> </span>ANSWER<span class="w"> </span>SECTION:<span class="w"> </span><span class="o">(</span><span class="m">2</span><span class="o">)</span>
+</span><span id="__span-3-16"><a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a>www.reseaucerta.org.<span class="w">    </span><span class="m">1785</span><span class="w">    </span>IN<span class="w">      </span>CNAME<span class="w">   </span>strasbourg.reseaucerta.org.
+</span><span id="__span-3-17"><a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a>strasbourg.reseaucerta.org.<span class="w"> </span><span class="m">3585</span><span class="w"> </span>IN<span class="w">     </span>A<span class="w">       </span><span class="m">130</span>.79.130.89
+</span><span id="__span-3-18"><a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a>
+</span><span id="__span-3-19"><a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a><span class="p">;;</span><span class="w"> </span>AUTHORITY<span class="w"> </span>SECTION:<span class="w"> </span><span class="o">(</span><span class="m">3</span><span class="o">)</span>
+</span><span id="__span-3-20"><a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a>reseaucerta.org.<span class="w">        </span><span class="m">10785</span><span class="w">   </span>IN<span class="w">      </span>NS<span class="w">      </span>c.dns.gandi.net.
+</span><span id="__span-3-21"><a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a>reseaucerta.org.<span class="w">        </span><span class="m">10785</span><span class="w">   </span>IN<span class="w">      </span>NS<span class="w">      </span>b.dns.gandi.net.
+</span><span id="__span-3-22"><a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a>reseaucerta.org.<span class="w">        </span><span class="m">10785</span><span class="w">   </span>IN<span class="w">      </span>NS<span class="w">      </span>a.dns.gandi.net.
+</span><span id="__span-3-23"><a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a>
+</span><span id="__span-3-24"><a id="__codelineno-3-24" name="__codelineno-3-24" href="#__codelineno-3-24"></a><span class="p">;;</span><span class="w"> </span>ADDITIONAL<span class="w"> </span>SECTION:<span class="w"> </span><span class="o">(</span><span class="m">4</span><span class="o">)</span>
+</span><span id="__span-3-25"><a id="__codelineno-3-25" name="__codelineno-3-25" href="#__codelineno-3-25"></a>a.dns.gandi.net.<span class="w">        </span><span class="m">117683</span><span class="w">  </span>IN<span class="w">      </span>A<span class="w">       </span><span class="m">217</span>.70.179.40
+</span><span id="__span-3-26"><a id="__codelineno-3-26" name="__codelineno-3-26" href="#__codelineno-3-26"></a>b.dns.gandi.net.<span class="w">        </span><span class="m">117683</span><span class="w">  </span>IN<span class="w">      </span>A<span class="w">       </span><span class="m">217</span>.70.184.40
+</span><span id="__span-3-27"><a id="__codelineno-3-27" name="__codelineno-3-27" href="#__codelineno-3-27"></a>c.dns.gandi.net.<span class="w">        </span><span class="m">117683</span><span class="w">  </span>IN<span class="w">      </span>A<span class="w">       </span><span class="m">217</span>.70.182.20
+</span><span id="__span-3-28"><a id="__codelineno-3-28" name="__codelineno-3-28" href="#__codelineno-3-28"></a>
+</span><span id="__span-3-29"><a id="__codelineno-3-29" name="__codelineno-3-29" href="#__codelineno-3-29"></a><span class="p">;;</span><span class="w"> </span>Query<span class="w"> </span>time:<span class="w"> </span><span class="m">2</span><span class="w"> </span>msec<span class="w"> </span><span class="o">(</span><span class="m">5</span><span class="o">)</span>
+</span><span id="__span-3-30"><a id="__codelineno-3-30" name="__codelineno-3-30" href="#__codelineno-3-30"></a><span class="p">;;</span><span class="w"> </span>SERVER:<span class="w"> </span><span class="m">192</span>.168.1.1#53<span class="o">(</span><span class="m">192</span>.168.1.1<span class="o">)</span>
+</span><span id="__span-3-31"><a id="__codelineno-3-31" name="__codelineno-3-31" href="#__codelineno-3-31"></a><span class="p">;;</span><span class="w"> </span>WHEN:<span class="w"> </span>Wed<span class="w"> </span>Jan<span class="w"> </span><span class="m">28</span><span class="w"> </span><span class="m">12</span>:20:18<span class="w"> </span><span class="m">2009</span>
+</span><span id="__span-3-32"><a id="__codelineno-3-32" name="__codelineno-3-32" href="#__codelineno-3-32"></a><span class="p">;;</span><span class="w"> </span>MSG<span class="w"> </span>SIZE<span class="w">  </span>rcvd:<span class="w"> </span><span class="m">187</span>
+</span></code></pre></div>
+<p>(1) La section QUESTION reprend  la requête émise.\
+(2) La section ANSWER donne la réponse à la requête.\
+(3) La section AUTHORITY donne les serveurs de noms ayant autorité sur la zone.\
+(4) La section ADDITIONAL donne les adresses IP des serveurs de noms autoritaires.\
+(5) La section Query time donne le temps de réponse de la requête. Cette valeur indique donc si la réponse est en cache ou pas.</p>
+<p>Pour filtrer les résultats, on peut préciser, dans la requête, les différents types de RR :
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>dig<span class="w"> </span>www.reseaucerta.org<span class="w"> </span>NS
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>dig<span class="w"> </span>www.reseaucerta.org<span class="w"> </span>A
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>dig<span class="w"> </span>www.reseaucerta.org<span class="w"> </span>MX
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>dig<span class="w"> </span>-x<span class="w"> </span><span class="m">192</span>.168.1.124
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>...
+</span></code></pre></div></p>
+<p>L'option <em>+trace</em> de la commande <em>dig</em> permet de faire la recherche en parcourant l'arborescence depuis la racine jusqu'à la réponse.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>dig<span class="w"> </span>+trace<span class="w"> </span>www.domaine-grp1.com
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="p">;</span><span class="w"> </span>&lt;&lt;&gt;&gt;<span class="w"> </span>DiG<span class="w"> </span><span class="m">9</span>.5.0-P2<span class="w"> </span>&lt;&lt;&gt;&gt;<span class="w"> </span>+trace<span class="w"> </span>www.domaine-grp1.com
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="p">;;</span><span class="w"> </span>global<span class="w"> </span>options:<span class="w">  </span>printcmd
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>.<span class="w">                       </span><span class="m">3600000</span><span class="w"> </span>IN<span class="w">      </span>NS<span class="w">      </span>A.ROOT-SERVERS.NET.
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="p">;;</span><span class="w"> </span>Received<span class="w"> </span><span class="m">48</span><span class="w"> </span>bytes<span class="w"> </span>from<span class="w"> </span><span class="m">192</span>.168.1.2#53<span class="o">(</span><span class="m">192</span>.168.1.2<span class="o">)</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m">0</span><span class="w"> </span>ms
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>domaine-grp1.com.<span class="w">      </span><span class="m">3600</span><span class="w">    </span>IN<span class="w">      </span>NS<span class="w">      </span>ns.domaine-grp1.com.
+</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="p">;;</span><span class="w"> </span>Received<span class="w"> </span><span class="m">72</span><span class="w"> </span>bytes<span class="w"> </span>from<span class="w"> </span><span class="m">192</span>.168.1.124#53<span class="o">(</span>A.ROOT-SERVERS.NET<span class="o">)</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m">14</span><span class="w"> </span>ms
+</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>
+</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>www.domaine-grp1.com.<span class="w"> </span><span class="m">86400</span><span class="w"> </span>IN<span class="w">      </span>CNAME<span class="w">      </span>ns.domaine-grp1.com.
+</span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a>ns1.domaine-grp1.com.<span class="w"> </span><span class="m">86400</span><span class="w"> </span>IN<span class="w">      </span>A<span class="w">           </span><span class="m">192</span>.168.10.10
+</span><span id="__span-5-13"><a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a>domaine-grp1.com.<span class="w">     </span><span class="m">86400</span><span class="w"> </span>IN<span class="w">      </span>NS<span class="w">         </span>ns.domaine-grp1.com.
+</span><span id="__span-5-14"><a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a><span class="p">;;</span><span class="w"> </span>Received<span class="w"> </span><span class="m">72</span><span class="w"> </span>bytes<span class="w"> </span>from<span class="w"> </span><span class="m">192</span>.168.10.10#53<span class="o">(</span>ns.domaine1-grp1.com<span class="o">)</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m">3</span><span class="w"> </span>ms
+</span></code></pre></div>
+<p>Observons maintenant une requête qui fournit une réponse négative.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>dig<span class="w"> </span>www.domaine-grp1.com
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="p">;</span><span class="w"> </span>&lt;&lt;&gt;&gt;<span class="w"> </span>DiG<span class="w"> </span><span class="m">9</span>.5.0-P2<span class="w"> </span>&lt;&lt;&gt;&gt;<span class="w"> </span>www.domaine1-grp1.com
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="p">;;</span><span class="w"> </span>global<span class="w"> </span>options:<span class="w">  </span>printcmd
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="p">;;</span><span class="w"> </span>Got<span class="w"> </span>answer:
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="p">;;</span><span class="w"> </span>-&gt;&gt;HEADER<span class="s">&lt;&lt;- opco</span>de:<span class="w"> </span>QUERY,<span class="w"> </span>status:<span class="w"> </span>NXDOMAIN,<span class="w"> </span>id:<span class="w"> </span><span class="m">9054</span>
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="p">;;</span><span class="w"> </span>flags:<span class="w"> </span>qr<span class="w"> </span>aa<span class="w"> </span>rd<span class="w"> </span>ra<span class="p">;</span><span class="w"> </span>QUERY:<span class="w"> </span><span class="m">1</span>,<span class="w"> </span>ANSWER:<span class="w"> </span><span class="m">0</span>,<span class="w"> </span>AUTHORITY:<span class="w"> </span><span class="m">1</span>,<span class="w"> </span>ADDITIONAL:<span class="w"> </span><span class="m">0</span>
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>
+</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="p">;;</span><span class="w"> </span>QUESTION<span class="w"> </span>SECTION:
+</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="p">;</span>www.domaine-grp1.com.<span class="w">          </span>IN<span class="w">      </span>A
+</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>
+</span><span id="__span-6-12"><a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a><span class="p">;;</span><span class="w"> </span>AUTHORITY<span class="w"> </span>SECTION:
+</span><span id="__span-6-13"><a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a>domaine-grp1.com.<span class="w">       </span><span class="m">3600</span><span class="w">    </span>IN<span class="w">      </span>SOA<span class="w">     </span>ns.domaine-grp1.com.<span class="w"> </span>hostmaster.domaine-grp1.com.<span class="w"> </span><span class="m">20090126</span><span class="w"> </span><span class="m">86400</span><span class="w"> </span><span class="m">21600</span><span class="w"> </span><span class="m">3600000</span><span class="w"> </span><span class="m">3600</span>
+</span><span id="__span-6-14"><a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a>
+</span><span id="__span-6-15"><a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a><span class="p">;;</span><span class="w"> </span>Query<span class="w"> </span>time:<span class="w"> </span><span class="m">3</span><span class="w"> </span>msec
+</span><span id="__span-6-16"><a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a><span class="p">;;</span><span class="w"> </span>SERVER:<span class="w"> </span><span class="m">192</span>.168.1.2#53<span class="o">(</span><span class="m">192</span>.168.1.2<span class="o">)</span>
+</span><span id="__span-6-17"><a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a><span class="p">;;</span><span class="w"> </span>WHEN:<span class="w"> </span>Wed<span class="w"> </span>Jan<span class="w"> </span><span class="m">28</span><span class="w"> </span><span class="m">15</span>:31:44<span class="w"> </span><span class="m">2009</span>
+</span><span id="__span-6-18"><a id="__codelineno-6-18" name="__codelineno-6-18" href="#__codelineno-6-18"></a><span class="p">;;</span><span class="w"> </span>MSG<span class="w"> </span>SIZE<span class="w">  </span>rcvd:<span class="w"> </span><span class="m">97</span>
+</span></code></pre></div>
+<p>Il existe un autre type de réponse négative : NODATA  qui indique qu'aucune donnée pour le triplet (nom, type, classe) demandé n'existe ; mais il existe d'autres enregistrements possédant ce nom, mais de  type différent.</p>
+<p>Si l'on trouve, après status, le mot clé <em>SERVFAIL</em>, il n'y a pas de réponse et il faut revenir à la première batterie de test car le serveur a mal démarré.</p>
+<div class="admonition warning">
+<p class="admonition-title">Attention</p>
+<p>Cela ne vient pas forcément de votre serveur mais d'un des serveurs interrogés de manière récursive.</p>
+</div>
+<div class="admonition info">
+<p class="admonition-title">Remarque</p>
+<p>Attention au cache qui pourrait fournir des réponses qui ne sont plus valables ; la commande rndc flush  permet de supprimer toutes données en cache.</p>
+</div>
+<h2 id="4troisieme-batterie-de-tests-verification-de-la-non-recursivite-dun-serveur-dns">4.Troisième batterie de tests : vérification de la non récursivité d'un serveur DNS</h2>
+<p>Vous devez configurer le client DNS d'un poste n'appartenant pas à votre réseau sur votre serveur DNS qui n'accepte pas la récursivité externe.</p>
+<p>Une même requête doit être :</p>
+<ul>
+<li>refusée si demande récursive à partir d'un poste n'appartenant pas au réseau.</li>
+</ul>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>dig<span class="w"> </span>www.domaine-grp1.com
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="p">;</span><span class="w"> </span>&lt;&lt;&gt;&gt;<span class="w"> </span>DiG<span class="w"> </span><span class="m">9</span>.5.0-P2<span class="w"> </span>&lt;&lt;&gt;&gt;<span class="w"> </span>www.domaine-grp1.com
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="p">;;</span><span class="w"> </span>global<span class="w"> </span>options:<span class="w">  </span>printcmd
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="p">;;</span><span class="w"> </span>Got<span class="w"> </span>answer:
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="p">;;</span><span class="w"> </span>-&gt;&gt;HEADER<span class="s">&lt;&lt;- opco</span>de:<span class="w"> </span>QUERY,<span class="w"> </span>status:<span class="w"> </span>REFUSED,<span class="w"> </span>id:<span class="w"> </span><span class="m">20371</span>
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="p">;;</span><span class="w"> </span>flags:<span class="w"> </span>qr<span class="w"> </span>rd<span class="p">;</span><span class="w"> </span>QUERY:<span class="w"> </span><span class="m">1</span>,<span class="w"> </span>ANSWER:<span class="w"> </span><span class="m">0</span>,<span class="w"> </span>AUTHORITY:<span class="w"> </span><span class="m">0</span>,<span class="w"> </span>ADDITIONAL:<span class="w"> </span><span class="m">0</span>
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="p">;;</span><span class="w"> </span>WARNING:<span class="w"> </span>recursion<span class="w"> </span>requested<span class="w"> </span>but<span class="w"> </span>not<span class="w"> </span>available
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>
+</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="p">;;</span><span class="w"> </span>QUESTION<span class="w"> </span>SECTION:
+</span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="p">;</span>www.domaine-grp1.com.<span class="w">                        </span>IN<span class="w">      </span>A
+</span><span id="__span-7-11"><a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a>
+</span><span id="__span-7-12"><a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a><span class="p">;;</span><span class="w"> </span>Query<span class="w"> </span>time:<span class="w"> </span><span class="m">0</span><span class="w"> </span>msec
+</span><span id="__span-7-13"><a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a><span class="p">;;</span><span class="w"> </span>SERVER:<span class="w"> </span><span class="m">192</span>.168.1.2#53<span class="o">(</span><span class="m">192</span>.168.1.2<span class="o">)</span>
+</span><span id="__span-7-14"><a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a><span class="p">;;</span><span class="w"> </span>WHEN:<span class="w"> </span>Wed<span class="w"> </span>Jan<span class="w"> </span><span class="m">28</span><span class="w"> </span><span class="m">19</span>:06:41<span class="w"> </span><span class="m">2009</span>
+</span><span id="__span-7-15"><a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a><span class="p">;;</span><span class="w"> </span>MSG<span class="w"> </span>SIZE<span class="w">  </span>rcvd:<span class="w"> </span><span class="m">32</span>
+</span></code></pre></div>
+<ul>
+<li>acceptée si provenant du réseau interne.</li>
+</ul>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>dig<span class="w"> </span>www.domaine-grp1.com
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="p">;</span><span class="w"> </span>&lt;&lt;&gt;&gt;<span class="w"> </span>DiG<span class="w"> </span><span class="m">9</span>.5.0-P2<span class="w"> </span>&lt;&lt;&gt;&gt;<span class="w"> </span>www.domaine-grp1.com
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="p">;;</span><span class="w"> </span>global<span class="w"> </span>options:<span class="w">  </span>printcmd
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="p">;;</span><span class="w"> </span>Got<span class="w"> </span>answer:
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="p">;;</span><span class="w"> </span>-&gt;&gt;HEADER<span class="s">&lt;&lt;- opco</span>de:<span class="w"> </span>QUERY,<span class="w"> </span>status:<span class="w"> </span>NOERROR,<span class="w"> </span>id:<span class="w"> </span><span class="m">12560</span>
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="p">;;</span><span class="w"> </span>flags:<span class="w"> </span>qr<span class="w"> </span>rd<span class="w"> </span>ra<span class="p">;</span><span class="w"> </span>QUERY:<span class="w"> </span><span class="m">1</span>,<span class="w"> </span>ANSWER:<span class="w"> </span><span class="m">2</span>,<span class="w"> </span>AUTHORITY:<span class="w"> </span><span class="m">1</span>,<span class="w"> </span>ADDITIONAL:<span class="w"> </span><span class="m">0</span>
+</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>
+</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="p">;;</span><span class="w"> </span>QUESTION<span class="w"> </span>SECTION:
+</span><span id="__span-8-10"><a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a><span class="p">;</span>www.domaine-grp1.com.<span class="w">                        </span>IN<span class="w">      </span>A
+</span><span id="__span-8-11"><a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a>
+</span><span id="__span-8-12"><a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a><span class="p">;;</span><span class="w"> </span>ANSWER<span class="w"> </span>SECTION:
+</span><span id="__span-8-13"><a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a>www.domaine-grp1.com.<span class="w">   </span><span class="m">86233</span><span class="w">       </span>IN<span class="w">   </span>CNAME<span class="w">   </span>ns.domaine-grp1.com.
+</span><span id="__span-8-14"><a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a>ns1.domaine-grp1.com.<span class="w">   </span><span class="m">86233</span><span class="w">   </span>IN<span class="w">      </span>A<span class="w">       </span><span class="m">192</span>.168.10.10
+</span><span id="__span-8-15"><a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a>
+</span><span id="__span-8-16"><a id="__codelineno-8-16" name="__codelineno-8-16" href="#__codelineno-8-16"></a><span class="p">;;</span><span class="w"> </span>AUTHORITY<span class="w"> </span>SECTION:
+</span><span id="__span-8-17"><a id="__codelineno-8-17" name="__codelineno-8-17" href="#__codelineno-8-17"></a>domaine-grp1.com.<span class="w">     </span><span class="m">86233</span><span class="w">   </span>IN<span class="w">      </span>NS<span class="w">      </span>ns.domaine-grp1.com.
+</span><span id="__span-8-18"><a id="__codelineno-8-18" name="__codelineno-8-18" href="#__codelineno-8-18"></a>
+</span><span id="__span-8-19"><a id="__codelineno-8-19" name="__codelineno-8-19" href="#__codelineno-8-19"></a><span class="p">;;</span><span class="w"> </span>Query<span class="w"> </span>time:<span class="w"> </span><span class="m">17</span><span class="w"> </span>msec
+</span><span id="__span-8-20"><a id="__codelineno-8-20" name="__codelineno-8-20" href="#__codelineno-8-20"></a><span class="p">;;</span><span class="w"> </span>SERVER:<span class="w"> </span><span class="m">192</span>.168.1.2#53<span class="o">(</span><span class="m">192</span>.168.1.2<span class="o">)</span>
+</span><span id="__span-8-21"><a id="__codelineno-8-21" name="__codelineno-8-21" href="#__codelineno-8-21"></a><span class="p">;;</span><span class="w"> </span>WHEN:<span class="w"> </span>Wed<span class="w"> </span>Jan<span class="w"> </span><span class="m">28</span><span class="w"> </span><span class="m">19</span>:14:01<span class="w"> </span><span class="m">2009</span>
+</span><span id="__span-8-22"><a id="__codelineno-8-22" name="__codelineno-8-22" href="#__codelineno-8-22"></a><span class="p">;;</span><span class="w"> </span>MSG<span class="w"> </span>SIZE<span class="w">  </span>rcvd:<span class="w"> </span><span class="m">90</span>
+</span></code></pre></div>
+<h2 id="5quatrieme-batterie-de-tests-controle-des-transferts-de-zone">5.Quatrième batterie de tests : contrôle des transferts de zone</h2>
+<p>Il suffit en fait de lire les fichiers de trace (logs) lorsque vous lancez pour la première fois votre serveur secondaire ou que vous modifiez le contenu d'un fichier de zone (sans oublier de modifier le numéro de série).</p>
+<p>Dans les fichiers de trace du serveur secondaire, vous devriez trouver quelque chose de ce style :</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>Jan<span class="w"> </span><span class="m">29</span><span class="w"> </span><span class="m">16</span>:15:26<span class="w"> </span>nsd<span class="w"> </span>named<span class="o">[</span><span class="m">20736</span><span class="o">]</span>:<span class="w"> </span>zone<span class="w"> </span>domaine-grp1.com/IN:<span class="w"> </span>Transfer<span class="w"> </span>started.
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>Jan<span class="w"> </span><span class="m">29</span><span class="w"> </span><span class="m">16</span>:15:26<span class="w"> </span>nsd<span class="w"> </span>named<span class="o">[</span><span class="m">20736</span><span class="o">]</span>:<span class="w"> </span>transfer<span class="w"> </span>of<span class="w"> </span><span class="s1">&#39;domaine-grp1.com/IN&#39;</span><span class="w"> </span>from<span class="w"> </span><span class="m">192</span>.168.1.2#53:<span class="w"> </span>connected<span class="w"> </span>using<span class="w"> </span><span class="m">192</span>.168.10.100#56170
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>Jan<span class="w"> </span><span class="m">29</span><span class="w"> </span><span class="m">16</span>:15:26<span class="w"> </span>nsd<span class="w"> </span>named<span class="o">[</span><span class="m">20736</span><span class="o">]</span>:<span class="w"> </span>zone<span class="w"> </span>domaine-grp1.com/IN:<span class="w"> </span>transferred<span class="w"> </span>serial<span class="w"> </span><span class="m">20090126</span>
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>Jan<span class="w"> </span><span class="m">29</span><span class="w"> </span><span class="m">16</span>:15:26<span class="w"> </span>nsd<span class="w"> </span>named<span class="o">[</span><span class="m">20736</span><span class="o">]</span>:<span class="w"> </span>transfer<span class="w"> </span>of<span class="w"> </span><span class="s1">&#39;domaine-grp1.com/IN&#39;</span><span class="w"> </span>from<span class="w"> </span><span class="m">192</span>.168.10.10#53:<span class="w"> </span>Transfer<span class="w"> </span>completed:<span class="w"> </span><span class="m">1</span><span class="w"> </span>messages,<span class="w"> </span><span class="m">7</span><span class="w"> </span>records,<span class="w"> </span><span class="m">225</span><span class="w"> </span>bytes,<span class="w"> </span><span class="m">0</span>.015<span class="w"> </span>secs<span class="w"> </span><span class="o">(</span><span class="m">15000</span><span class="w"> </span>bytes/sec<span class="o">)</span>
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>Jan<span class="w"> </span><span class="m">29</span><span class="w"> </span><span class="m">16</span>:15:26<span class="w"> </span>nsd<span class="w"> </span>named<span class="o">[</span><span class="m">20736</span><span class="o">]</span>:<span class="w"> </span>zone<span class="w"> </span>domaine-grp1.com/IN:<span class="w"> </span>sending<span class="w"> </span>notifies<span class="w"> </span><span class="o">(</span>serial<span class="w"> </span><span class="m">20090126</span><span class="o">)</span>
+</span></code></pre></div>
+<p>Sur le serveur maître :</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>Jan<span class="w"> </span><span class="m">29</span><span class="w"> </span><span class="m">16</span>:21:29<span class="w"> </span>ns1<span class="w"> </span>named<span class="o">[</span><span class="m">8190</span><span class="o">]</span>:<span class="w"> </span>client<span class="w"> </span><span class="m">192</span>.168.10.100#56170:<span class="w"> </span>transfer<span class="w"> </span>of<span class="w"> </span><span class="s1">&#39;domaine-grp1.com/IN&#39;</span>:<span class="w"> </span>AXFR<span class="w"> </span>started
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>Jan<span class="w"> </span><span class="m">29</span><span class="w"> </span><span class="m">16</span>:21:29<span class="w"> </span>ns1<span class="w"> </span>named<span class="o">[</span><span class="m">8190</span><span class="o">]</span>:<span class="w"> </span>client<span class="w"> </span><span class="m">192</span>.168.10.100#56170:<span class="w"> </span>transfer<span class="w"> </span>of<span class="w"> </span><span class="s1">&#39;domaine-grp1.com/IN&#39;</span>:<span class="w"> </span>AXFR<span class="w"> </span>ended
+</span></code></pre></div>
+<p>Vous pouvez maintenant vérifier que les fichiers de zones sur le serveur secondaire ont bien été créés.</p>
+<p>L'erreur fréquente consiste à ne pas accorder le droit d'écrire au groupe système bind sur le répertoire <em>/var/cache/bind/</em>. C'est certainement le cas si vous avez les traces suivantes sur le serveur secondaire :</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>Jan<span class="w"> </span><span class="m">29</span><span class="w"> </span><span class="m">16</span>:20:23<span class="w"> </span>ns1<span class="w"> </span>named<span class="o">[</span><span class="m">20970</span><span class="o">]</span>:<span class="w"> </span>dumping<span class="w"> </span>master<span class="w"> </span>file:<span class="w"> </span>/var/cache/bind/slave/tmp-FqJO3iWCxz:<span class="w"> </span>open:<span class="w"> </span>permission<span class="w"> </span>denied
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>Jan<span class="w"> </span><span class="m">29</span><span class="w"> </span><span class="m">16</span>:20:23<span class="w"> </span>ns1<span class="w"> </span>named<span class="o">[</span><span class="m">20970</span><span class="o">]</span>:<span class="w"> </span>transfer<span class="w"> </span>of<span class="w"> </span><span class="s1">&#39;domaine-grp1.com/IN&#39;</span><span class="w"> </span>from<span class="w"> </span><span class="m">192</span>.168.10.10#53:<span class="w"> </span>failed<span class="w"> </span><span class="k">while</span><span class="w"> </span>receiving<span class="w"> </span>responses:<span class="w"> </span>permission<span class="w"> </span>denied
+</span></code></pre></div>
+<p>Pour tester le serveur secondaire, vous devez configurer les DNS du client de manière à ce qu'il pointe vers le serveur secondaire.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Pied de page" >
+        
+          
+          <a href="../6--Resolutioninverse/" class="md-footer__link md-footer__link--prev" aria-label="Précédent: La résolution inverse">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Précédent
+              </span>
+              <div class="md-ellipsis">
+                La résolution inverse
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../../Linux/2--OTP/" class="md-footer__link md-footer__link--next" aria-label="Suivant: Authentification TOTP sur Debian">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Suivant
+              </span>
+              <div class="md-ellipsis">
+                Authentification TOTP sur Debian
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Licence CC 4.0 FR BY-NC-SA - 2025 D. Balny et Q. Demoulière - Lycée Paul-Louis Courier
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.footer", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.50899def.min.js"></script>
+      
+    
+  </body>
+</html>

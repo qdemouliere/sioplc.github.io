@@ -1,0 +1,1907 @@
+
+<!doctype html>
+<html lang="fr" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://qdemouliere.github.io/cub/documentation/Stormshield/fiche12_vpn_openvpn/">
+      
+      
+        <link rel="prev" href="../fiche11_infrastructure_cles_publiques_SNS/">
+      
+      
+        <link rel="next" href="../fiche13_vpn_ipsec/">
+      
+      
+      <link rel="icon" href="../../../media/cub/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.16">
+    
+    
+      
+        <title>Fiche 12 -- VPN pour utilisateurs nomades - Le contexte CUB</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.7e37652d.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#fiche-12-vpn-pour-utilisateurs-nomades" class="md-skip">
+          Aller au contenu
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="En-tête">
+    <a href="../../.." title="Le contexte CUB" class="md-header__button md-logo" aria-label="Le contexte CUB" data-md-component="logo">
+      
+  <img src="../../../media/cub/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Le contexte CUB
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Fiche 12 -- VPN pour utilisateurs nomades
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Rechercher" placeholder="Rechercher" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Recherche">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Effacer" aria-label="Effacer" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initialisation de la recherche
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Le contexte CUB" class="md-nav__button md-logo" aria-label="Le contexte CUB" data-md-component="logo">
+      
+  <img src="../../../media/cub/logo.png" alt="logo">
+
+    </a>
+    Le contexte CUB
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Introduction
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Contexte
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Contexte
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../contexte/01-presentation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Présentation du contexte CUB
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../contexte/02-schemas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Schémas réseaux de l'entreprise CUB
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../contexte/03-infra/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Description de l'infrastructure
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../contexte/bonnespratiques/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Référentiel défini par la DSI
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Documentation
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Documentation
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    DNS
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            DNS
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DNS/1--Pr%C3%A9ambule/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Introduction
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DNS/2--Resolver/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Serveur DNS récursif
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DNS/3--Autority/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Serveur DNS maître faisant autorité
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DNS/4--Slave/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Serveur DNS esclave faisant autorité
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DNS/5--Delegation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Délégation de zone
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DNS/6--Resolutioninverse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    La résolution inverse
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DNS/7--Tests/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tests et diagnostics DNS
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Linux
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            Linux
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Linux/2--OTP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Authentification TOTP sur Debian
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Stormshield
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            Stormshield
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../commandesUtilesConsole_SNS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CheatSheet
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fiche01_initialiser_SNS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Fiche 01 -- Initialiser un Pare-feu SNS
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fiche02_priseEnMain_SNS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Fiche 02 -- Prise en main d'un Pare-feu SNS
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fiche03_gestionJournaux_SNS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Fiche 03 -- Traces, Journaux et supervision
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fiche04_configurationReseau_SNS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Fiche 04 -- Configuration du réseau
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fiche05_configurationObjetsReseaux_SNS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Fiche 05 -- Configuration des Objets Réseau
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fiche06_configurationNat_SNS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Fiche 06 -- Configuration du NAT/PAT
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fiche07_filtrage_protocolaire_SNS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Fiche 07-- Filtrage protocolaire
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fiche08_filtrage_applicatifSNS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Fiche 08 -- Filtrage applicatif
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fiche09_IDS_IPS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Fiche 09 -- Prévention d'intrusion IDS/IPS
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fiche10_utilisateurs_authentification_SNS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Fiche 10 -- Utilisateurs, authentification et portail captif
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fiche11_infrastructure_cles_publiques_SNS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Fiche 11 -- Infrastructures à clés pubiques (PKI)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Fiche 12 -- VPN pour utilisateurs nomades
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Fiche 12 -- VPN pour utilisateurs nomades
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#le-vpn-ssl" class="md-nav__link">
+    <span class="md-ellipsis">
+      Le VPN SSL
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Le VPN SSL">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#concepts-et-generalites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Concepts et généralités
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configurer-le-service-vpn-ssl" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configurer le service VPN SSL
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#methode-dauthentification" class="md-nav__link">
+    <span class="md-ellipsis">
+      Méthode d'authentification
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#installation-et-configuration-du-client-vpn-ssl" class="md-nav__link">
+    <span class="md-ellipsis">
+      Installation et configuration du client VPN SSL
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuration-du-client-openvpn-ssl-sur-linux" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configuration du client openVPN SSL sur Linux
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fiche13_vpn_ipsec/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Fiche 13 -- VPN site à site
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Versioning
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            Versioning
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Versioning/2--Etckeeper/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Gestion des versions de /etc avec Etckeeper
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#le-vpn-ssl" class="md-nav__link">
+    <span class="md-ellipsis">
+      Le VPN SSL
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Le VPN SSL">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#concepts-et-generalites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Concepts et généralités
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configurer-le-service-vpn-ssl" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configurer le service VPN SSL
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#methode-dauthentification" class="md-nav__link">
+    <span class="md-ellipsis">
+      Méthode d'authentification
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#installation-et-configuration-du-client-vpn-ssl" class="md-nav__link">
+    <span class="md-ellipsis">
+      Installation et configuration du client VPN SSL
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuration-du-client-openvpn-ssl-sur-linux" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configuration du client openVPN SSL sur Linux
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="fiche-12-vpn-pour-utilisateurs-nomades">Fiche 12 -- VPN pour utilisateurs nomades</h1>
+<h2 id="le-vpn-ssl">Le VPN SSL</h2>
+<p>Les pare-feux Stormshield intègrent deux types de VPN SSL qui peuvent
+être utilisés simultanément :</p>
+<ul>
+<li>VPN SSL portail qui permet l'accès aux serveurs Web HTTP et serveurs
+    applicatifs via le portail captif après authentification.</li>
+<li>VPN SSL (complet) qui permet l'accès au réseau interne d'une manière
+    transparente.</li>
+</ul>
+<p>La fiche ne concerne que le VPN SSL en mode complet.</p>
+<h3 id="concepts-et-generalites">Concepts et généralités</h3>
+<p><img alt="" src="../../../media/stormshield/fiches/fiche12_vpn_SNS/Pictures/10000000000006A6000003E6F4F27FB260C8C38A.png" /></p>
+<p>Le VPN SSL permet à des utilisateurs distants d'accéder
+de manière sécurisée aux ressources internes d'une entreprise. Les
+communications entre l'utilisateur distant et le pare-feu sont
+encapsulées et protégées via un tunnel TLS chiffré. L'établissement de
+ce tunnel est basé sur la présentation de certificats serveur et client
+signés par une autorité de confiance (CA). Cette solution garantit donc
+authentification, confidentialité, intégrité et non-répudiation.</p>
+<p>Au niveau du pare-feu, les tunnels VPN SSL sont gérés par le serveur
+OpenVPN (logiciel libre) qui est intégré dans le firmware en tant que
+nouveau service. OpenVPN peut fonctionner sur n'importe quel port TCP
+(par défaut 443) et/ou UDP (par défaut 1194), à l'exception de
+quelques-uns, qui sont utilisés pour les processus internes du pare-feu.</p>
+<p>Le fonctionnement sur le port TCP 443 offre un accès aisé depuis les
+réseaux avec filtrage d'accès à Internet (hôtels, wifi public, connexion
+3G, etc.).</p>
+<p>En ce qui concerne les utilisateurs nomades, le tunnel est géré par le
+client VPN SSL (Stormshield ou openVPN standard), qui doit être installé
+et configuré sur les machines. Ce client est installable sur tout type
+de terminal (Windows, IOS, Android, etc.). Les différents éléments de
+configuration (certificats, fichier de conf, etc.) sont récupérés sur le
+portail captif. Une fois le tunnel mis en œuvre, l\'hôte distant
+récupère une adresse IP fournie par le serveur VPN SSL. Elle sera
+considérée comme faisant partie des réseaux internes (protégés) du
+pare-feu et l'utilisateur sera vu comme authentifié.</p>
+<p>La mise en œuvre du tunnel VPN SSL s'effectue en trois étapes
+principales :</p>
+<p><img alt="" src="../../../media/stormshield/fiches/fiche12_vpn_SNS/Pictures/10000000000006890000041038B13ADBEAF36A7C.png" /></p>
+<ol>
+<li>
+<p>Le client VPN SSL authentifie l'utilisateur via le portail captif.
+Durant cette étape, le pare-feu vérifie si l'utilisateur authentifié
+possède les droits lui permettant d'ouvrir un tunnel VPN SSL.</p>
+</li>
+<li>
+<p>Si l'authentification réussit, le client envoie une requête pour
+récupérer les fichiers de configuration renvoyés par le pare-feu dans un
+dossier compressé « openvpn_client.zip ». Le dossier contient les
+fichiers suivants :</p>
+<ul>
+<li>Le certificat de l'autorité de certification (CA.cert.pem),</li>
+<li>Le certificat du client et sa clé privée (openvpnclient.cert.pem et
+    openvpnclient.pkey.pem),</li>
+<li>La configuration du client OpenVPN.</li>
+</ul>
+</li>
+<li>
+<p>Le client lance le processus de mise en œuvre du tunnel TLS avec
+authentification par certificat à l\'aide des certificats récupérés lors
+de l'étape précédente. Avant la mise en œuvre du tunnel, le pare-feu
+vérifie que le nombre maximal d'utilisateurs n'est pas encore atteint et
+qu'un sous-réseau peut être réservé pour ce nouveau client. Si toutes
+les conditions sont vérifiées, le tunnel est mis en œuvre et
+l'utilisateur est considéré comme authentifié.</p>
+</li>
+</ol>
+<div class="admonition warning">
+<p class="admonition-title">Info</p>
+<p>Si le serveur VPN SSL est accessible via un port UDP ou TCP, le client
+VPN SSL tente d'abord de mettre en œuvre le tunnel avec le protocole
+UDP et en cas d'échec, il effectue automatiquement une nouvelle
+tentative avec le protocole TCP.</p>
+</div>
+<h3 id="configurer-le-service-vpn-ssl">Configurer le service VPN SSL</h3>
+<p>Préalables</p>
+<p>La première étape de mise en œuvre d'un tunnel VPN SSL est
+l'authentification de l'utilisateur via le portail captif, ce qui
+signifie :</p>
+<ul>
+<li>qu'un annuaire externe ou interne doit être configuré au niveau du
+    pare-feu (voir fiche 10) ;</li>
+</ul>
+<p><img alt="" src="../../../media/stormshield/fiches/fiche12_vpn_SNS/Pictures/10000000000003E4000001A812DE1142F15E7917.png" /></p>
+<ul>
+<li>qu'une méthode d'authentification doit être configurée :</li>
+</ul>
+<p><img alt="" src="../../../media/stormshield/fiches/fiche12_vpn_SNS/Pictures/10000000000005000000017B7DB101FA2B6832D9.png" /></p>
+<ul>
+<li>qu'un profil du portail captif doit être rattaché à l'interface
+    depuis laquelle les utilisateurs se connectent :</li>
+</ul>
+<p><img alt="" src="../../../media/stormshield/fiches/fiche12_vpn_SNS/Pictures/1000000000000500000001D4665030E252007043.png" /></p>
+<p>Les méthodes d'authentification possibles pour le service VPN SSL sont
+les méthodes explicites qui nécessitent un couple identifiant/mot de
+passe, en l'occurrence LDAP (interne, externe ou Microsoft Active
+Directory), Kerberos et Radius.</p>
+<p>Des certificats seront utilisés pour l'authentification entre le client
+et le serveur VPN SSL. Pour cela, une autorité de certification racine
+(CA) existe dans la configuration usine de tous les pare-feux
+Stormshield Network. Cette CA est nommée sslvpn-full-default-authority,
+et elle contient un certificat serveur (qui identifie le serveur VPN
+SSL), et un certificat client (qui identifie tous les clients : chacun
+d'entre eux sera ensuite différencié par un couple login/mot de passe).</p>
+<p><img alt="" src="../../../media/stormshield/fiches/fiche12_vpn_SNS/Pictures/1000000000000241000000DCCB66BA1683D314EF.png" /></p>
+<p>Configuration du serveur SSL</p>
+<ul>
+<li>Cliquer sur le module <strong>Configuration</strong> &gt; <strong>VPN</strong> &gt; <strong>VPN SSL</strong> et
+    activer le <strong>Activer le VPN SSL</strong>.</li>
+</ul>
+<p><img alt="" src="../../../media/stormshield/fiches/fiche12_vpn_SNS/Pictures/100000000000027E00000250351885088A60B765.png" /></p>
+<p>Paramètres réseaux</p>
+<ul>
+<li>
+<p>Indiquer l'adresse IP ou le FQDN pour lequel le pare-feu Stormshield
+    Network sera joignable pour établir les tunnels VPN SSL. Ce doit
+    être une adresse IP publique (accessible sur Internet) ou une
+    adresse IP privée accessible via une redirection.</p>
+</li>
+<li>
+<p>Dans le champ <strong>Réseaux ou machines accessibles</strong>, sélectionner ou
+    créer l'objet représentant les réseaux et/ou machines qui seront
+    joignables au travers du tunnel SSL. Cet objet peut être un réseau,
+    une machine ou un groupe incluant des réseaux et / ou des machines.</p>
+</li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Info</p>
+<p>Il sera nécessaire de définir les routes nécessaires
+pour joindre l'ensemble des ressources et d'affiner les règles de
+filtrage.</p>
+</div>
+<ul>
+<li>
+<p>Paramètres DNS envoyés au client</p>
+</li>
+<li>
+<p>Indiquer le suffixe DNS qui sera utilisé par les clients pour réaliser
+leurs résolutions de noms d'hôtes.</p>
+</li>
+<li>
+<p>Préciser les serveurs DNS primaire et secondaire à lui attribuer.</p>
+</li>
+</ul>
+<div class="admonition danger">
+<p class="admonition-title">Important</p>
+<p><strong>Les réseaux assignés aux clients UDP et TCP doivent
+être différents. </strong>Choisir des réseaux entièrement dédiés aux clients
+VPN SSL et n'appartenant pas aux réseaux internes existants ou déclarés
+par une route statique. En effet, l'interface utilisée pour le VPN SSL
+étant protégée, le pare-feu détecterait alors une tentative d'usurpation
+d'adresse IP (spoofing) et bloquerait les flux correspondants.</p>
+</div>
+<div class="admonition info">
+<p class="admonition-title">Astuce</p>
+<p>Afin d'éviter des conflits de routage sur les postes clients lors de la
+connexion au VPN, choisir plutôt, pour vos clients VPN, des sous-réseaux
+peu communément utilisés (exemple : 10.<strong>60</strong>.<strong>77</strong>.0/24, etc.). En
+effet, de nombreux réseaux d'accès internet filtrés (wifi public,
+hôtels, etc) ou réseaux locaux privés utilisent les premières plages
+d'adresses réservées à ces usages (exemple : 10.0.0.0/24,
+192.168.0.0/24).</p>
+</div>
+<p>Le nombre maximum de tunnels simultanés est automatiquement calculé et
+affiché. Par exemple, pour une plage en /24, seules 63 adresses sont
+disponibles. Cela correspond au minimum des deux valeurs suivantes :</p>
+<ol>
+<li>
+<ul>
+<li>Le quart du nombre d'adresses IP, moins une, incluses dans le
+        réseau client choisi. Un tunnel SSL utilise en effet 4 adresses
+        IP,</li>
+<li>Le nombre maximal de tunnels autorisés selon le modèle de
+    pare-feu utilisé.</li>
+</ul>
+</li>
+</ol>
+<p><img alt="" src="../../../media/stormshield/fiches/fiche12_vpn_SNS/Pictures/100000000000035D0000014F9CBCDAA3EF7DCDB4.png" /></p>
+<ul>
+<li>Sélectionner l'objet représentant l'adresse IP de L'UTM pour
+    permettre un accès via le port UDP.</li>
+</ul>
+<p>Il vous est aussi possible de personnaliser le laps de temps (en
+secondes) au terme duquel les clés utilisées par les algorithmes de
+chiffrement seront renégociées (étapes 1 et 2 de l'établissement de
+tunnel). La valeur par défaut est de 4 heures (14400 secondes).</p>
+<ul>
+<li>Scripts à exécuter sur le client</li>
+</ul>
+<p>Vous pouvez sélectionner des scripts que Stormshield Network SSL VPN
+Client exécutera lors de la connexion et/ou déconnexion au pare-feu
+(uniquement sur Windows). Il est possible, par exemple, de
+connecter/déconnecter automatiquement un lecteur réseau Windows par
+cette méthode. Un exemple de script est présenté dans la section <a href="https://documentation.stormshield.eu/SNS/v4/fr/Content/SSL_VPN_tunnels/More-Information.htm">Pour
+aller plus
+loin</a>.</p>
+<p><img alt="" src="../../../media/stormshield/fiches/fiche12_vpn_SNS/Pictures/100000000000043E00000099CC907349B9E76971.png" /></p>
+<ul>
+<li>Certificats utilisés</li>
+</ul>
+<p><img alt="" src="../../../media/stormshield/fiches/fiche12_vpn_SNS/Pictures/100000000000028400000095BC1F4A1903EDDA87.png" /></p>
+<p>Les certificats que doivent présenter le service VPN SSL du pare-feu et
+le client pour établir un tunnel sont créés par défaut.</p>
+<p>Si vous choisissez de créer votre propre CA, vous devez utiliser deux
+certificats, et leur clé privée respective, signés par celle-ci. S'il ne
+s'agit pas d'une autorité racine, les deux certificats doivent être
+issus de la même sous-autorité.</p>
+<p>Configuration des droits d'accès au VPN SSL</p>
+<ul>
+<li>Se rendre au menu <strong>Configuration &gt; Utilisateurs &gt; Droits
+    d\'accès</strong>, l'onglet <em>Accès par défaut</em> permet d'autoriser ou
+    d'interdire l'utilisation du VPN SSL à l'ensemble des utilisateurs
+    sans aucune distinction.</li>
+</ul>
+<p><img alt="" src="../../../media/stormshield/fiches/fiche12_vpn_SNS/Pictures/10000000000002990000020F04BE829CF0877A81.png" /></p>
+<p><strong>Pour autoriser des utilisateurs spécifiques</strong> (recommandé par
+Stormshield), il faut laisser « Interdire » ici puis :</p>
+<ul>
+<li>Cliquer sur l'onglet « Accès détaillé » et cliquer sur <strong>Ajouter</strong>
+    afin de créer une règle d'accès personnalisée.</li>
+<li>Activer la règle (colonne <em>Etat</em>), sélectionner les utilisateurs ou
+    le groupe d'utilisateurs autorisés (colonne <em>Utilisateur -- groupe
+    d'utilisateurs</em>) et choisir l'action <strong>Autoriser</strong> dans la colonne
+    <em>VPN SSL</em>.</li>
+</ul>
+<p><img alt="" src="../../../media/stormshield/fiches/fiche12_vpn_SNS/Pictures/100000000000056B0000009B3997A83FD6A8303F.png" /></p>
+<h3 id="methode-dauthentification">Méthode d'authentification</h3>
+<p><strong>Définition des règles de filtrage pour autoriser / interdire les flux
+entre les clients VPN SSL et les ressources internes</strong></p>
+<ul>
+<li>
+<p>Ajouter les règles nécessaires de filtrage au pare-feu comme :</p>
+</li>
+<li>
+<p>celle autorisant n'importe quelle adresse IP sur Internet à se
+    connecter sur le service VPN (1194/UDP ou 443/TCP) du pare-feu sur
+    son interface externe ;</p>
+</li>
+</ul>
+<p><img alt="" src="../../../media/stormshield/fiches/fiche12_vpn_SNS/Pictures/100000000000055C00000048AEC5BBEC974C4F1D.png" /></p>
+<ul>
+<li>l'initiation de connexions à partir des clients VPN SSL et à
+    destination des serveurs Web internes</li>
+<li>permettre aux clients vpn d'accéder à Internet ;</li>
+<li>
+<p>etc.</p>
+</li>
+<li>
+<p>Ajouter ou modifier si besoin la règle NAT permettant aux clients
+    d'utiliser le VPN SSL pour accéder à internet.</p>
+</li>
+</ul>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>**Les tunnels VPN SSL sont compatibles avec les fonctions avancées de
+filtrage du pare-feu Stormshield Network. Les règles de filtrage peuvent
+donc faire appel aux profils d'inspection, proxies applicatifs, contrôle
+antiviral, etc.</p>
+</div>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Pour permettre aux clients VPN SSL d'accéder au portail
+d'authentification sur les interfaces associées aux profils
+d'authentification du pare-feu, la règle de filtrage implicite nommée
+Autoriser l'accès au portail d'authentification et au VPN SSL pour les
+interfaces associées aux profils d'authentification (Authd) doit être
+activée.</p>
+</div>
+<p>Si tel n'est pas le cas, il est impératif d'ajouter des règles de
+filtrage explicites dans la politique active autorisant les flux à
+destination de l'interface publique sur le port d'écoute du service.</p>
+<h3 id="installation-et-configuration-du-client-vpn-ssl">Installation et configuration du client VPN SSL</h3>
+<p>Il est possible de configurer un client VPN sur n'importe quel système
+d'exploitation. Il ne sera développé ci-après que les procédures sur
+Windows et Linux.</p>
+<p><strong>Pour aller plus loin au niveau des détails et de l'installation du
+client sur d'autres systèmes :</strong>
+<a href="https://documentation.stormshield.eu/SNS/v4/fr/Content/SSL_VPN_tunnels/Installation_and_configuration_of_the_client.htm">https://documentation.stormshield.eu/SNS/v4/fr/Content/SSL_VPN_tunnels/Installation_and_configuration_of_the_client.htm</a>.</p>
+<p>Sur Windows, il est possible d'utiliser le client VPN de Stormshield. Ce
+client peut être téléchargé sur l'espace privé https://mystormshield.eu
+et sur le portail captif du pare-feu après authentification :</p>
+<p><img alt="" src="../../../media/stormshield/fiches/fiche12_vpn_SNS/Pictures/100000000000034A0000016E02B2A963425E6EA6.png" /></p>
+<p><strong>Configuration du client VPN SSL Stormshield Network</strong></p>
+<ul>
+<li>Télécharger « VPN SSL client » sur le portail captif
+    (https://(@IP_pare-feu | FQDN_pare-feu)/auth).</li>
+</ul>
+<div class="admonition danger">
+<p class="admonition-title">Information</p>
+<p>VPN SSL Client ne peut être utilisé que sous un seul
+profil utilisateur Windows. Il doit donc être impérativement installé
+sous le profil Windows de l'utilisateur final du logiciel.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Vigilence</p>
+<p>D'autre part, cette installation requiert <strong>une élévation de privilèges</strong>.
+Si l'utilisateur ne possède pas les droits d'administration sur le poste
+de travail, il devra fournir, au cours de l'installation, le nom et le
+mot de passe d'un compte ayant les droits d'administration.</p>
+</div>
+<ul>
+<li>
+<p>Faire un double clic sur l'exécutable enregistré sur le poste de
+    travail.</p>
+</li>
+<li>
+<p>Suivre les différentes fenêtres proposées par l'assistant
+    d'installation. <em>Seuls le chemin d'installation et un groupe de
+    programme à associer sont éventuellement à personnaliser.</em></p>
+</li>
+</ul>
+<p>Le téléchargement et l'intégration des fichiers de configuration sont
+réalisés automatiquement lors de l'utilisation de « Stormshield Network
+SSL VPN Client ». Après authentification et validation du droit à
+l'utilisation du VPN SSL, le client récupère l'ensemble des données
+nécessaires pour se configurer.</p>
+<ul>
+<li>
+<p>Démarrer et paramétrer le client. Une fois démarré, le client VPN
+    SSL nécessite trois paramètres :</p>
+</li>
+<li>
+<p>l'adresse IP ou le FQDN du pare-feu à contacter :</p>
+<ul>
+<li>l'adresse IP ou le FQDN doit bien évidemment être accessible
+    soit directement soit via une redirection ;</li>
+<li>
+<p>si le port n'est pas le port par défaut (1194 en UDP et 443 en
+    TCP), l'adresse IP ou le FQDN doit être suivi de
+    « :numero_port »</p>
+<p><img alt="" src="../../../media/stormshield/fiches/fiche12_vpn_SNS/Pictures/10000000000006AB0000040581A960B952F84132.png" /></p>
+</li>
+<li>
+<p>l'identifiant de l'utilisateur disposant des droits
+    pour le VPN SSL ;</p>
+</li>
+<li>
+<p>Le mot de passe de l'utilisateur.</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>Une fenêtre indique que la connexion à ce site n'est pas sécurisée, car
+le client ne fait pas confiance à la CA signataire du certificat serveur
+présenté par le portail captif du pare-feu. Il est donc possible :</p>
+<ul>
+<li>
+<p>d'afficher le certificat pour savoir quelle CA l'a signé ;</p>
+</li>
+<li>
+<p>de faire confiance à ce certificat, ce qui signifie que la CA est
+    ajoutée aux autorités de confiance et qu'il est possible de
+    continuer avec la configuration du tunnel ;</p>
+</li>
+<li>d'annuler la connexion, ce qui arrêtera la configuration du tunnel.</li>
+</ul>
+<p>L'icône du client VPN SSL Stormshield qui apparaît dans la zone de
+notification de la barre de tâches de Windows possède un code couleur
+qui correspond à son état :</p>
+<ul>
+<li><strong>Rouge :</strong> le client est déconnecté,</li>
+<li><strong>Jaune :</strong> le client essaye de mettre en œuvre le tunnel,</li>
+<li><strong>Bleu :</strong> le client est connecté (lorsque le client est connecté, des
+    informations sur la connexion apparaissent lorsque le curseur de la
+    souris est positionné sur l'icône.)</li>
+</ul>
+<p>La page de supervision du pare-feu permet de visualiser (et
+éventuellement supprimer en déconnectant l'utiliateur) les tunnels VPN
+SSL ouverts dans l'onglet <strong>Supervision =&gt; tunnels VPN SSL .</strong></p>
+<p><img alt="" src="../../../media/stormshield/fiches/fiche12_vpn_SNS/Pictures/1000000000000680000000AB9FBB894BD2F605A8.png" /></p>
+<p>Les utilisateurs connectés via un tunnel VPN SSL sont considérés comme
+authentifiés et peuvent être visualisés dans les traces.</p>
+<div class="admonition warning">
+<p class="admonition-title">Info</p>
+<p>En cas d'échec de la configuration du tunnel, faire un clic droit sur
+l'icône VPN SSL Stormshield Network pour afficher les traces.</p>
+</div>
+<p>Le client VPN SSL Stormshield possède une fonction de carnet d'adresses,
+qui peut aider à sauvegarder différents profils VPN dans un seul fichier
+chiffré. Le mot de passe utilisé pour protéger le fichier est
+spécifique. Pour ajouter une entrée au carnet d'adresses :</p>
+<ul>
+<li>Cliquer sur le bouton « Ajouter », renseigner les détails et cliquer
+    sur « OK » pour sauvegarder.</li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Info</p>
+<p>Il est également possible d'importer/exporter des entrées. Le carnet
+d'adresses se trouve à l'emplacement suivant : <br/>
+%USERPROFILE%\AppData\Local\Stormshield\Stormshield SSL VPN Client\AddrBook.gap</p>
+</div>
+<p><strong>Lorsque le tunnel est monté,</strong> le poste client disposera d'une
+interface spécifique au tunnel VPN SSL dont l'adresse IP fait partie de
+l'objet Réseau assigné au client de la configuration serveur. Les routes
+nécessaires sont automatiquement créées. Par exemple sur Linux :</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>route<span class="w"> </span>-n
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>Table<span class="w"> </span>de<span class="w"> </span>routage<span class="w"> </span>IP<span class="w"> </span>du<span class="w"> </span>noyau
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>Destination<span class="w"> </span>Passerelle<span class="w"> </span>Genmask<span class="w"> </span>Indic<span class="w"> </span>Metric<span class="w"> </span>Ref<span class="w"> </span>Use<span class="w"> </span>Iface
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="m">0</span>.0.0.0<span class="w"> </span><span class="m">10</span>.60.50.5<span class="w"> </span><span class="m">0</span>.0.0.0<span class="w"> </span>UG<span class="w"> </span><span class="m">50</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">0</span><span class="w"> </span>tun0
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="m">10</span>.60.50.0<span class="w"> </span><span class="m">10</span>.60.50.5<span class="w"> </span><span class="m">255</span>.255.255.0<span class="w"> </span>UG<span class="w"> </span><span class="m">50</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">0</span><span class="w"> </span>tun0
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="m">10</span>.60.50.1<span class="w"> </span><span class="m">10</span>.60.50.5<span class="w"> </span><span class="m">255</span>.255.255.255<span class="w"> </span>UGH<span class="w"> </span><span class="m">50</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">0</span><span class="w"> </span>tun0
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="m">10</span>.60.50.5<span class="w"> </span><span class="m">0</span>.0.0.0<span class="w"> </span><span class="m">255</span>.255.255.255<span class="w"> </span>UH<span class="w"> </span><span class="m">50</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">0</span><span class="w"> </span>tun0
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="m">10</span>.61.50.0<span class="w"> </span><span class="m">10</span>.60.50.5<span class="w"> </span><span class="m">255</span>.255.255.0<span class="w"> </span>UG<span class="w"> </span><span class="m">50</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">0</span><span class="w"> </span>tun0
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="m">10</span>.61.50.1<span class="w"> </span><span class="m">10</span>.60.50.5<span class="w"> </span><span class="m">255</span>.255.255.255<span class="w"> </span>UGH<span class="w"> </span><span class="m">50</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">0</span><span class="w"> </span>tun0
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="m">172</span>.16.5.0<span class="w"> </span><span class="m">10</span>.60.50.5<span class="w"> </span><span class="m">255</span>.255.255.0<span class="w"> </span>UG<span class="w"> </span><span class="m">50</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">0</span><span class="w"> </span>tun0
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="m">192</span>.168.5.0<span class="w"> </span><span class="m">10</span>.60.50.5<span class="w"> </span><span class="m">255</span>.255.255.128<span class="w"> </span>UG<span class="w"> </span><span class="m">50</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">0</span><span class="w"> </span>tun0
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="m">192</span>.168.5.128<span class="w"> </span><span class="m">10</span>.60.50.5<span class="w"> </span><span class="m">255</span>.255.255.192<span class="w"> </span>UG<span class="w"> </span><span class="m">50</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">0</span><span class="w"> </span>tun0
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="m">192</span>.168.5.192<span class="w"> </span><span class="m">10</span>.60.50.5<span class="w"> </span><span class="m">255</span>.255.255.192<span class="w"> </span>UG<span class="w"> </span><span class="m">50</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">0</span><span class="w"> </span>tun0
+</span></code></pre></div>
+<div class="admonition success">
+<p class="admonition-title">Résultat</p>
+<p>On peut voir qu'une route par défaut est créée ⇒ Du moment que le poste est intégré au VPN toutes les communications (y compris l'accès à Internet) passe par le pare-feu Stormshield. Il est possible de modifier ce comportement mais cela n'est pas conseillé pour des raisons évidentes de sécurité.</p>
+</div>
+<h3 id="configuration-du-client-openvpn-ssl-sur-linux">Configuration du client openVPN SSL sur Linux</h3>
+<p>Le fichier « openvpn_client.zip » doit être récupéré sur portail captif
+de Stormshield et décompressé. Il comprend le fichier de conf du profil
+(voir ci-dessous) et les certificats :</p>
+<p><div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>dev<span class="w"> </span>tun
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>remote<span class="w"> </span><span class="m">192</span>.36.253.50<span class="w"> </span><span class="m">1194</span><span class="w"> </span>udp
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>remote<span class="w"> </span><span class="m">192</span>.36.253.50<span class="w"> </span><span class="m">443</span><span class="w"> </span>tcp
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>cipher<span class="w"> </span>AES-256-CBC
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>tls-cipher<span class="w"> </span>TLS-ECDHE-RSA-WITH-AES-128-CBC-SHA256
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>auth<span class="w"> </span>SHA256
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>nobind
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>resolv-retry<span class="w"> </span>infinite
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>persist-key
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>persist-tun
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>ca<span class="w"> </span><span class="se">\&quot;</span>CA.cert.pem<span class="se">\&quot;</span>
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>cert<span class="w"> </span><span class="se">\&quot;</span>openvpnclient.cert.pem<span class="se">\&quot;</span>
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>key<span class="w"> </span><span class="se">\&quot;</span>openvpnclient.pkey.pem<span class="se">\&quot;</span>
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>compress<span class="w"> </span>lz4
+</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>verb<span class="w"> </span><span class="m">0</span>
+</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>auth-user-pass
+</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a>auth-retry<span class="w"> </span>interact
+</span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a>auth-nocache
+</span><span id="__span-1-19"><a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a>reneg-sec<span class="w"> </span><span class="m">0</span>
+</span></code></pre></div>
+Configuration sur Linux en UDP avec network-manager (seuls les éléments
+modifiés sont précisés) :</p>
+<p><img alt="" src="../../../media/stormshield/fiches/fiche12_vpn_SNS/Pictures/10000000000004D800000451D0E2E228DC433F3A.png" /></p>
+<ul>
+<li>
+<p>Se rendre au menu <strong>Paramètres / Réseau </strong>et cliquer sur « + » au
+    niveau du VPN</p>
+</li>
+<li>
+<p>Cliquer sur l'onglet « Identité »</p>
+</li>
+</ul>
+<p>Ici, le FQDN « cub.corsica » est résolu par l'adresse IP publique et le
+port 1195 est redirigé vers le port UDP/1194 du pare-feu Stormshield.</p>
+<ul>
+<li>Cliquer sur « Advanced »</li>
+</ul>
+<p><img alt="" src="../../../media/stormshield/fiches/fiche12_vpn_SNS/Pictures/100000000000051A00000224A1F397401D3DA60F.png" /></p>
+<p>Il s'agit ici du port d'écoute en UDP du serveur VPN configuré sur le
+pare-feu.</p>
+<p><img alt="" src="../../../media/stormshield/fiches/fiche12_vpn_SNS/Pictures/10000000000004AC0000024D3EA0844E51179ED5.png" /></p>
+<ul>
+<li>
+<p>Cliquer sur l'onglet « Sécurité</p>
+<p><img alt="" src="../../../media/stormshield/fiches/fiche12_vpn_SNS/Pictures/10000001000007A200000108A53CD5B0E7AA5F11.png" />
+-   Enregistrer en cliquant sur « Appliquer » et activer le VPN</p>
+</li>
+</ul>
+<p><strong>Configuration sur Linux en TCP </strong>avec network-manager (seuls les
+éléments modifiés sont précisés) :</p>
+<p><img alt="" src="../../../media/stormshield/fiches/fiche12_vpn_SNS/Pictures/10000000000004CF00000459153DAA7B968DD57F.png" />
+-   Se rendre au menu <strong>Paramètres / Réseau </strong>et cliquer sur « + » au
+    niveau du VPN</p>
+<ul>
+<li>Cliquer sur l'onglet « Identité »</li>
+</ul>
+<p>Ici, le FQDN « cub.corsica » est résolu par l'adresse IP publique et le
+port 4435 est redirigé vers le port TCP/443 du pare-feu Stormshield.</p>
+<ul>
+<li>Cliquer sur « Advanced »</li>
+</ul>
+<p><img alt="" src="../../../media/stormshield/fiches/fiche12_vpn_SNS/Pictures/10000000000004D2000001D04C90A26114A5C1C0.png" /></p>
+<p>Il s'agit ici du port d'écoute en TCP du serveur VPN configuré sur le
+pare-feu.</p>
+<ul>
+<li>Cocher « Utiliser une connexion TCP » car, par défaut, le client VPN
+    initie une connexion UDP »</li>
+</ul>
+<p><img alt="" src="../../../media/stormshield/fiches/fiche12_vpn_SNS/Pictures/10000000000004920000015FC5A748A35DEAE3DF.png" /></p>
+<ul>
+<li>Enregistrer en cliquant sur « Appliquer » et activer le VPN</li>
+</ul>
+<p><img alt="" src="../../../media/stormshield/fiches/fiche12_vpn_SNS/Pictures/10000000000007AD0000017C76A4CFFF20E75BD7.png" /></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Pied de page" >
+        
+          
+          <a href="../fiche11_infrastructure_cles_publiques_SNS/" class="md-footer__link md-footer__link--prev" aria-label="Précédent: Fiche 11 -- Infrastructures à clés pubiques (PKI)">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Précédent
+              </span>
+              <div class="md-ellipsis">
+                Fiche 11 -- Infrastructures à clés pubiques (PKI)
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../fiche13_vpn_ipsec/" class="md-footer__link md-footer__link--next" aria-label="Suivant: Fiche 13 -- VPN site à site">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Suivant
+              </span>
+              <div class="md-ellipsis">
+                Fiche 13 -- VPN site à site
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Licence CC 4.0 FR BY-NC-SA - 2025 D. Balny et Q. Demoulière - Lycée Paul-Louis Courier
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.footer", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.50899def.min.js"></script>
+      
+    
+  </body>
+</html>

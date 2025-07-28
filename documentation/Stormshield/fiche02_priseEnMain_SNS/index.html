@@ -1,0 +1,1816 @@
+
+<!doctype html>
+<html lang="fr" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://qdemouliere.github.io/cub/documentation/Stormshield/fiche02_priseEnMain_SNS/">
+      
+      
+        <link rel="prev" href="../fiche01_initialiser_SNS/">
+      
+      
+        <link rel="next" href="../fiche03_gestionJournaux_SNS/">
+      
+      
+      <link rel="icon" href="../../../media/cub/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.16">
+    
+    
+      
+        <title>Fiche 02 -- Prise en main d'un Pare-feu SNS - Le contexte CUB</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.7e37652d.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#fiche-02-prise-en-main-dun-pare-feu-sns" class="md-skip">
+          Aller au contenu
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="En-tête">
+    <a href="../../.." title="Le contexte CUB" class="md-header__button md-logo" aria-label="Le contexte CUB" data-md-component="logo">
+      
+  <img src="../../../media/cub/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Le contexte CUB
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Fiche 02 -- Prise en main d'un Pare-feu SNS
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Rechercher" placeholder="Rechercher" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Recherche">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Effacer" aria-label="Effacer" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initialisation de la recherche
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Le contexte CUB" class="md-nav__button md-logo" aria-label="Le contexte CUB" data-md-component="logo">
+      
+  <img src="../../../media/cub/logo.png" alt="logo">
+
+    </a>
+    Le contexte CUB
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Introduction
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Contexte
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Contexte
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../contexte/01-presentation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Présentation du contexte CUB
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../contexte/02-schemas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Schémas réseaux de l'entreprise CUB
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../contexte/03-infra/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Description de l'infrastructure
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../contexte/bonnespratiques/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Référentiel défini par la DSI
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Documentation
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Documentation
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    DNS
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            DNS
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DNS/1--Pr%C3%A9ambule/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Introduction
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DNS/2--Resolver/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Serveur DNS récursif
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DNS/3--Autority/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Serveur DNS maître faisant autorité
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DNS/4--Slave/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Serveur DNS esclave faisant autorité
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DNS/5--Delegation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Délégation de zone
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DNS/6--Resolutioninverse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    La résolution inverse
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DNS/7--Tests/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tests et diagnostics DNS
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Linux
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            Linux
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Linux/2--OTP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Authentification TOTP sur Debian
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Stormshield
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            Stormshield
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../commandesUtilesConsole_SNS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CheatSheet
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fiche01_initialiser_SNS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Fiche 01 -- Initialiser un Pare-feu SNS
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Fiche 02 -- Prise en main d'un Pare-feu SNS
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Fiche 02 -- Prise en main d'un Pare-feu SNS
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#connexion-au-pare-feu-sns" class="md-nav__link">
+    <span class="md-ellipsis">
+      Connexion au pare-feu SNS
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#premiere-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Première configuration
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuration-generale" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configuration générale
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Configuration générale">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#administration-du-pare-feu" class="md-nav__link">
+    <span class="md-ellipsis">
+      Administration du pare-feu
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parametres-reseaux" class="md-nav__link">
+    <span class="md-ellipsis">
+      Paramètres réseaux
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#autres-configurations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Autres configurations
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Autres configurations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#modification-du-mot-de-passe-de-ladministrateur" class="md-nav__link">
+    <span class="md-ellipsis">
+      Modification du mot de passe de l'administrateur
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#activation-de-la-licence" class="md-nav__link">
+    <span class="md-ellipsis">
+      Activation de la licence
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mise-a-jour-du-systeme" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mise à jour du système
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sauvegarde-et-restauration-de-la-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sauvegarde et restauration de la configuration
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fiche03_gestionJournaux_SNS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Fiche 03 -- Traces, Journaux et supervision
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fiche04_configurationReseau_SNS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Fiche 04 -- Configuration du réseau
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fiche05_configurationObjetsReseaux_SNS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Fiche 05 -- Configuration des Objets Réseau
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fiche06_configurationNat_SNS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Fiche 06 -- Configuration du NAT/PAT
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fiche07_filtrage_protocolaire_SNS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Fiche 07-- Filtrage protocolaire
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fiche08_filtrage_applicatifSNS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Fiche 08 -- Filtrage applicatif
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fiche09_IDS_IPS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Fiche 09 -- Prévention d'intrusion IDS/IPS
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fiche10_utilisateurs_authentification_SNS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Fiche 10 -- Utilisateurs, authentification et portail captif
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fiche11_infrastructure_cles_publiques_SNS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Fiche 11 -- Infrastructures à clés pubiques (PKI)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fiche12_vpn_openvpn/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Fiche 12 -- VPN pour utilisateurs nomades
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fiche13_vpn_ipsec/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Fiche 13 -- VPN site à site
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Versioning
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            Versioning
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Versioning/2--Etckeeper/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Gestion des versions de /etc avec Etckeeper
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#connexion-au-pare-feu-sns" class="md-nav__link">
+    <span class="md-ellipsis">
+      Connexion au pare-feu SNS
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#premiere-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Première configuration
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuration-generale" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configuration générale
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Configuration générale">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#administration-du-pare-feu" class="md-nav__link">
+    <span class="md-ellipsis">
+      Administration du pare-feu
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parametres-reseaux" class="md-nav__link">
+    <span class="md-ellipsis">
+      Paramètres réseaux
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#autres-configurations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Autres configurations
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Autres configurations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#modification-du-mot-de-passe-de-ladministrateur" class="md-nav__link">
+    <span class="md-ellipsis">
+      Modification du mot de passe de l'administrateur
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#activation-de-la-licence" class="md-nav__link">
+    <span class="md-ellipsis">
+      Activation de la licence
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mise-a-jour-du-systeme" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mise à jour du système
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sauvegarde-et-restauration-de-la-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sauvegarde et restauration de la configuration
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="fiche-02-prise-en-main-dun-pare-feu-sns">Fiche 02 -- Prise en main d'un Pare-feu SNS</h1>
+<div class="admonition info">
+<p class="admonition-title">Documentation officielle</p>
+<p><a href="https://documentation.stormshield.eu/SNS/v4/fr/Content/User_Configuration_Manual_SNS_v4/Welcome/WELCOME.htm">https://documentation.stormshield.eu/SNS/v4/fr/Content/User_Configuration_Manual_SNS_v4/Welcome/WELCOME.htm</a></p>
+</div>
+<h2 id="connexion-au-pare-feu-sns">Connexion au pare-feu SNS</h2>
+<p>Pour accéder à l'interface d'administration du pare-feu SNS, il est
+indispensable de connecter votre machine cliente (physique ou virtuelle)
+sur une interface interne (<strong>IN</strong> ou <strong>DMZ1 ou 2</strong> sur les boîtiers
+SN310 et les machines virtuelles, <strong>IN</strong> sur les boitiers SN210) sous
+peine de devoir redémarrer le pare-feu qui aura détecté une tentative
+d'usurpation d'adresse IP sur le bridge et bloquera tout le trafic
+généré par la machine connectée sur l'interface <strong>OUT</strong>.</p>
+<p>L'interface <strong>IN</strong> doit être dans le même réseau que la machine à partir
+de laquelle il va être procédé à une première configuration.</p>
+<p>L'accès à l'interface graphique d'administration du pare-feu SNS se fait
+par https://@IP/admin (https://10.0.0.254/admin sur un boîtier) à partir
+d'un navigateur web :</p>
+<table>
+<thead>
+<tr>
+<th><img alt="" src="../../../media/stormshield/fiches/fiche2_priseEnMain_SNS/Pictures/10000001000000BE00000124F697C4856E5E8482.png" /></th>
+<th>L'écran ci-contre apparaît pour vous connecter une fois le pare-feu SNS démarré.</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>- Pour modifier les options de langue de l'interface web d'administration, dépliez <strong>Options</strong> puis choisissez la langue.</td>
+<td>La fenêtre est actualisée, vous pouvez vous connecter à nouveau.</td>
+</tr>
+<tr>
+<td>- Saisir l'identifiant <strong>admin</strong>, le mot de passe <strong>admin</strong> ou celui que vous avez configuré si vous avez effectué la réinitialisation de la machine virtuelle (par ex. <strong>Sio2022*</strong> ou autre).</td>
+<td><strong>Remarque :</strong> pour s'authentifier, l'utilisateur peut également sélectionner un certificat SSL dans le magasin de son navigateur (à configurer au préalable dans les préférences du pare-feu SNS). Nous étudierons cette possibilité dans la partie avancée sur la mise en place d'une PKI avec Stormshield.</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition danger">
+<p class="admonition-title">Sécurité</p>
+<p>Pour des raisons évidentes de sécurité, il conviendra de modifier ce mot de passe lorsque le pare-feu SNS sera utilisé en contexte réel d'entreprise.</p>
+</div>
+<p>La page d'accueil de votre pare-feu SNS s'ouvre sur un <strong>Tableau de
+bord</strong> qui permet de visualiser un certain nombre d'informations sur
+votre équipement et est personnalisable.</p>
+<p><img alt="" src="../../../media/stormshield/fiches/fiche2_priseEnMain_SNS/Pictures/100000010000024E0000012453E64C32419E6269.png" /></p>
+<h2 id="premiere-configuration">Première configuration</h2>
+<p>Nous verrons ci-après un certain nombre d'éléments de configuration
+générale utiles pour la bonne mise en œuvre de votre pare-feu SNS (pour
+des configurations plus avancées et autres détails, cf fichier
+v4CSNA_v4_Livre_formation_Stomshield.pdf).</p>
+<div class="admonition warning">
+<p class="admonition-title">Vigilence</p>
+<p>Afin de ne jamais être déconnecté en cas d'inactivité sur l'interface d'administration pendant ces exercices pratiques, il
+conviendra de modifier vos préférences, <strong>en usage réel vous utiliserez un délai de 5 minutes pour éviter de laisser votre session ouverte sur
+le pare-feu SNS.</strong></p>
+</div>
+<ul>
+<li>Cliquer sur la flèche à droite de l'icône représentant l'utilisateur
+    connecté
+    <img alt="" src="../../../media/stormshield/fiches/fiche2_priseEnMain_SNS/Pictures/100000010000004B000000154D00347AC20C8467.png" /> en haut à droite.</li>
+<li>Cliquer sur l'icône
+    <strong>Préférences</strong> <img alt="" src="../../../media/stormshield/fiches/fiche2_priseEnMain_SNS/Pictures/100000010000005F00000013CBFBEA3DEAC9F4DE.png" /></li>
+<li>Dans la zone <strong>Paramètres de connexion</strong>, sélectionner dans la liste
+    « Déconnexion en cas d'inactivité : » la valeur <strong>Toujours rester connecté</strong>.</li>
+</ul>
+<p><img alt="" src="../../../media/stormshield/fiches/fiche2_priseEnMain_SNS/Pictures/100000010000028200000050B7AB828000D23CF7.png" /></p>
+<p>Nous étudierons notamment les éléments du menu <strong>Configuration / Système
+</strong>qui correspond à la configuration générale : licence, mise à jour, mot
+de passe, etc.</p>
+<h2 id="configuration-generale">Configuration générale</h2>
+<ul>
+<li>Sélectionner dans le menu à gauche <strong>Configuration / Système </strong>puis
+    <strong>Configuration</strong>. Le volet <strong>Configuration générale</strong> est affiché.</li>
+<li>Commencer par donner un <strong>nom</strong> à votre boîtier et <strong>changer la langue </strong>de la console.</li>
+</ul>
+<p><img alt="" src="../../../media/stormshield/fiches/fiche2_priseEnMain_SNS/Pictures/1000000100000221000000860A93B72F1B504A84.png" /></p>
+<p>Il est préférable de mettre les logs en anglais : <em>Langue du pare-feu
+(traces)</em> afin de pouvoir rechercher plus facilement des références à
+d'éventuels problèmes dans les ressources documentaires Stormshield et
+sur les forums avec les bons mots-clés.</p>
+<p>La zone <strong>Politique de mots de passe</strong> permet de définir la longueur du
+mot de passe (8 par défaut) et la zone <strong>Types de caractères
+obligatoires</strong> permet de gérer la complexité du mot de passe (Aucun,
+Alphanumériques, Alphabétiques et spéciaux), la zone <strong>Entropie
+minimale</strong> correspond à la robustesse du mot de passe. <strong>En utilisation
+en entreprise, il est recommandé de changer le mot de passe de
+l'administrateur et d'augmenter à 12 le nombre de caractères.</strong></p>
+<p><img alt="" src="../../../media/stormshield/fiches/fiche2_priseEnMain_SNS/Pictures/10000001000002820000007AAA2C8CB4A42A455C.png" /></p>
+<p>La zone « <strong>Paramètres de date</strong> <strong>et d'heure » </strong>permet de modifier le
+fuseau horaire dans la zone <strong>Fuseau horaire</strong>, sélectionnez <strong>Europe/Paris</strong>.</p>
+<p><img alt="" src="../../../media/stormshield/fiches/fiche2_priseEnMain_SNS/Pictures/1000000100000282000000900A30AA838AD1C612.png" /></p>
+<div class="admonition info">
+<p class="admonition-title">NB</p>
+<p>La modification du fuseau horaire implique un redémarrage immédiat, pour ne pas avoir de décalage dans les journaux ou avec une PKI*.</p>
+</div>
+<ul>
+<li>Cliquer le bouton <strong>Appliquer</strong> pour sauvegarder la configuration et <strong>Sauvegarder</strong></li>
+</ul>
+<p>Un avertissement puis une icône
+<img alt="" src="../../../media/stormshield/fiches/fiche2_priseEnMain_SNS/Pictures/100000010000001A0000001B3F67916283BA3075.png" /> apparaissent vous invitant à redémarrer le pare-feu.
+<em>Il est bien sûr possible de le faire une fois les autres configurations réalisées.</em></p>
+<ul>
+<li>
+<p>Cliquer sur l'icône et sélectionner <strong>Redémarrer maintenant</strong>.</p>
+</li>
+<li>
+<p>Après le redémarrage (au bout d'environ 3 minutes), revenir au menu
+    <strong>Configuration / Système </strong>puis <strong>Configuration</strong> et dans la zone
+    <strong>Paramètres de date et d'heure </strong>cliquer sur <strong>Maintenir le
+    pare-feu à l'heure (NTP) </strong>pour que les mises à jour d'heure
+    d'été/heure d'hiver soient également effectives.</p>
+</li>
+</ul>
+<h3 id="administration-du-pare-feu">Administration du pare-feu</h3>
+<ul>
+<li>Dans le volet <strong>Système / Configuration</strong>, ouvrir l'onglet
+    <strong>Administration du pare-feu</strong> pour visualiser les options de
+    configuration de l'administration du pare-feu.</li>
+</ul>
+<p><img alt="" src="../../../media/stormshield/fiches/fiche2_priseEnMain_SNS/Pictures/10000001000001FC0000013B44E26F1F67B69CFC.png" /></p>
+<p>Plusieurs options sont configurables mais ne sont pas détaillées ici
+(cf. fichier CSNA_v4_Livre_formation_Stomshield.pdf).</p>
+<h3 id="parametres-reseaux">Paramètres réseaux</h3>
+<ul>
+<li>Dans le volet <strong>Système / Configuration</strong>, ouvrir l'onglet
+    <strong>Paramètres réseaux</strong> pour visualiser les options de configuration
+    réseau du pare-feu.</li>
+</ul>
+<p><img alt="" src="../../../media/stormshield/fiches/fiche2_priseEnMain_SNS/Pictures/10000001000002010000013E31B885828E2E2880.png" /></p>
+<p>Les pare-feu Stormshield Network supportent le protocole IPv6 et
+plusieurs fonctionnalités (interface, routage, filtrage, VPN et
+administration) sont compatibles IPv6. Cependant, ce support est
+optionnel et son activation s'effectue via le bouton <strong>Activer le
+support du protocole IPv6 sur ce pare-feu (ce qui est inutile ici)</strong>.</p>
+<div class="admonition info">
+<p class="admonition-title">NOTE</p>
+<p>Cette action étant irréversible, la sauvegarde de la
+configuration du pare-feu vous sera proposée automatiquement lorsque
+vous cliquerez sur ce bouton. Le retour à un support IPv4 exclusif (sans
+IPv6) n'est possible qu'après une remise à la configuration usine
+(reset) du pare-feu.</p>
+</div>
+<p>Dans le cas où le pare-feu transite par un proxy pour accéder à
+Internet, les paramètres se renseignent depuis ce menu.</p>
+<p>Un ou plusieurs serveurs DNS peuvent être ajoutés. Le pare-feu contacte
+ces serveurs pour toute résolution qu'il émet ou doit relayer. Ces
+résolutions de noms sont nécessaires pour des fonctionnalités telles que
+Active Update qui interroge les serveurs de mise à jour pour télécharger
+les bases de données (signatures contextuelles, antivirus, Vulnerability
+Manager, etc.).</p>
+<p>Pour ajouter un DNS :</p>
+<ul>
+<li>Cliquer sur <strong>Ajouter</strong> puis saisir (ou choisir ou créer) un
+    « objet » (cf fiche 4) et cliquer sur le bouton <strong>Appliquer</strong> pour
+    sauvegarder la configuration et <strong>Sauvegarder</strong>.</li>
+</ul>
+<div class="admonition info">
+<p class="admonition-title">NOTE</p>
+<p>Ci-dessous, les trois DNS par défaut (la machine elle-même, et deux DNS
+de Google !). Si on passe la souris sur l'objet, on voit les valeurs des
+propriétés de l'objet.</p>
+</div>
+<p><img alt="" src="../../../media/stormshield/fiches/fiche2_priseEnMain_SNS/Pictures/100000010000042A000001FE66281E09DBC6C5C3.png" /></p>
+<h3 id="autres-configurations">Autres configurations</h3>
+<p><img alt="" src="../../../media/stormshield/fiches/fiche2_priseEnMain_SNS/Pictures/10000001000001B6000000DFFEC4EC28F9C747BC.png" /></p>
+<h4 id="modification-du-mot-de-passe-de-ladministrateur">Modification du mot de passe de l'administrateur</h4>
+<p>La <strong>modification du mot de passe admin </strong>(recommandée) se fait dans le
+menu <strong>Configuration/Système/Administrateurs puis </strong>onglet <strong>Compte
+ADMIN. </strong>Le mot de passe doit par défaut, comporter au moins <strong>8</strong>
+<strong>caractères </strong>et doit respecter la politique de mot de passe définie
+dans le menu <strong>Configuration</strong>. La robustesse du mot de passe choisit
+s'affiche alors. Elle indique son niveau de sécurité : Très faible,
+faible, moyen, bon, excellent. Il est fortement conseillé d'utiliser les
+majuscules et les caractères spéciaux pour augmenter le niveau de
+sécurité.</p>
+<h4 id="activation-de-la-licence">Activation de la licence</h4>
+<p>Le menu <strong>Configuration / Système / Licence</strong> affiche les détails de la
+licence et permet le cas échéant de l'installer :</p>
+<ul>
+<li><strong>pour un boîtier</strong> : à récupérer par l'administrateur sur le site
+    <em>mystormshield.eu</em> avec les informations figurant sous le boîtier.</li>
+<li><strong>Pour une VM</strong> : il est nécessaire au préalable de procéder à
+    l'activation du kit à télécharger sur le site de Stormshield (voir
+    également page suivante) :
+    https://documentation.stormshield.eu/SNS/v4/fr/Content/PDF/InstallationGuides/sns-fr_EVA_Guide_Installation.pdf</li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Attention</p>
+<p>À noter que si vous n'activez pas la licence au bout d'un certain temps
+les fonctionnalités se réduisent et surtout vous ne pourrez pas stocker
+les logs sur les boîtiers physiques.</p>
+</div>
+<p>Sur une VM, les fonctionnalités sans activation sont limitées :</p>
+<p><img alt="" src="../../../media/stormshield/fiches/fiche2_priseEnMain_SNS/Pictures/100000010000063C00000498EB27F792ED44A57B.png" /></p>
+<ul>
+<li>
+<p><strong>Pour activer la licence sur une VM :</strong></p>
+</li>
+<li>
+<p>Se connecter sur
+    <a href="https://mystormshield.eu/">https://mystormshield.eu</a>.</p>
+</li>
+<li>Cliquer sur « Product management » (menu gauche) et télécharger le
+    kit d'activation.</li>
+<li>Revenir éventuellement sur la page pour télécharger le fichier
+    licence, mais cette dernière pourra être activée automatiquement une
+    fois le kit d'activation intégré via l'interface du pare-feu.</li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Attention</p>
+<p><img alt="" src="../../../media/stormshield/fiches/fiche2_priseEnMain_SNS/Pictures/1000000100000ADE00000426A5A95DC7D1A7B288.png" /></p>
+</div>
+<p>Il est nécessaire d'importer d'abord le fichier de mise à jour
+téléchargé via le kit d'activation.</p>
+<ul>
+<li>Activer le menu Configuration / Système / Maintenance.</li>
+<li>L'onglet sur « Mise à jour du système » est activé. Cliquer le
+    bouton « ... » et sélectionner la mise à jour récupérée dans le kit
+    d'activation à partir d'un poste client ou d'une clé USB.</li>
+</ul>
+<p><img alt="" src="../../../media/stormshield/fiches/fiche2_priseEnMain_SNS/Pictures/10000000000007EB000003619608045726B49408.png" /></p>
+<p>Depuis la zone <strong>Configuration avancée,</strong> vous pouvez choisir de
+<strong>Télécharger le firmware</strong> <strong>et l'activer</strong> ce qui appliquera la mise à
+jour ou bien de la télécharger uniquement, son activation pourra se
+faire ultérieurement avec l'option <strong>Activer le firmware</strong>
+<strong>précédemment téléchargé</strong>.</p>
+<ul>
+<li>Dans la zone <strong>Configuration avancée </strong>choisir <strong>Télécharger le
+    firmware</strong> <strong>et l'activer.</strong></li>
+<li>
+<p>Cliquer sur le
+    bouton <img alt="" src="../../../media/stormshield/fiches/fiche2_priseEnMain_SNS/Pictures/10000001000000B5000000198299287F8910E480.png" />
+L'opération prendra plusieurs minutes surtout ne débranchez pas le
+pare-feu pendant la mise à jour. Le pare-feu sera ensuite redémarré.</p>
+</li>
+<li>
+<p>Une fois cette opération réalisée, activer le menu Configuration /
+    Système / Licence puis cliquer sur « Installer la nouvelle
+    licence ». Cette dernière s'active alors automatiquement.</p>
+</li>
+</ul>
+<p><img alt="" src="../../../media/stormshield/fiches/fiche2_priseEnMain_SNS/Pictures/10000000000007C7000003BD98A2A8D58C320CA6.png" /></p>
+<h4 id="mise-a-jour-du-systeme">Mise à jour du système</h4>
+<p>Le menu <strong>Configuration / Système / Maintenance / </strong>onglet <strong>Mise à jour
+du système</strong> permet de mettre à jour le système le cas échéant. Afin
+d'appliquer un fichier de mise à jour du firmware, vous devrez le
+télécharger sur le pare-feu (soit directement via le lien
+<img alt="" src="../../../media/stormshield/fiches/fiche2_priseEnMain_SNS/Pictures/10000001000000DF000000192CA9E595E0002F9B.png" /> une fois que la configuration du réseau et de la
+passerelle par défaut est réalisée et que le pare-feu a accès à
+Internet, soit en allant le télécharger sur le site
+<a href="https://mystormshield.eu/"><em>https://mystormshield.eu</em></a>).</p>
+<div class="admonition warning">
+<p class="admonition-title">Attention</p>
+<p>Pour que la mise à jour puisse se faire, la date et l'heure doivent être synchronisé via le protocole NTP.roduct management » (menu gauche) :</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Attention</p>
+<p>Il est parfois nécessaire de réaliser les mises à jour
+intermédiaires à récupérer sur le site de
+<a href="https://mystormshield.eu/">Stormshield</a> (cela a été le cas sur le
+SNS510 mais non sur les VM) même en dehors de celles qui sont proposées.</p>
+</div>
+<ul>
+<li></li>
+<li>Cliquer <strong>Configuration </strong>/ <strong>Système /
+    Maintenance</strong> / onglet <strong>Mise à jour du système</strong>.</li>
+<li>Cliquer le bouton « ... » et sélectionner le fichier de mise à jour
+    présent sur le poste client ou une clé USB.</li>
+<li>Déplier la zone <strong>Configuration avancée.</strong></li>
+<li>Dans la « configuration avancée », vous pouvez choisir de
+    <strong>Télécharger le firmware</strong> <strong>et l'activer</strong> ce qui appliquera la
+    mise à jour ou bien de la télécharger uniquement, son activation
+    pourra se faire ultérieurement avec l'option <strong>Activer le firmware</strong>
+    <strong>précédemment téléchargé</strong>.</li>
+<li>Dans la zone <strong>Configuration avancée </strong>choisir <strong>Télécharger le
+    firmware</strong> <strong>et l'activer.</strong></li>
+<li>Cliquer sur le
+    bouton <img alt="" src="../../../media/stormshield/fiches/fiche2_priseEnMain_SNS/Pictures/10000001000000B5000000198299287F8910E480.png" /></li>
+</ul>
+<p>L'opération prendra plusieurs minutes surtout ne débranchez pas le
+pare-feu pendant la mise à jour. Le pare-feu sera ensuite redémarré.</p>
+<div class="admonition warning">
+<p class="admonition-title">Attention</p>
+<p><img alt="" src="../../../media/stormshield/fiches/fiche2_priseEnMain_SNS/Pictures/10000001000004E00000010A2AAB6308DA950FEF.png" /></p>
+</div>
+<p>Recharger la page si cette fenêtre boucle indéfiniment.</p>
+<p>Le menu <strong>Configuration / Système / Maintenance / </strong>onglet
+<strong>Configuration</strong> permet <strong>uniquement sur les boîtiers physiques</strong> de
+déterminer la partition active et ainsi de garder deux versions du
+système disponibles avec une partition de sauvegarde qui permet de
+revenir en arrière sur le boitier (firmware n-1, config n-1).</p>
+<p><em>NB : Pour revenir à une configuration ou version n-2 ou supérieure il
+faut utiliser USB Recovery</em> <em>accessible seulement sur mystormshield.eu
+avec un compte client.</em></p>
+<p>Le menu <strong>Configuration / Système</strong> <strong>/ Active update</strong> permet de
+contrôler la mise à jour automatique des modules de Bases d'URLs
+embarquées, IPS : signatures de protection contextuelles,
+Géolocalisation / Réputation IP publiques, signatures antispam,
+antivirus et autres listes noires préconfigurées par Stormshield. Il est
+conseillé d'activer uniquement celles qui vous sont utiles.</p>
+<h4 id="sauvegarde-et-restauration-de-la-configuration">Sauvegarde et restauration de la configuration</h4>
+<p>La <strong>sauvegarde de la configuration</strong> se fait dans le menu
+<strong>Configuration / Système</strong> <strong>/ Maintenance</strong> <strong>/ onglet Sauvegarder</strong>.</p>
+<ul>
+<li>Au besoin, modifier le nom du fichier et cliquez sur le bouton pour
+    le télécharger. La sauvegarde automatique du fichier de
+    configuration peut être mise en place et effectuée sur le Cloud
+    Stormshield.</li>
+</ul>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>le fichier de configuration est un fichier texte chiffré (extension « <strong>na</strong> »).</p>
+</div>
+<p>La <strong>restauration d'une configuration</strong> s'effectue dans le menu
+<strong>Configuration / Système</strong> <strong>/ Maintenance</strong> <strong>/ </strong>onglet
+<strong>Restaurer</strong>.</p>
+<ul>
+<li>Sélectionner le fichier à restaurer en cliquant sur le bouton <strong>...</strong></li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Pied de page" >
+        
+          
+          <a href="../fiche01_initialiser_SNS/" class="md-footer__link md-footer__link--prev" aria-label="Précédent: Fiche 01 -- Initialiser un Pare-feu SNS">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Précédent
+              </span>
+              <div class="md-ellipsis">
+                Fiche 01 -- Initialiser un Pare-feu SNS
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../fiche03_gestionJournaux_SNS/" class="md-footer__link md-footer__link--next" aria-label="Suivant: Fiche 03 -- Traces, Journaux et supervision">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Suivant
+              </span>
+              <div class="md-ellipsis">
+                Fiche 03 -- Traces, Journaux et supervision
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Licence CC 4.0 FR BY-NC-SA - 2025 D. Balny et Q. Demoulière - Lycée Paul-Louis Courier
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.footer", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.50899def.min.js"></script>
+      
+    
+  </body>
+</html>

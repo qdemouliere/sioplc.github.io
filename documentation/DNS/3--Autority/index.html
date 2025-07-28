@@ -1,0 +1,1675 @@
+
+<!doctype html>
+<html lang="fr" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://qdemouliere.github.io/cub/documentation/DNS/3--Autority/">
+      
+      
+        <link rel="prev" href="../2--Resolver/">
+      
+      
+        <link rel="next" href="../4--Slave/">
+      
+      
+      <link rel="icon" href="../../../media/cub/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.16">
+    
+    
+      
+        <title>Serveur DNS maître faisant autorité - Le contexte CUB</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.7e37652d.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#serveur-dns-maitre-faisant-autorite" class="md-skip">
+          Aller au contenu
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="En-tête">
+    <a href="../../.." title="Le contexte CUB" class="md-header__button md-logo" aria-label="Le contexte CUB" data-md-component="logo">
+      
+  <img src="../../../media/cub/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Le contexte CUB
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Serveur DNS maître faisant autorité
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Rechercher" placeholder="Rechercher" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Recherche">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Effacer" aria-label="Effacer" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initialisation de la recherche
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Le contexte CUB" class="md-nav__button md-logo" aria-label="Le contexte CUB" data-md-component="logo">
+      
+  <img src="../../../media/cub/logo.png" alt="logo">
+
+    </a>
+    Le contexte CUB
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Introduction
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Contexte
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Contexte
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../contexte/01-presentation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Présentation du contexte CUB
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../contexte/02-schemas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Schémas réseaux de l'entreprise CUB
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../contexte/03-infra/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Description de l'infrastructure
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../contexte/bonnespratiques/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Référentiel défini par la DSI
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Documentation
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Documentation
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    DNS
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            DNS
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1--Pr%C3%A9ambule/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Introduction
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2--Resolver/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Serveur DNS récursif
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Serveur DNS maître faisant autorité
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Serveur DNS maître faisant autorité
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-verification-prealable" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Vérification préalable
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-definir-les-parametres-reseaux-du-serveur" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Définir les paramètres réseaux du serveur
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-definir-le-serveur-dns-recursif-a-utiliser" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Définir le serveur DNS récursif à utiliser
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-prendre-en-compte-les-modifications-des-parametres-reseaux" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Prendre en compte les modifications des paramètres réseaux
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-configurer-correctement-les-fichiers-etchostname-et-etchosts" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Configurer correctement les fichiers /etc/hostname et /etc/hosts
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-principes-generaux-concernant-bind9-et-le-service-dns" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Principes généraux concernant Bind9 et le service DNS.
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-exemple-de-configuration-dun-serveur-dns-maitre-faisant-autorite" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. Exemple de configuration d'un serveur DNS maître faisant autorité
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../4--Slave/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Serveur DNS esclave faisant autorité
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../5--Delegation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Délégation de zone
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../6--Resolutioninverse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    La résolution inverse
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../7--Tests/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tests et diagnostics DNS
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Linux
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            Linux
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Linux/2--OTP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Authentification TOTP sur Debian
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Stormshield
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            Stormshield
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Stormshield/commandesUtilesConsole_SNS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CheatSheet
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Stormshield/fiche01_initialiser_SNS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Fiche 01 -- Initialiser un Pare-feu SNS
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Stormshield/fiche02_priseEnMain_SNS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Fiche 02 -- Prise en main d'un Pare-feu SNS
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Stormshield/fiche03_gestionJournaux_SNS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Fiche 03 -- Traces, Journaux et supervision
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Stormshield/fiche04_configurationReseau_SNS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Fiche 04 -- Configuration du réseau
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Stormshield/fiche05_configurationObjetsReseaux_SNS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Fiche 05 -- Configuration des Objets Réseau
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Stormshield/fiche06_configurationNat_SNS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Fiche 06 -- Configuration du NAT/PAT
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Stormshield/fiche07_filtrage_protocolaire_SNS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Fiche 07-- Filtrage protocolaire
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Stormshield/fiche08_filtrage_applicatifSNS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Fiche 08 -- Filtrage applicatif
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Stormshield/fiche09_IDS_IPS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Fiche 09 -- Prévention d'intrusion IDS/IPS
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Stormshield/fiche10_utilisateurs_authentification_SNS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Fiche 10 -- Utilisateurs, authentification et portail captif
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Stormshield/fiche11_infrastructure_cles_publiques_SNS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Fiche 11 -- Infrastructures à clés pubiques (PKI)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Stormshield/fiche12_vpn_openvpn/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Fiche 12 -- VPN pour utilisateurs nomades
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Stormshield/fiche13_vpn_ipsec/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Fiche 13 -- VPN site à site
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Versioning
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            Versioning
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Versioning/2--Etckeeper/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Gestion des versions de /etc avec Etckeeper
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-verification-prealable" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Vérification préalable
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-definir-les-parametres-reseaux-du-serveur" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Définir les paramètres réseaux du serveur
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-definir-le-serveur-dns-recursif-a-utiliser" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Définir le serveur DNS récursif à utiliser
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-prendre-en-compte-les-modifications-des-parametres-reseaux" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Prendre en compte les modifications des paramètres réseaux
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-configurer-correctement-les-fichiers-etchostname-et-etchosts" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Configurer correctement les fichiers /etc/hostname et /etc/hosts
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-principes-generaux-concernant-bind9-et-le-service-dns" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Principes généraux concernant Bind9 et le service DNS.
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-exemple-de-configuration-dun-serveur-dns-maitre-faisant-autorite" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. Exemple de configuration d'un serveur DNS maître faisant autorité
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="serveur-dns-maitre-faisant-autorite">Serveur DNS maître faisant autorité</h1>
+<div class="admonition warning">
+<p class="admonition-title">Attention</p>
+<p>Puisque vous allez être amené à modifier des fichiers de configuration présents dans le dossier /etc, vous devez utiliser <strong>etckeeper</strong> pour faire du versioning.</p>
+</div>
+<h2 id="1-verification-prealable">1.  Vérification préalable</h2>
+<p>Mettez à jour votre serveur</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>upgrade
+</span></code></pre></div>
+<p>Sur votre serveur Debian 12, installez le service de journalisation rsyslog à la place de journalctl. Cela vous permettra de disposer de fichiers de log clairs au format texte situés dans /var/log.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>rsyslog
+</span></code></pre></div>
+<p>Installez le service Bind 9 et les outils diagnostics DNS</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>bind9<span class="w"> </span>dnsutils
+</span></code></pre></div>
+<h2 id="2-definir-les-parametres-reseaux-du-serveur">2. Définir les paramètres réseaux du serveur</h2>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>sudoedit<span class="w"> </span>/etc/network/interfaces
+</span></code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># This file describes the network interfaces available on your system</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="c1"># and how to activate them. For more information, see interfaces(5).</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="nb">source</span><span class="w"> </span>/etc/network/interfaces.d/*
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="c1"># The loopback network interface</span>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>auto<span class="w"> </span>lo
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>iface<span class="w"> </span>lo<span class="w"> </span>inet<span class="w"> </span>loopback
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="c1"># The primary network interface</span>
+</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>allow-hotplug<span class="w"> </span>ens192
+</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>auto<span class="w"> </span>ens192
+</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>iface<span class="w"> </span>ens192<span class="w"> </span>inet<span class="w"> </span>static
+</span><span id="__span-4-14"><a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a>address<span class="w"> </span><span class="m">172</span>.16.3.10
+</span><span id="__span-4-15"><a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a>netmask<span class="w"> </span><span class="m">255</span>.255.255.0
+</span><span id="__span-4-16"><a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a>gateway<span class="w"> </span><span class="m">172</span>.16.3.254
+</span></code></pre></div>
+<h2 id="3-definir-le-serveur-dns-recursif-a-utiliser">3. Définir le serveur DNS récursif à utiliser</h2>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>sudoedit<span class="w"> </span>/etc/resolv.conf
+</span></code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>nameserver<span class="w"> </span><span class="m">86</span>.54.11.100
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>nameserver<span class="w"> </span><span class="m">9</span>.9.9.9
+</span></code></pre></div>
+<details class="info">
+<summary>Pourquoi choisir ces serveurs DNS récursifs ?</summary>
+<p>Pour rappel, les serveurs DNS faisant autorité gèrent, dans la majorité des cas, des zones publiques appartenant à l'arborescence réelle. Ainsi, ils seront la plupart du temps hébergés dans une DMZ contrairement aux serveurs DNS récursifs qui seront installés dans le LAN. Pour des raisons évidentes de sécurité, il est plus pertinent que les serveurs définis dans le fichier /etc/resolv.conf soient des résolveurs publics plutôt que les résolveurs internes paramétrés précédemment. </p>
+</details>
+<h2 id="4-prendre-en-compte-les-modifications-des-parametres-reseaux">4. Prendre en compte les modifications des paramètres réseaux</h2>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>networking
+</span></code></pre></div>
+<h2 id="5-configurer-correctement-les-fichiers-etchostname-et-etchosts">5. Configurer correctement les fichiers /etc/hostname et /etc/hosts</h2>
+<p>Le fichier <strong>hostname</strong> sert à donner un nom à votre serveur.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>sudoedit<span class="w"> </span>/etc/hostname
+</span></code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>ns0
+</span></code></pre></div>
+<div class="admonition info">
+<p class="admonition-title">Information</p>
+<p>Le fichier hosts, ancêtre des stubresolver DNS, permet de faire la correspondance entre un nom et une IP. Il est généralement prioritaire sur la résolution DNS (pour modifier l’ordre de préférence, éditez le fichier /etc/nsswitch.conf). Dans ce fichier, il est important de renseigner la correspondance entre votre adresse de boucle locale et un nom. Ainsi, si votre machine sollicite le nom indiqué lors d'un processus particulier, cela la renverra vers l'adresse de loopback.</p>
+</div>
+<p><div class="language-bash highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>sudoedit<span class="w"> </span>/etc/hosts
+</span></code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="m">127</span>.0.0.1<span class="w">   </span>localhost
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="m">127</span>.0.1.1<span class="w">   </span>ns0.tours.tierslieux86.fr<span class="w">   </span>ns0
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="c1"># The following lines are desirable for IPv6 capable hosts</span>
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>::1<span class="w">     </span>localhost<span class="w"> </span>ip6-localhost<span class="w"> </span>ip6-loopback
+</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>ff02::1<span class="w"> </span>ip6-allnodes
+</span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a>ff02::2<span class="w"> </span>ip6-allrouters
+</span></code></pre></div>
+Il est nécessaire de redémarrer le serveur pour prendre en compte le changement de nom.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>sudo<span class="w"> </span>shutdown<span class="w"> </span>-r<span class="w"> </span>now
+</span></code></pre></div>
+<h2 id="6-principes-generaux-concernant-bind9-et-le-service-dns">6. Principes généraux concernant Bind9 et le service DNS.</h2>
+<ol>
+<li>Créer dans le répertoire /var/named/ les zones adéquates à l’aide d’un fichier db.xxxxxx (ou xxxxxx correspond à votre nom de domaine) par exemple, db.tours.btsssio.fr.</li>
+<li>Initialiser la ou les zones dans /etc/bind/named.conf.local</li>
+<li>Ajouter ou gérer les options globales du daemon Bind 9 dans /etc/bind/named.conf.options</li>
+<li>Faire particulièrement attention à la syntaxe. </li>
+<li>Penser aux commandes de test et redémarrer ou recharger le service.</li>
+</ol>
+<p>Les commandes à connaître absolument sont les suivantes et vous seront utiles tout au long de votre activité :</p>
+<ul>
+<li>dig</li>
+<li>host</li>
+<li>nslookup (sous Windows)</li>
+<li>named-checkconf</li>
+<li>named-checkzone</li>
+<li>service bind9 stop|start|restart|reload|status (fonctionne avec SysVinit, systemd)</li>
+<li>avec systemd, systemctl stop|start|restart|reload|status bind9</li>
+</ul>
+<h2 id="7-exemple-de-configuration-dun-serveur-dns-maitre-faisant-autorite">7. Exemple de configuration d'un serveur DNS maître faisant autorité</h2>
+<div class="admonition warning">
+<p class="admonition-title">Attention</p>
+<p>Il est recommandé de supprimer le contenu des fichiers de configuration par défaut et d'utiliser le contenu fourni ci-dessous. N'oubliez pas que <strong>etckeeper</strong> doit être mobilisé.</p>
+</div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>sudo<span class="w"> </span>cat<span class="w"> </span>/etc/bind/named.conf
+</span></code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>//<span class="w"> </span>This<span class="w"> </span>is<span class="w"> </span>the<span class="w"> </span>primary<span class="w"> </span>configuration<span class="w"> </span>file<span class="w"> </span><span class="k">for</span><span class="w"> </span>the<span class="w"> </span>BIND<span class="w"> </span>DNS<span class="w"> </span>server<span class="w"> </span>named.
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>//<span class="w"> </span>If<span class="w"> </span>you<span class="w"> </span>are<span class="w"> </span>just<span class="w"> </span>adding<span class="w"> </span>zones,<span class="w"> </span>please<span class="w"> </span><span class="k">do</span><span class="w"> </span>that<span class="w"> </span><span class="k">in</span><span class="w"> </span>/etc/bind/named.conf.local
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>
+</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>include<span class="w"> </span><span class="s2">&quot;/etc/bind/named.conf.options&quot;</span><span class="p">;</span>
+</span><span id="__span-14-5"><a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a>include<span class="w"> </span><span class="s2">&quot;/etc/bind/named.conf.local&quot;</span><span class="p">;</span>
+</span><span id="__span-14-6"><a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a>include<span class="w"> </span><span class="s2">&quot;/etc/bind/named.conf.default-zones&quot;</span><span class="p">;</span>
+</span></code></pre></div>
+<p>Le fichier /etc/bind/named.conf est le fichier de configuration global du service DNS. Il est possible d'y renseigner tous les paramètres de configuration du service.</p>
+<p>Sous Debian, il a été décidé dans un souci de lisibilité, de scinder la configuration en plusieurs fichiers. Ces fichiers sont appelés par le fichier de configuration général à l'aide de la directive include.</p>
+<ul>
+<li>Le fichier named.conf.options est utilisé pour déclarer les options de configuration liées à Bind.</li>
+<li>Le fichier named.conf.local sert à déclarer les zones nouvellement créées.</li>
+<li>Le fichier named.conf.default-zones contient les déclarations de fichier de zone concernant la racine DNS et la boucle locale.</li>
+<li>Le fichier named.conf.log n'existe pas mais vous permettra de gérer la journalisation de votre service dans un fichier texte dédié.</li>
+</ul>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>sudo<span class="w"> </span>cat<span class="w"> </span>/etc/bind/named.conf.options
+</span></code></pre></div>
+<p><div class="language-bash highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>options<span class="w"> </span><span class="o">{</span>
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="w">    </span>//<span class="w"> </span>Directory<span class="w"> </span>permet<span class="w"> </span>de<span class="w"> </span>définir<span class="w"> </span>où<span class="w"> </span>se<span class="w"> </span>situe<span class="w"> </span>le<span class="w"> </span>cache<span class="w"> </span>du<span class="w"> </span>serveur<span class="w"> </span>DNS
+</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="w">    </span>directory<span class="w"> </span><span class="s2">&quot;/var/cache/bind&quot;</span><span class="p">;</span>
+</span><span id="__span-16-4"><a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a>
+</span><span id="__span-16-5"><a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a><span class="w">    </span>//<span class="w"> </span>Définit<span class="w"> </span>le<span class="w"> </span>port<span class="w"> </span>et<span class="w"> </span>la<span class="w"> </span>ou<span class="w"> </span>les<span class="w"> </span>adresses<span class="w"> </span>IPv4<span class="w"> </span>d’écoute<span class="w"> </span>du<span class="w"> </span>service<span class="w"> </span>Bind
+</span><span id="__span-16-6"><a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a><span class="w">    </span>listen-on<span class="w"> </span>port<span class="w"> </span><span class="m">53</span><span class="w"> </span><span class="o">{</span><span class="w"> </span><span class="m">127</span>.0.0.1<span class="p">;</span><span class="w"> </span><span class="m">172</span>.16.3.10<span class="p">;</span><span class="w"> </span><span class="o">}</span><span class="p">;</span>
+</span><span id="__span-16-7"><a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a>
+</span><span id="__span-16-8"><a id="__codelineno-16-8" name="__codelineno-16-8" href="#__codelineno-16-8"></a>
+</span><span id="__span-16-9"><a id="__codelineno-16-9" name="__codelineno-16-9" href="#__codelineno-16-9"></a><span class="w">    </span>//<span class="w"> </span>Forwarders<span class="w"> </span><span class="o">(</span>redirecteurs<span class="o">)</span><span class="w"> </span>permet<span class="w"> </span>de<span class="w"> </span>définir<span class="w"> </span>les<span class="w"> </span>serveurs<span class="w"> </span>DNS<span class="w"> </span>récursifs<span class="w"> </span>qui<span class="w"> </span>seront<span class="w"> </span>sollicités<span class="w"> </span>par<span class="w"> </span>
+</span><span id="__span-16-10"><a id="__codelineno-16-10" name="__codelineno-16-10" href="#__codelineno-16-10"></a><span class="w">    </span>//<span class="w"> </span>Bind<span class="w"> </span>lorsqu<span class="s1">&#39;il ne sera pas répondre à une requête.</span>
+</span><span id="__span-16-11"><a id="__codelineno-16-11" name="__codelineno-16-11" href="#__codelineno-16-11"></a><span class="s1">    // forwarders {</span>
+</span><span id="__span-16-12"><a id="__codelineno-16-12" name="__codelineno-16-12" href="#__codelineno-16-12"></a><span class="s1">    //  0.0.0.0;</span>
+</span><span id="__span-16-13"><a id="__codelineno-16-13" name="__codelineno-16-13" href="#__codelineno-16-13"></a><span class="s1">    // };</span>
+</span><span id="__span-16-14"><a id="__codelineno-16-14" name="__codelineno-16-14" href="#__codelineno-16-14"></a>
+</span><span id="__span-16-15"><a id="__codelineno-16-15" name="__codelineno-16-15" href="#__codelineno-16-15"></a><span class="s1">    // Recursion permet  d&#39;</span>autoriser<span class="w"> </span>ou<span class="w"> </span>d<span class="err">&#39;</span>interdire<span class="w"> </span>la<span class="w"> </span>récursivité<span class="w"> </span>sur<span class="w"> </span>un<span class="w"> </span>serveur<span class="w"> </span>DNS.<span class="w"> </span>Par<span class="w"> </span>défaut<span class="w"> </span>un
+</span><span id="__span-16-16"><a id="__codelineno-16-16" name="__codelineno-16-16" href="#__codelineno-16-16"></a><span class="w">    </span>//<span class="w"> </span>serveur<span class="w"> </span>DNS<span class="w"> </span>faisant<span class="w"> </span>autorité<span class="w"> </span>ne<span class="w"> </span>doit<span class="w"> </span>pas<span class="w"> </span>être<span class="w"> </span>récursif.
+</span><span id="__span-16-17"><a id="__codelineno-16-17" name="__codelineno-16-17" href="#__codelineno-16-17"></a><span class="w">    </span>recursion<span class="w"> </span>no<span class="p">;</span>
+</span><span id="__span-16-18"><a id="__codelineno-16-18" name="__codelineno-16-18" href="#__codelineno-16-18"></a>
+</span><span id="__span-16-19"><a id="__codelineno-16-19" name="__codelineno-16-19" href="#__codelineno-16-19"></a><span class="w">    </span>//<span class="w"> </span>Empêche<span class="w"> </span>la<span class="w"> </span>diffusion<span class="w"> </span>de<span class="w"> </span>la<span class="w"> </span>version<span class="w"> </span>du<span class="w"> </span>service<span class="w"> </span>Bind<span class="w"> </span>utilisée.<span class="w"> </span>Mécanisme<span class="w"> </span>de<span class="w"> </span>sécurité<span class="w"> </span>qui<span class="w"> </span>ralentit
+</span><span id="__span-16-20"><a id="__codelineno-16-20" name="__codelineno-16-20" href="#__codelineno-16-20"></a><span class="w">    </span>//<span class="w"> </span>un<span class="w"> </span>potentiel<span class="w"> </span>attaquant<span class="w"> </span>à<span class="w"> </span>la<span class="w"> </span>recherche<span class="w"> </span>d’une<span class="w"> </span>faille<span class="w"> </span>liée<span class="w"> </span>à<span class="w"> </span>une<span class="w"> </span>version<span class="w"> </span>précise<span class="w"> </span>du<span class="w"> </span>service.
+</span><span id="__span-16-21"><a id="__codelineno-16-21" name="__codelineno-16-21" href="#__codelineno-16-21"></a><span class="w">    </span>version<span class="w"> </span>none<span class="p">;</span>
+</span><span id="__span-16-22"><a id="__codelineno-16-22" name="__codelineno-16-22" href="#__codelineno-16-22"></a><span class="o">}</span><span class="p">;</span>
+</span></code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>sudoedit<span class="w"> </span>/etc/bind/named.conf.local
+</span></code></pre></div></p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>zone<span class="w"> </span><span class="s2">&quot;tours.tierslieux86.fr&quot;</span><span class="w"> </span><span class="o">{</span>
+</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="w">    </span><span class="nb">type</span><span class="w"> </span>master<span class="p">;</span>
+</span><span id="__span-18-3"><a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a><span class="w">    </span>allow-transfer<span class="w"> </span><span class="o">{</span><span class="w"> </span><span class="m">172</span>.16.3.11<span class="p">;</span><span class="w"> </span><span class="o">}</span><span class="p">;</span>
+</span><span id="__span-18-4"><a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a><span class="w">    </span>file<span class="w"> </span><span class="s2">&quot;/var/cache/bind/db.tours.tierslieux86.fr&quot;</span><span class="p">;</span>
+</span><span id="__span-18-5"><a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a><span class="o">}</span><span class="p">;</span>
+</span></code></pre></div>
+<p>Ce fichier sert à déclarer les zones que vous aurez à gérer. Votre serveur peut-être maître sur une zone ou esclave. La directive file sert à déclarer le fichier de zone contenant les enregistrements liés (SOA, NS, A…). La directive allow-transfer permet de déclarer les serveurs esclaves habilités.</p>
+<div class="admonition warning">
+<p class="admonition-title">Attention</p>
+<p>Le numéro de série ne doit jamais être choisi au hasard et <strong>systématiquement incrémenté à chaque modification du fichier de zone</strong>. Les guides de bonnes pratiques recommande de choisir la date du jour sous <strong>2025090101</strong> (année/mois/jour/id). Dans le cas d'une architecture maître-esclave si le numéro de série présent sur le maître se retrouve <strong>décrémenté</strong> et inférieur à celui du serveur esclave, <strong>le transfert de zone ne se fera plus !</strong></p>
+</div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>sudoedit<span class="w"> </span>/var/cache/bind/db.<span class="w"> </span>tours.tierslieux86.fr
+</span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>sudo<span class="w"> </span>chown<span class="w"> </span>bind:bind<span class="w"> </span>/var/cache/bind/db.tours.tierslieux86.fr
+</span></code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="p">;</span><span class="w"> </span>La<span class="w"> </span>directive<span class="w"> </span>TTL<span class="w"> </span>définie<span class="w"> </span>la<span class="w"> </span>durée<span class="w"> </span>de<span class="w"> </span>conservation<span class="w"> </span>en<span class="w"> </span>cache<span class="w"> </span>d<span class="s1">&#39;informations concernant cette zone par les </span>
+</span><span id="__span-20-2"><a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a><span class="s1">; serveurs DNS résolveurs. Lorsque ce TTL arrive à expiration les résolveurs vident leur cache et </span>
+</span><span id="__span-20-3"><a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a><span class="s1">; consultent à nouveau le serveur faisant autorité.</span>
+</span><span id="__span-20-4"><a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a><span class="s1">$TTL 43200;     12 heures</span>
+</span><span id="__span-20-5"><a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a>
+</span><span id="__span-20-6"><a id="__codelineno-20-6" name="__codelineno-20-6" href="#__codelineno-20-6"></a><span class="s1">; Pour le domaine défini dans le fichier de zone, on déclare le serveur SOA ainsi que le mail de la </span>
+</span><span id="__span-20-7"><a id="__codelineno-20-7" name="__codelineno-20-7" href="#__codelineno-20-7"></a><span class="s1">; personne à contacter pour cette zone (sans le @).</span>
+</span><span id="__span-20-8"><a id="__codelineno-20-8" name="__codelineno-20-8" href="#__codelineno-20-8"></a>
+</span><span id="__span-20-9"><a id="__codelineno-20-9" name="__codelineno-20-9" href="#__codelineno-20-9"></a><span class="s1">; Le numéro de série est important. Souvent, il correspond à la date du jour suivi d&#39;</span>un<span class="w"> </span>chiffre<span class="w"> </span>ou<span class="w"> </span>d<span class="s1">&#39;une </span>
+</span><span id="__span-20-10"><a id="__codelineno-20-10" name="__codelineno-20-10" href="#__codelineno-20-10"></a><span class="s1">; valeur que l&#39;</span>on<span class="w"> </span>incrémente<span class="w"> </span>lors<span class="w"> </span>des<span class="w"> </span>modifications.<span class="w"> </span>Le<span class="w"> </span>numéro<span class="w"> </span>de<span class="w"> </span>série<span class="w"> </span>d<span class="s1">&#39;une zone stockée par un </span>
+</span><span id="__span-20-11"><a id="__codelineno-20-11" name="__codelineno-20-11" href="#__codelineno-20-11"></a><span class="s1">; serveur esclave ne doit jamais être supérieur à celle présente sur un serveur maître. Lorsque l&#39;</span>on<span class="w"> </span>
+</span><span id="__span-20-12"><a id="__codelineno-20-12" name="__codelineno-20-12" href="#__codelineno-20-12"></a><span class="p">;</span><span class="w"> </span>incrémente<span class="w"> </span>le<span class="w"> </span>numéro<span class="w"> </span>de<span class="w"> </span>série,<span class="w"> </span>cela<span class="w"> </span>signifie<span class="w"> </span>aux<span class="w"> </span>serveurs<span class="w"> </span>esclaves<span class="w"> </span>qu<span class="s1">&#39;une modification sur la zone a été </span>
+</span><span id="__span-20-13"><a id="__codelineno-20-13" name="__codelineno-20-13" href="#__codelineno-20-13"></a><span class="s1">; opérée.</span>
+</span><span id="__span-20-14"><a id="__codelineno-20-14" name="__codelineno-20-14" href="#__codelineno-20-14"></a>
+</span><span id="__span-20-15"><a id="__codelineno-20-15" name="__codelineno-20-15" href="#__codelineno-20-15"></a><span class="s1">; Les valeurs suivantes permettent aux serveurs esclaves d&#39;</span>obtenir<span class="w"> </span>les<span class="w"> </span>délais<span class="w"> </span>maximums<span class="w"> </span>avant<span class="w"> </span>de<span class="w"> </span>
+</span><span id="__span-20-16"><a id="__codelineno-20-16" name="__codelineno-20-16" href="#__codelineno-20-16"></a><span class="p">;</span><span class="w"> </span>rafraîchir<span class="w"> </span>leur<span class="w"> </span>zone,<span class="w"> </span>de<span class="w"> </span>réessayer<span class="w"> </span>à<span class="w"> </span>contacter<span class="w"> </span>le<span class="w"> </span>serveur<span class="w"> </span>maître<span class="w"> </span>en<span class="w"> </span>cas<span class="w"> </span>d<span class="s1">&#39;interruption de service. En cas </span>
+</span><span id="__span-20-17"><a id="__codelineno-20-17" name="__codelineno-20-17" href="#__codelineno-20-17"></a><span class="s1">; d&#39;</span>interruption<span class="w"> </span>du<span class="w"> </span>service<span class="w"> </span>sur<span class="w"> </span>le<span class="w"> </span>maître<span class="w"> </span>pendant<span class="w"> </span>plus<span class="w"> </span>d<span class="s1">&#39;une semaine, l&#39;</span>esclave<span class="w"> </span>considérera<span class="w"> </span>ce<span class="w"> </span>dernier<span class="w"> </span>
+</span><span id="__span-20-18"><a id="__codelineno-20-18" name="__codelineno-20-18" href="#__codelineno-20-18"></a><span class="p">;</span><span class="w"> </span>comme<span class="w"> </span>expiré.
+</span><span id="__span-20-19"><a id="__codelineno-20-19" name="__codelineno-20-19" href="#__codelineno-20-19"></a>
+</span><span id="__span-20-20"><a id="__codelineno-20-20" name="__codelineno-20-20" href="#__codelineno-20-20"></a>tours.tierslieux86.fr.<span class="w"> </span>IN<span class="w"> </span>SOA<span class="w"> </span>ns0.tours.tierslieux86.fr.<span class="w"> </span>postmaster.tours.tierslieux86.fr.<span class="w"> </span><span class="o">(</span>
+</span><span id="__span-20-21"><a id="__codelineno-20-21" name="__codelineno-20-21" href="#__codelineno-20-21"></a><span class="w">    </span><span class="m">2021070601</span><span class="w">  </span><span class="p">;</span><span class="w"> </span>Serial
+</span><span id="__span-20-22"><a id="__codelineno-20-22" name="__codelineno-20-22" href="#__codelineno-20-22"></a><span class="w">        </span>1D<span class="w">  </span><span class="p">;</span><span class="w"> </span>Refresh
+</span><span id="__span-20-23"><a id="__codelineno-20-23" name="__codelineno-20-23" href="#__codelineno-20-23"></a><span class="w">        </span>1H<span class="w">  </span><span class="p">;</span><span class="w"> </span>Retry
+</span><span id="__span-20-24"><a id="__codelineno-20-24" name="__codelineno-20-24" href="#__codelineno-20-24"></a><span class="w">        </span>1W<span class="w">  </span><span class="p">;</span><span class="w"> </span>Expire
+</span><span id="__span-20-25"><a id="__codelineno-20-25" name="__codelineno-20-25" href="#__codelineno-20-25"></a><span class="w">        </span>3H<span class="w"> </span><span class="o">)</span><span class="w">    </span><span class="p">;</span><span class="w"> </span>Negative<span class="w"> </span>Cache<span class="w"> </span>TTL
+</span><span id="__span-20-26"><a id="__codelineno-20-26" name="__codelineno-20-26" href="#__codelineno-20-26"></a>
+</span><span id="__span-20-27"><a id="__codelineno-20-27" name="__codelineno-20-27" href="#__codelineno-20-27"></a><span class="p">;</span><span class="w"> </span>Déclaration<span class="w"> </span>des<span class="w"> </span>serveurs<span class="w"> </span>DNS<span class="w"> </span>faisant<span class="w"> </span>autorité<span class="w"> </span>sur<span class="w"> </span>la<span class="w"> </span>zone<span class="w"> </span>tours.tierslieux86.fr<span class="w"> </span>à<span class="w"> </span>l’aide<span class="w"> </span>de<span class="w"> </span>
+</span><span id="__span-20-28"><a id="__codelineno-20-28" name="__codelineno-20-28" href="#__codelineno-20-28"></a><span class="p">;</span><span class="w"> </span>l’enregistrement<span class="w"> </span>NS.
+</span><span id="__span-20-29"><a id="__codelineno-20-29" name="__codelineno-20-29" href="#__codelineno-20-29"></a>
+</span><span id="__span-20-30"><a id="__codelineno-20-30" name="__codelineno-20-30" href="#__codelineno-20-30"></a>tours.tierslieux86.fr.<span class="w">  </span>IN<span class="w">  </span>NS<span class="w">  </span>ns0.tours.tierslieux86.fr.
+</span><span id="__span-20-31"><a id="__codelineno-20-31" name="__codelineno-20-31" href="#__codelineno-20-31"></a>tours.tierslieux86.fr.<span class="w">  </span>IN<span class="w">  </span>NS<span class="w">  </span>ns1.tours.tierslieux86.fr.
+</span><span id="__span-20-32"><a id="__codelineno-20-32" name="__codelineno-20-32" href="#__codelineno-20-32"></a>
+</span><span id="__span-20-33"><a id="__codelineno-20-33" name="__codelineno-20-33" href="#__codelineno-20-33"></a><span class="p">;</span><span class="w"> </span>Déclaration<span class="w"> </span>des<span class="w"> </span>correspondances<span class="w"> </span>entre<span class="w"> </span>un<span class="w"> </span>nom<span class="w"> </span>de<span class="w"> </span>domaine<span class="w"> </span>et<span class="w"> </span>une<span class="w"> </span>adresse<span class="w"> </span>IP<span class="w"> </span>à<span class="w"> </span>l’aide<span class="w"> </span>de<span class="w"> </span>l
+</span><span id="__span-20-34"><a id="__codelineno-20-34" name="__codelineno-20-34" href="#__codelineno-20-34"></a><span class="p">;</span><span class="w"> </span>’enregistrement<span class="w"> </span>A.<span class="w"> </span>Il<span class="w"> </span>est<span class="w"> </span>indispensable<span class="w"> </span>de<span class="w"> </span>déclarer<span class="w"> </span>les<span class="w"> </span>correspondances<span class="w"> </span>pour<span class="w"> </span>les<span class="w"> </span>serveurs<span class="w"> </span>DNS<span class="w"> </span><span class="o">(</span>nsx<span class="o">)</span>.
+</span><span id="__span-20-35"><a id="__codelineno-20-35" name="__codelineno-20-35" href="#__codelineno-20-35"></a>
+</span><span id="__span-20-36"><a id="__codelineno-20-36" name="__codelineno-20-36" href="#__codelineno-20-36"></a>ns0<span class="w">     </span>IN<span class="w">  </span>A<span class="w">   </span><span class="m">172</span>.16.3.10
+</span><span id="__span-20-37"><a id="__codelineno-20-37" name="__codelineno-20-37" href="#__codelineno-20-37"></a>ns1<span class="w">     </span>IN<span class="w">  </span>A<span class="w">   </span><span class="m">172</span>.16.3.11
+</span><span id="__span-20-38"><a id="__codelineno-20-38" name="__codelineno-20-38" href="#__codelineno-20-38"></a>www.<span class="w">    </span>IN<span class="w">  </span>A<span class="w">   </span><span class="m">172</span>.16.3.2
+</span><span id="__span-20-39"><a id="__codelineno-20-39" name="__codelineno-20-39" href="#__codelineno-20-39"></a>
+</span><span id="__span-20-40"><a id="__codelineno-20-40" name="__codelineno-20-40" href="#__codelineno-20-40"></a><span class="p">;</span><span class="w"> </span>Exemple<span class="w"> </span>d’utilisation<span class="w"> </span>d’un<span class="w"> </span>alias.<span class="w"> </span>Ici<span class="w"> </span>extranet.tours.tierslieux86.fr<span class="w"> </span>renvoie<span class="w"> </span>vers<span class="w"> </span>
+</span><span id="__span-20-41"><a id="__codelineno-20-41" name="__codelineno-20-41" href="#__codelineno-20-41"></a><span class="p">;</span><span class="w"> </span>www.tours.tierslieux86.fr.<span class="w"> </span>
+</span><span id="__span-20-42"><a id="__codelineno-20-42" name="__codelineno-20-42" href="#__codelineno-20-42"></a>
+</span><span id="__span-20-43"><a id="__codelineno-20-43" name="__codelineno-20-43" href="#__codelineno-20-43"></a>extranet<span class="w"> </span>IN<span class="w"> </span>CNAME<span class="w"> </span>www.tours.tierslieux86.fr.
+</span></code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">Attention</p>
+<p>Ceci est un exemple de fichier de zone à réadapter sans les commentaires (;). Tous les enregistrements présents dans cet exemple ne servent pas forcément dans le TP. Par contre, il est pertinent de rechercher leurs significations sur Internet pour comprendre à quoi ils peuvent servir dans un contexte professionnel.</p>
+</div>
+<p>Mise en place d’une journalisation des évènements du service DNS</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>sudoedit<span class="w"> </span>/etc/bind/named.conf.log
+</span></code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>logging<span class="w"> </span><span class="o">{</span>
+</span><span id="__span-22-2"><a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a>
+</span><span id="__span-22-3"><a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a><span class="w">    </span>channel<span class="w"> </span>bind_log<span class="w"> </span><span class="o">{</span>
+</span><span id="__span-22-4"><a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a><span class="w">                    </span>file<span class="w"> </span><span class="s2">&quot;/var/log/bind.log&quot;</span><span class="w"> </span>versions<span class="w"> </span><span class="m">3</span><span class="w"> </span>size<span class="w"> </span>100m<span class="p">;</span>
+</span><span id="__span-22-5"><a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a><span class="w">                   </span>severity<span class="w"> </span>info<span class="p">;</span>
+</span><span id="__span-22-6"><a id="__codelineno-22-6" name="__codelineno-22-6" href="#__codelineno-22-6"></a><span class="w">                    </span>print-category<span class="w">  </span>yes<span class="p">;</span>
+</span><span id="__span-22-7"><a id="__codelineno-22-7" name="__codelineno-22-7" href="#__codelineno-22-7"></a><span class="w">                    </span>print-severity<span class="w">  </span>yes<span class="p">;</span>
+</span><span id="__span-22-8"><a id="__codelineno-22-8" name="__codelineno-22-8" href="#__codelineno-22-8"></a><span class="w">                    </span>print-time<span class="w">      </span>yes<span class="p">;</span>
+</span><span id="__span-22-9"><a id="__codelineno-22-9" name="__codelineno-22-9" href="#__codelineno-22-9"></a><span class="w">    </span><span class="o">}</span><span class="p">;</span>
+</span><span id="__span-22-10"><a id="__codelineno-22-10" name="__codelineno-22-10" href="#__codelineno-22-10"></a>
+</span><span id="__span-22-11"><a id="__codelineno-22-11" name="__codelineno-22-11" href="#__codelineno-22-11"></a><span class="w">    </span>category<span class="w"> </span>default<span class="w"> </span><span class="o">{</span><span class="w"> </span>bind_log<span class="p">;</span><span class="w"> </span><span class="o">}</span><span class="p">;</span>
+</span><span id="__span-22-12"><a id="__codelineno-22-12" name="__codelineno-22-12" href="#__codelineno-22-12"></a>
+</span><span id="__span-22-13"><a id="__codelineno-22-13" name="__codelineno-22-13" href="#__codelineno-22-13"></a><span class="o">}</span><span class="p">;</span>
+</span></code></pre></div>
+<p>Ce fichier permet d'activer la journalisation des évènements pour le service DNS. Vous pouvez préciser le niveau de verbosité avec la directive severity mais aussi la taille maximale du fichier de log. Comme pour le fichier de zone esclave, il est nécessaire de créer un fichier vide de log avec les bonnes permissions au préalable :</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>sudo<span class="w"> </span>touch<span class="w"> </span>/var/log/bind.log
+</span><span id="__span-23-2"><a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a>sudo<span class="w"> </span>chown<span class="w"> </span>bind:bind<span class="w"> </span>/var/log/bind.log
+</span></code></pre></div>
+<p>Enfin, on n’oublie pas de déclarer ce nouveau fichier de configuration dans /etc/bind/named.conf.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>sudoedit<span class="w"> </span>/etc/bind/named.conf
+</span></code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>//<span class="w"> </span>This<span class="w"> </span>is<span class="w"> </span>the<span class="w"> </span>primary<span class="w"> </span>configuration<span class="w"> </span>file<span class="w"> </span><span class="k">for</span><span class="w"> </span>the<span class="w"> </span>BIND<span class="w"> </span>DNS<span class="w"> </span>server<span class="w"> </span>named.
+</span><span id="__span-25-2"><a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a>//<span class="w"> </span>If<span class="w"> </span>you<span class="w"> </span>are<span class="w"> </span>just<span class="w"> </span>adding<span class="w"> </span>zones,<span class="w"> </span>please<span class="w"> </span><span class="k">do</span><span class="w"> </span>that<span class="w"> </span><span class="k">in</span><span class="w"> </span>/etc/bind/named.conf.local
+</span><span id="__span-25-3"><a id="__codelineno-25-3" name="__codelineno-25-3" href="#__codelineno-25-3"></a>include<span class="w"> </span><span class="s2">&quot;/etc/bind/named.conf.options&quot;</span><span class="p">;</span>
+</span><span id="__span-25-4"><a id="__codelineno-25-4" name="__codelineno-25-4" href="#__codelineno-25-4"></a>include<span class="w"> </span><span class="s2">&quot;/etc/bind/named.conf.local&quot;</span><span class="p">;</span>
+</span><span id="__span-25-5"><a id="__codelineno-25-5" name="__codelineno-25-5" href="#__codelineno-25-5"></a>include<span class="w"> </span><span class="s2">&quot;/etc/bind/named.conf.default-zones&quot;</span><span class="p">;</span>
+</span><span id="__span-25-6"><a id="__codelineno-25-6" name="__codelineno-25-6" href="#__codelineno-25-6"></a>
+</span><span id="__span-25-7"><a id="__codelineno-25-7" name="__codelineno-25-7" href="#__codelineno-25-7"></a>//<span class="w"> </span>Ajout<span class="w"> </span>du<span class="w"> </span>fichier<span class="w"> </span>de<span class="w"> </span>parametrage<span class="w"> </span>de<span class="w"> </span>la<span class="w"> </span>journalisation<span class="w"> </span>du<span class="w"> </span>service<span class="w"> </span>BIND
+</span><span id="__span-25-8"><a id="__codelineno-25-8" name="__codelineno-25-8" href="#__codelineno-25-8"></a>include<span class="w"> </span><span class="s2">&quot;/etc/bind/named.conf.log&quot;</span><span class="p">;</span>
+</span></code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">Attention</p>
+<p>Sur les systèmes Debian récents, un logiciel de sécurité de type MAC (Mandatory Access Control) nommé AppArmor est activé par défaut. Il surveille entre autres les droits d’accès des différents processus lancés sur le système. Par défaut, AppArmor empêche le service Bind 9 de lire et écrire dans le répertoire /var/log/. Il est donc indispensable de changer ces permissions.</p>
+</div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>sudoedit<span class="w"> </span>/etc/apparmor.d/usr.sbin.named
+</span></code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-27-1"><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a><span class="c1"># On autorise le daemon Bind 9 à lire et ecrire dans le fichier /var/log/bind.log</span>
+</span><span id="__span-27-2"><a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a>
+</span><span id="__span-27-3"><a id="__codelineno-27-3" name="__codelineno-27-3" href="#__codelineno-27-3"></a>/var/log/bind.log<span class="w"> </span>rw,
+</span></code></pre></div>
+<p>On vérifie que le nouveau fichier de configuration de AppArmor ne contient pas d’erreurs puis on redémarre le service.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-28-1"><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a>sudo<span class="w"> </span>apparmor_parser<span class="w"> </span>-r<span class="w"> </span>/etc/apparmor.d/usr.sbin.named
+</span><span id="__span-28-2"><a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>apparmor
+</span></code></pre></div>
+<details class="info">
+<summary>named-checkconf</summary>
+<p>La commande named-checkconf permet de vérifier si des erreurs de syntaxe sont présentes et de fournir les éléments ou lignes qui posent problème dans un fichier en particulier.</p>
+</details>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-29-1"><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a>sudo<span class="w"> </span>named-checkconf<span class="w"> </span>-z
+</span><span id="__span-29-2"><a id="__codelineno-29-2" name="__codelineno-29-2" href="#__codelineno-29-2"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>bind9
+</span><span id="__span-29-3"><a id="__codelineno-29-3" name="__codelineno-29-3" href="#__codelineno-29-3"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span>status<span class="w"> </span>bind9
+</span></code></pre></div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Pied de page" >
+        
+          
+          <a href="../2--Resolver/" class="md-footer__link md-footer__link--prev" aria-label="Précédent: Serveur DNS récursif">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Précédent
+              </span>
+              <div class="md-ellipsis">
+                Serveur DNS récursif
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../4--Slave/" class="md-footer__link md-footer__link--next" aria-label="Suivant: Serveur DNS esclave faisant autorité">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Suivant
+              </span>
+              <div class="md-ellipsis">
+                Serveur DNS esclave faisant autorité
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Licence CC 4.0 FR BY-NC-SA - 2025 D. Balny et Q. Demoulière - Lycée Paul-Louis Courier
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.footer", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.50899def.min.js"></script>
+      
+    
+  </body>
+</html>
