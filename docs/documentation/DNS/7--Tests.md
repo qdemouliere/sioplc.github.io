@@ -6,13 +6,16 @@
 ## 1. Les outils de diagnostic dont on doit disposer
 
 Le paquet **dnsutils** (parfois installé par défaut sur le système debian) fournit quelques commandes utiles :
-    * Pour vérifier les fichiers de configuration globale : named-checkconf et named-checkconf -z
+
+* Pour vérifier les fichiers de configuration globale : named-checkconf et named-checkconf -z
 
 Si la commande ne renvoie rien, c'est qu'il n'y a pas d'erreurs de syntaxe dans les fichiers. 
-    * Pour vérifier la syntaxe des fichiers de zone : named-checkzone zonename filename
+
+* Pour vérifier la syntaxe des fichiers de zone : named-checkzone zonename filename
 
 Il ne faut pas toujours se fier au "OK" final mais lire les phrases qui précèdent... 
-    * Les commandes nslookup, host et dig permettent de vérifier les données relatives à chaque zone.
+
+* Les commandes nslookup, host et dig permettent de vérifier les données relatives à chaque zone.
 
 Mais pour ne pas perdre de temps, il est important de procéder méthodiquement.
 
@@ -45,10 +48,10 @@ named-checkzone zonename filename /var/named/db.tours.tierslieux86.fr
 ```
 
 Erreurs courantes :
-    * les nombreux ";"  des fichiers de configuration globale ;
-    * les noms DNS pleinement qualifiés dans les fichiers de zone non suffixés par un point ;
-    * les parenthèses mal placées de l'enregistrement SOA ;
-    * La non relecture de bind9 lorsqu'un fichier de configuration est modifié et le non vidage du cache.
+* les nombreux ";"  des fichiers de configuration globale ;
+* les noms DNS pleinement qualifiés dans les fichiers de zone non suffixés par un point ;
+* les parenthèses mal placées de l'enregistrement SOA ;
+* la non relecture de bind9 lorsqu'un fichier de configuration est modifié et le non vidage du cache.
 
 ## 3. Deuxième batterie de tests : vérification des données relatives à chaque zone.
 
@@ -90,10 +93,10 @@ c.dns.gandi.net.        117683  IN      A       217.70.182.20
 ;; MSG SIZE  rcvd: 187
 ```
 
-(1) La section QUESTION reprend  la requête émise.
-(2) La section ANSWER donne la réponse à la requête.
-(3) La section AUTHORITY donne les serveurs de noms ayant autorité sur la zone.
-(4) La section ADDITIONAL donne les adresses IP des serveurs de noms autoritaires.
+(1) La section QUESTION reprend  la requête émise.\
+(2) La section ANSWER donne la réponse à la requête.\
+(3) La section AUTHORITY donne les serveurs de noms ayant autorité sur la zone.\
+(4) La section ADDITIONAL donne les adresses IP des serveurs de noms autoritaires.\
 (5) La section Query time donne le temps de réponse de la requête. Cette valeur indique donc si la réponse est en cache ou pas.
 
 Pour filtrer les résultats, on peut préciser, dans la requête, les différents types de RR :
@@ -102,8 +105,8 @@ dig www.reseaucerta.org NS
 dig www.reseaucerta.org A
 dig www.reseaucerta.org MX
 dig -x 192.168.1.124
+...
 ``` 
-Etc.
 
 L'option _+trace_ de la commande _dig_ permet de faire la recherche en parcourant l'arborescence depuis la racine jusqu'à la réponse.
 
@@ -162,7 +165,8 @@ Si l'on trouve, après status, le mot clé _SERVFAIL_, il n'y a pas de réponse 
 Vous devez configurer le client DNS d'un poste n'appartenant pas à votre réseau sur votre serveur DNS qui n'accepte pas la récursivité externe.
 
 Une même requête doit être :
-	* refusée si demande récursive à partir d'un poste n'appartenant pas au réseau.
+
+* refusée si demande récursive à partir d'un poste n'appartenant pas au réseau.
 
 ```bash
 dig www.domaine-grp1.com
@@ -182,7 +186,7 @@ dig www.domaine-grp1.com
 ;; MSG SIZE  rcvd: 32
 ```
 
-	* acceptée si provenant du réseau interne.
+* acceptée si provenant du réseau interne.
 
 ```bash
 dig www.domaine-grp1.com
